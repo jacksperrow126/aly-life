@@ -24,3 +24,45 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "app/core/scss/variable";
+
+@font-face {
+    font-family: dancing;
+    src: url(assets/fonts/DancingScript-Medium.ttf) format("opentype");
+}
+
+@font-face {
+    font-family: baloo;
+    src: url(assets/fonts/Baloo2-Medium.ttf) format("opentype");
+}
+
+@font-face {
+    font-family: ibm;
+    src: url(assets/fonts/IBMPlexSerif-Regular.ttf) format("opentype");
+}
+
+@font-face {
+    font-family: lobster;
+    src: url(assets/fonts/Lobster-Regular.ttf) format("opentype");
+}
+
+@font-face {
+    font-family: noticia;
+    src: url(assets/fonts/NoticiaText-Regular.ttf) format("opentype");
+}
+
+@font-face {
+    font-family: patrick;
+    src: url(assets/fonts/PatrickHand-Regular.ttf) format("opentype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "noticia";
+    color: $font-color;
+}
