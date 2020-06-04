@@ -35,6 +35,9 @@
               },
               {
                 "input": "src/global.scss"
+              },
+              {
+                "input": "node_modules/magic.css/dist/magic.css"
               }
             ],
             "scripts": []

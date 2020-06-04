@@ -1,15 +1,17 @@
-@import "../../../core/scss/variable";
-$h1-size: 30px;
+@import '../../../core/shared/scss/shared';
+
+$h1-size: 35px;
 $user-color: #fe4545;
 $avatar-size: 50vw;
 
-.container {
+.home-container {
   background: $background-color;
   height: 100vh;
   width: 100vw;
   overflow: scroll;
   padding: 5px 15px;
 
+  // Menu btn
   .menu-btn-container {
     position: relative;
     width: 35px;
@@ -22,6 +24,7 @@ $avatar-size: 50vw;
     }
   }
 
+  // Greeting
   .greeting {
     .greeting-text {
       margin-top: 20px;
@@ -41,7 +44,7 @@ $avatar-size: 50vw;
       position: relative;
       padding-top: 100px;
       margin-top: 20px;
-
+      transition: all 1s;
       .greeting-card__avatar {
         border-radius: 50%;
         width: $avatar-size;
@@ -63,11 +66,12 @@ $avatar-size: 50vw;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        box-shadow: $box-shadow;
 
         .greeting-card__quote {
           position: absolute;
-          bottom: 15px;
-          padding: 5px;
+          bottom: 20px;
+          padding: 12px;
           word-wrap: break-word;
           font-weight: 600;
           font-family: dancing;
@@ -80,13 +84,37 @@ $avatar-size: 50vw;
           .author {
             font-size: 20px;
             color: #e83d3d;
+            position: absolute;
+            right: 18px;
+            
           }
         }
       }
     }
   }
+
+  // Note
+  .note-container{
+    margin-top: $part-margin;
+    aly-note-overview{
+      margin-bottom: 10px;
+    }
+  }
 }
 
-.container::-webkit-scrollbar {
+.home-container::-webkit-scrollbar {
   display: none;
 }
+
+// Common class
+  .press{
+    animation: press 1s ease-out;
+  }
+  .heading{
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+
+  
+
+
