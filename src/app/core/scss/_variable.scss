@@ -1,5 +1,11 @@
 $background-color: rgb(247, 239, 239);
 $font-color: #707070;
 $border-radius: 35px;
-$box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+$box-shadow: 15px 15px 27px #e1e1e3,
+-15px -15px 27px #ffffff;
 $part-margin: 40px;
+$card-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+0 2px 2px rgba(0, 0, 0, 0.1),
+0 4px 4px rgba(0, 0, 0, 0.1),
+0 8px 8px rgba(0, 0, 0, 0.1),
+0 16px 16px rgba(0, 0, 0, 0.1);

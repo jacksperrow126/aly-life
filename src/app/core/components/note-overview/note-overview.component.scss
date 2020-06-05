@@ -1,4 +1,4 @@
-@import '../../../core/shared/scss/shared';
+@import "../../../core/shared/scss/shared";
 
 $bp-md: 300px;
 
@@ -10,7 +10,7 @@ $bp-md: 300px;
   padding: 1rem;
   width: 100%;
   height: 250px;
-  background-image: url(assets/img/memory-img1.jfif);
+  background-image: url(assets/img/memory-img4.jfif);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -18,13 +18,11 @@ $bp-md: 300px;
   text-align: center;
   color: whitesmoke;
   background-color: whitesmoke;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
-    0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
-    0 16px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: $card-box-shadow;
   margin: 18px 0;
-  
+
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -37,7 +35,7 @@ $bp-md: 300px;
   }
 
   &:after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 0;
@@ -141,6 +139,7 @@ $bp-md: 300px;
   &:before {
     transform: translateY(-4%);
   }
+
   &:after {
     transform: translateY(-50%);
   }
