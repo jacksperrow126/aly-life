@@ -4,12 +4,7 @@ $h1-size: 35px;
 $user-color: #fe4545;
 $avatar-size: 50vw;
 
-.home-container {
-  background: $background-color;
-  height: 100vh;
-  width: 100vw;
-  overflow: scroll;
-  padding: 5px 15px;
+
 
   // Menu btn
   .menu-btn-container {
@@ -100,21 +95,14 @@ $avatar-size: 50vw;
       margin-bottom: 10px;
     }
   }
-}
 
-.home-container::-webkit-scrollbar {
-  display: none;
-}
+
 
 // Common class
   .press{
     animation: press 1s ease-out;
   }
-  .heading{
-    margin-bottom: 20px;
-    font-size: 30px;
-  }
-
+ 
   
 
 

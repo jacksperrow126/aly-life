@@ -1,24 +1,18 @@
-<div class="card">
-  <div class="img-avatar">
-
-  </div>
-  <div class="card-text">
-    <div class="portada">
-
+<div class="note-preview-container">
+  <div class="note-preview" *ngFor="let a of arr">
+    <div class="text">
+      <p>So we will wreack-it like Male</p>
     </div>
-    <div class="title-total">
-      <div class="title">Ant Collector</div>
-      <h2>Morgan Sweeney</h2>
-
-      <div class="desc">Morgan has collected ants since they were six years old and now has many dozen ants but none in
-        their pants.</div>
-      <div class="actions">
-        <button class="aly-btn">More</button>
-      </div>
+    <div class="img">
+      <img src="https://getsocial.nz/wp-content/uploads/2014/12/Evolution_by_will_yen-500x500.png" alt="">
     </div>
-
+    <div class="author">
+      <img class="avatar"
+        src="https://lh3.googleusercontent.com/proxy/bdMkLLTPHDUWRVTOLiW9YrCdbJ4_nCouxhVeJ4GxhY3ot0iH1J43EjbfLL8-TNyTn9JV44ZtO5YVVgi442wedqViEeN9zTHvOyL4wO_vRZlrST6VjZpc"
+        alt="">
+      <span>An ‧ 20/5</span>
+     </div>
+    <div class="function"> <img (click)="remark()" [src]="isRemarkable?'assets/icon/star.svg':'assets/icon/unstar.svg'">
+    </div>
   </div>
-
-
-
 </div>

@@ -1,18 +1,21 @@
-<div class="home-container">
+<div class="container">
   <!-- Menu button -->
   <div class="menu-btn-container" routerLink="/menu">
     <img src="assets/img/menu-btn.png" class="menu-btn">
   </div>
 
   <!-- Greeting -->
+
+  <!-- Greeting text -->
   <div class="greeting">
     <div class="greeting-text">
       <h1 class="greeting-text__h1">Good Morning</h1>
       <h1 class="greeting-text__user">Annt</h1>
     </div>
 
+    <!-- Greeting card -->
     <div class="greeting-card" #card (click)="pressAnimation(card)">
-      <div class="greeting-card__avatar"> <img src="assets/img/demo-avatar.jpg" alt=""></div>
+      <div class="greeting-card__avatar"><img src="assets/img/demo-avatar.jpg"></div>
       <div class="greeting-card__background">
         <div class="greeting-card__quote">
           <p class="quote">{{quote.quote}}</p>
@@ -20,11 +23,12 @@
         </div>
       </div>
     </div>
-
+   
     <!-- Note -->
     <div class="note-container">
       <h1 class="heading">Note</h1>
       <aly-note-overview></aly-note-overview>
+      <h3 class="subheading">Latest Notes</h3>
       <aly-note-preview></aly-note-preview>
 
     </div>

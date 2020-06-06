@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'aly-note-overview',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteOverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
 
+  test(){
+    console.log('test');
+    this.router.navigateByUrl('/note')
+  }
 }

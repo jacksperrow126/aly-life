@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotePreviewComponent implements OnInit {
 
+  isRemarkable = false;
+  arr = new Array(5)
   constructor() { }
 
   ngOnInit() {}
 
+  remark(){
+    this.isRemarkable = !this.isRemarkable
+  }
 }

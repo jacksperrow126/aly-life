@@ -24,7 +24,7 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-@import "app/core/scss/variable";
+@import "app/core/shared/scss/shared";
 
 @font-face {
     font-family: dancing;
@@ -66,4 +66,17 @@ body {
     font-family: "noticia";
     color: $font-color;
     font-size: 18px;
+    .container {
+  background: $background-color;
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+  padding: 5px 15px;
+ 
+
+}
+  
+.container::-webkit-scrollbar {
+  display: none;
+}
 }
