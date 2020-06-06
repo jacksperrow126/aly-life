@@ -1,3 +1,4 @@
+@import './variable';
 .aly-btn{
 display: inline-block;
 text-align: center;
@@ -11,7 +12,14 @@ outline: none;
     margin-bottom: 20px;
     font-size: 30px;
   }
+
   .sub-heading{
     margin-bottom: 15px;
     font-size: 20px;
+  }
+
+  .aly-card{
+    border-radius: $border-radius;
+    box-shadow: $card-box-shadow;
+    padding: 10px;
   }

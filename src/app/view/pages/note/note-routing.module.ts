@@ -1,3 +1,4 @@
+import { AddNoteComponent } from './add-note/add-note.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,6 +8,10 @@ const routes: Routes = [
   {
     path: '',
     component: NotePage
+  },
+  {
+    path: 'add',
+    component: AddNoteComponent
   }
 ];
 
