@@ -1,3 +1,22 @@
-<p>
-  add-note works!
-</p>
+<div class="container">
+  <p class="heading">Thêm ghi chú</p>
+  <div class="add-note-container">
+    <form #note="ngForm" (submit)="addNote(note)">
+      <div class="note-title">
+        <span>Tiêu đề</span>
+        <input type="text" name="title" class="note note-input" ngModel>
+      </div>
+      <div class="note-content">
+        <span>Nội dung</span>
+        <textarea name="content" class="note note-area" id="" rows="10" ngModel></textarea>
+      </div>
+      <div class="note-tag">
+        <span>Nhóm</span>
+
+      </div>
+      <div class="btn-container">
+        <button class="aly-btn">Thêm ghi chú</button>
+      </div>
+    </form>
+  </div>
+</div>

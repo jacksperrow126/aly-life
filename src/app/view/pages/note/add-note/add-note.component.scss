@@ -1,0 +1,44 @@
+@import "../../../../core/shared/scss/shared";
+$background-color: rgba(251, 255, 0, 0.938);
+
+.note {
+  padding: 5px;
+  width: 100%;
+  background-color: $background-color;
+  color: black;
+  outline: none;
+  border: none;
+}
+
+.add-note-container {
+  padding: 5px;
+  background-color: $background-color;
+  box-shadow: $card-box-shadow;
+  border-radius: 5px;
+
+  span {
+    font-weight: bold;
+  }
+
+  .note-title {
+    border-bottom: 1px solid;
+  }
+
+  .note-content {
+    margin-top: 5px;
+    border-bottom: 1px solid;
+  }
+
+  select {
+    option {
+      outline: none;
+      border-radius: 5px;
+    }
+  }
+
+  .btn-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+}

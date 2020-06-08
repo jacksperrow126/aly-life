@@ -1,9 +1,15 @@
 .note-container {
-    .add-note{
-            background: linear-gradient(56deg, rgba(251,229,81,1) 0%, rgba(246,255,154,1) 46%, rgba(209,217,31,1) 100%);
+    .add-note {
+        background: linear-gradient(56deg, rgba(251, 229, 81, 1) 0%, rgba(246, 255, 154, 1) 46%, rgba(209, 217, 31, 1) 100%);
+        padding: 5px;
+        margin-bottom: 10px;
 
-        .add-note__title{
+        .add-note__title {
+            margin: 0;
             text-align: center;
+            outline: none;
+
         }
+
     }
 }

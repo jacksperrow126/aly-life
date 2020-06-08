@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { NoteService } from '@core/services/note.service';
+import { Note } from '@core/models/note.model';
 
 @Component({
   selector: 'aly-add-note',
@@ -7,8 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNoteComponent implements OnInit {
 
-  constructor() { }
+  allNot: Note[] = [];
+  tags: string[];
+  constructor(private noteService: NoteService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
+
+  addNote(formNote: FormControl) {
+    if (formNote.value.content === '' || undefined) return;
+    if (formNote.value.title === '' || undefined) formNote.value.title = 'Không Đề';
+    var ID = function () {
+      return '_' + Math.random().toString(36).substr(2, 9);
+    };
+    formNote.value.id = ID();
+    console.log(formNote.value);
+
+  }
 
 }
