@@ -1,25 +1,56 @@
 @import './variable';
-.aly-btn{
-display: inline-block;
-text-align: center;
-padding: 10px;
-border-radius: 30px;
-background: linear-gradient(90deg, rgba(170,244,240,1) 0%, rgba(100,236,255,1) 46%, rgba(0,202,255,1) 100%);    
-outline: none;
+.aly-btn {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  border-radius: 30px;
+  background: linear-gradient(
+    90deg,
+    rgba(170, 244, 240, 1) 0%,
+    rgba(100, 236, 255, 1) 46%,
+    rgba(0, 202, 255, 1) 100%
+  );
+  outline: none;
 }
 
-  .heading{
-    margin-bottom: 20px;
-    font-size: 30px;
-  }
+.btn-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
 
-  .sub-heading{
-    margin-bottom: 15px;
-    font-size: 20px;
-  }
+.heading {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
 
-  .aly-card{
-    border-radius: $border-radius;
-    box-shadow: $card-box-shadow;
-    padding: 10px;
-  }
+.sub-heading {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.aly-card {
+  border-radius: $border-radius;
+  box-shadow: $card-box-shadow;
+  padding: 10px;
+}
+
+.aly-tag {
+  min-width: 80px;
+  border-radius: 30px;
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 135, 122, 1) 4%,
+    rgba(255, 208, 154, 1) 46%,
+    rgba(255, 174, 60, 1) 100%
+  );
+}
+
+.blank-tag {
+  background: white;
+  border: 1px solid;
+  margin: 5px;
+}

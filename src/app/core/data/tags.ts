@@ -1,0 +1,1 @@
+export const tags = ['Chung', 'Bạn bè', 'Học tập', 'Công việc', 'Cuộc sống', 'Giải trí', 'Gia đình'];

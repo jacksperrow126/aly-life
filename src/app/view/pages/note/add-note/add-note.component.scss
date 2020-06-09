@@ -15,7 +15,7 @@ $background-color: rgba(251, 255, 0, 0.938);
   background-color: $background-color;
   box-shadow: $card-box-shadow;
   border-radius: 5px;
-
+  transition: all 0.3s;
   span {
     font-weight: bold;
   }
@@ -27,6 +27,11 @@ $background-color: rgba(251, 255, 0, 0.938);
   .note-content {
     margin-top: 5px;
     border-bottom: 1px solid;
+    .tag{
+      margin: 10px;
+      min-height:42px ;
+      transition: all 0.3s;
+    }
   }
 
   select {
@@ -36,9 +41,9 @@ $background-color: rgba(251, 255, 0, 0.938);
     }
   }
 
-  .btn-container {
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
+  .submenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 }

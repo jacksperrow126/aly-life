@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Note } from '@core/models/note.model';
+import { Subject } from 'rxjs';
+import { tags } from '@core/data/tags';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoteService {
-
-  allNote: Note[] = [];
-  tag = ['Chung', 'Công việc', 'Cuộc sống', 'Học tập', 'Giải trí', 'Gia đình', 'Bạn bè'];
+  public allNote: Note[] = [];
+  public tag = tags;
+  public tagOnSelect = new Subject();
+  public ImgOnSelect = new Subject();
   constructor(private storage: Storage) {
     this.getAllNote();
   }
@@ -36,7 +39,9 @@ export class NoteService {
     console.log(target);
   }
 
-  removeAllNote() {
+  removeAllNote(): void {
     this.storage.set('note', []);
   }
+
+  
 }

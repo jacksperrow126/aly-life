@@ -9,10 +9,13 @@
       <div class="note-content">
         <span>Nội dung</span>
         <textarea name="content" class="note note-area" id="" rows="10" ngModel></textarea>
+        <div class="tag">
+          <ng-template *ngIf="selectedTag then tag"></ng-template>
+        </div>
       </div>
-      <div class="note-tag">
-        <span>Nhóm</span>
-
+      <div class="submenu">
+      <div class="tags" alyDialog [data]="tags"><img src="assets/icon/tag.svg"></div>
+      <div class="mark" (click)="mark()"><img [src]="remarkable?'assets/icon/star.svg':'assets/icon/unstar.svg'"></div>
       </div>
       <div class="btn-container">
         <button class="aly-btn">Thêm ghi chú</button>
@@ -20,3 +23,9 @@
     </form>
   </div>
 </div>
+
+<ng-template #tag>
+  <div class="selected-tag aly-tag magictime boingInUp">
+  {{selectedTag}}
+  </div>
+</ng-template>

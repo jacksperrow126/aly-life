@@ -13,7 +13,6 @@ export class NoteOverviewComponent implements OnInit {
   ngOnInit() {}
 
   test(){
-    console.log('test');
     this.router.navigateByUrl('/note')
   }
 }
