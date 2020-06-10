@@ -4,20 +4,24 @@ import { NoteOverviewComponent } from '@core/components/note-overview/note-overv
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotePreviewComponent } from '@core/components/note-preview/note-preview.component';
+import { NoteBackgroundDirective } from '@core/directives/note-background.directive';
+import { MaterialModule } from '@core/modules/material/material.module';
 
 const component = [
   NoteOverviewComponent,
   NotePreviewComponent,
   DialogComponent,
-  DialogDirective
+  DialogDirective,
+  NoteBackgroundDirective
 ]
 
 @NgModule({
   declarations: [component],
   imports: [
     CommonModule,
+    MaterialModule
   ],
-  exports: [component],
+  exports: [component, MaterialModule],
   entryComponents: [DialogComponent]
 })
 export class SharedModule { }

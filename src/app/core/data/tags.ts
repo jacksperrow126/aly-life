@@ -1,1 +1,11 @@
-export const tags = ['Chung', 'Bạn bè', 'Học tập', 'Công việc', 'Cuộc sống', 'Giải trí', 'Gia đình'];
+import { Tag } from '@core/models/tag.model';
+
+export const tags: Tag[] = [
+    { type: 'common', text: 'Chung' },
+    { type: 'friend', text: 'Bạn bè' },
+    { type: 'study', text: 'Học tập' },
+    { type: 'work', text: 'Công việc' },
+    { type: 'life', text: 'Cuộc sống' },
+    { type: 'entertain', text: 'Giải trí' },
+    { type: 'family', text: 'Gia đình' },
+    { type: 'heath', text: 'Sức khỏe' }];

@@ -10,7 +10,7 @@
 <ng-template #tags>
   <div class="tags-container">
     <div class="tag aly-tag blank-tag" *ngFor="let tag of data.data" (click)="select(tag)">
-      {{tag}}
+      {{tag.text}}
     </div>
   </div>
 </ng-template>

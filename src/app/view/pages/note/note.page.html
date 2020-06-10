@@ -1,9 +1,34 @@
 <div class="container">
-  <h1 class="heading">Note</h1>
-  <div class="note-container">
-    <div class="aly-card add-note">
-      <h4 class="add-note__title" routerLink="add">Add New Note</h4>
+  <div class="header">
+    <h1 class="heading">Note</h1>
+    <div class="function-btn">
+      <div class="create-note">
+        <div routerLink="/note/add">
+          <p>Tạo mới</p>
+        </div>
+      </div>
+      <div class="pick-date">
+        <div (click)="picker.open()">
+          <p>Ngày</p>
+          <input [matDatepicker]="picker" (dateInput)="pickDate($event)">
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
+      </div>
+      <div class="total">
+        <div (click)="showAll()">
+          <p>Tất cả</p>
+        </div>
+      </div>
     </div>
   </div>
-  <button class="aly-btn" routerLink="/home">Back To Home</button>
+  <div class="all-note" *ngIf="notes?.length>0 else noInfo">
+    <div class="note" *ngFor="let note of notes">
+      <aly-note-detail [note]="note"></aly-note-detail>
+    </div>
+  </div>
+  <button class="aly-btn" routerLink="/home">Về trang chủ</button>
 </div>
+
+<ng-template #noInfo>
+  <p class="no-info">Không có ghi chú nào</p>
+</ng-template>

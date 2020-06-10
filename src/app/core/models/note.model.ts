@@ -1,9 +1,11 @@
+import { Tag } from './tag.model';
+
 export interface Note {
     id: number;
     title: string;
     content: string;
-    createDate: string;
-    tags?: string;
+    date: string;
+    tag?: Tag;
     remark: boolean;
     img: string;
 }

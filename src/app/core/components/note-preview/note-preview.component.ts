@@ -11,9 +11,7 @@ export class NotePreviewComponent implements OnInit {
   arr = new Array(5)
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  remark(){
-    this.isRemarkable = !this.isRemarkable
-  }
+
 }

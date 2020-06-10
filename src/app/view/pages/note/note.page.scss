@@ -1,15 +1,52 @@
-.note-container {
-    .add-note {
-        background: linear-gradient(56deg, rgba(251, 229, 81, 1) 0%, rgba(246, 255, 154, 1) 46%, rgba(209, 217, 31, 1) 100%);
-        padding: 5px;
-        margin-bottom: 10px;
+@import '../../../core/shared/scss/shared';
+$bg-container: #F3F5FA;
+$bg-btn: rgba(53, 127, 238, 0.192);
 
-        .add-note__title {
-            margin: 0;
-            text-align: center;
-            outline: none;
+input {
+    width: 1px;
+    position: relative;
+    top: 30px;
+    right: 20px;
+    visibility: hidden;
+}
 
+.header {
+    border-radius: $border-radius;
+    background: $bg-container;
+    padding: 10px;
+    margin-bottom: 15px;
+
+    h1 {
+        margin-top: 2px;
+    }
+
+    .function-btn {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+
+        div {
+            display: flex;
+            justify-content: center;
+
+            div {
+                color: rgb(22, 20, 20);
+                border-radius: 20px;
+                padding: 10px;
+                background: $bg-btn;
+                min-height: 80px;
+                width: 90px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+            }
         }
 
     }
+}
+
+.no-info {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
 }

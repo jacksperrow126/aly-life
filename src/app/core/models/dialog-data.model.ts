@@ -1,4 +1,4 @@
 export class DialogData {
     type: string;
-    data: string[]
+    data: any[]
 }

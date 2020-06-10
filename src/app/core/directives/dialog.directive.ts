@@ -5,10 +5,10 @@ import { Directive, Input, ElementRef, HostListener } from '@angular/core';
   selector: '[alyDialog]'
 })
 export class DialogDirective {
-  @Input() data: string;
-  constructor(private el: ElementRef, private dialogService: DialogService) {}
-  
-  @HostListener('click') log() {
+  @Input() data: any;
+  constructor(private el: ElementRef, private dialogService: DialogService) { }
+
+  @HostListener('click') show() {
     this.dialogService.showDialog(this.data);
   }
 

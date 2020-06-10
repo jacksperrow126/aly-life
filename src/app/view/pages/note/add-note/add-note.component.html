@@ -14,8 +14,9 @@
         </div>
       </div>
       <div class="submenu">
-      <div class="tags" alyDialog [data]="tags"><img src="assets/icon/tag.svg"></div>
-      <div class="mark" (click)="mark()"><img [src]="remarkable?'assets/icon/star.svg':'assets/icon/unstar.svg'"></div>
+        <div class="tags" alyDialog [data]="tags"><img src="assets/icon/tag.svg"></div>
+        <div class="mark" (click)="mark()"><img [src]="remarkable?'assets/icon/star.svg':'assets/icon/unstar.svg'">
+        </div>
       </div>
       <div class="btn-container">
         <button class="aly-btn">Thêm ghi chú</button>
@@ -26,6 +27,6 @@
 
 <ng-template #tag>
   <div class="selected-tag aly-tag magictime boingInUp">
-  {{selectedTag}}
+    {{selectedTag.text}}
   </div>
 </ng-template>

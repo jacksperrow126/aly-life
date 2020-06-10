@@ -6,101 +6,99 @@ $avatar-size: 50vw;
 
 
 
-  // Menu btn
-  .menu-btn-container {
-    position: relative;
-    width: 35px;
-    outline: none;
-    left: -2px;
-    top: 5px;
+// Menu btn
+.menu-btn-container {
+  position: relative;
+  width: 35px;
+  outline: none;
+  left: -2px;
+  top: 5px;
 
-    .menu-btn {
-      width: 35px;
+  .menu-btn {
+    width: 35px;
+  }
+}
+
+// Greeting
+.greeting {
+  .greeting-text {
+    margin-top: 20px;
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: $h1-size;
+    }
+
+    .greeting-text__user {
+      color: $user-color;
     }
   }
 
-  // Greeting
-  .greeting {
-    .greeting-text {
-      margin-top: 20px;
+  .greeting-card {
+    position: relative;
+    padding-top: 100px;
+    margin-top: 20px;
+    transition: all 1s;
 
-      h1 {
-        margin: 0;
-        padding: 0;
-        font-size: $h1-size;
-      }
+    .greeting-card__avatar {
+      border-radius: 50%;
+      width: $avatar-size;
+      position: absolute;
+      top: 0px;
+      right: 20px;
 
-      .greeting-text__user {
-        color: $user-color;
-      }
-    }
-
-    .greeting-card {
-      position: relative;
-      padding-top: 100px;
-      margin-top: 20px;
-      transition: all 1s;
-      .greeting-card__avatar {
+      img {
         border-radius: 50%;
         width: $avatar-size;
+      }
+    }
+
+    .greeting-card__background {
+      width: 100%;
+      height: 250px;
+      border-radius: $border-radius;
+      background-image: url(assets/img/demo-background.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      box-shadow: $box-shadow;
+
+      .greeting-card__quote {
         position: absolute;
-        top: 0px;
-        right: 20px;
+        bottom: 20px;
+        padding: 12px;
+        word-wrap: break-word;
+        font-weight: 600;
+        font-family: dancing;
 
-        img {
-          border-radius: 50%;
-          width: $avatar-size;
+        .quote {
+          color: #615252;
+          font-size: 18px;
         }
-      }
 
-      .greeting-card__background {
-        width: 100%;
-        height: 250px;
-        border-radius: $border-radius;
-        background-image: url(assets/img/demo-background.jpg);
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        box-shadow: $box-shadow;
-
-        .greeting-card__quote {
+        .author {
+          font-size: 20px;
+          color: #e83d3d;
           position: absolute;
-          bottom: 20px;
-          padding: 12px;
-          word-wrap: break-word;
-          font-weight: 600;
-          font-family: dancing;
+          right: 18px;
 
-          .quote {
-            color: #615252;
-            font-size: 18px;
-          }
-
-          .author {
-            font-size: 20px;
-            color: #e83d3d;
-            position: absolute;
-            right: 18px;
-            
-          }
         }
       }
     }
   }
+}
 
-  // Note
-  .note-container{
-    margin-top: $part-margin;
-    aly-note-overview{
-      margin-bottom: 10px;
-    }
+// Note
+.note-container {
+  margin-top: $part-margin;
+
+  aly-note-overview {
+    margin-bottom: 10px;
   }
+}
 
 // Common class
-  .press{
-    animation: press 1s ease-out;
-  }
- 
-  
-
-
+.press {
+  animation: press 1s ease-out;
+}

@@ -1,0 +1,11 @@
+<div class="note-detail-container magictime boingInUp" alyNoteBackground [tag]="note.tag.type">
+  <div class="date">
+    <h2 class="day">{{day}}</h2>
+    <p class="month">{{'Tháng '+month}}</p>
+  </div>
+  <div class="note-content">
+    <h3>{{note.title}}</h3>
+    <p>{{note.content}}</p>
+    <img [src]="note.remark?'assets/icon/star.svg':'assets/icon/star.svg'">
+  </div>
+</div>
