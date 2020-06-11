@@ -26,7 +26,6 @@ export class AddNoteComponent implements OnInit, OnDestroy {
       this.selectedTag = data;
     });
     this.getTags();
-
   }
 
   getTags(): void {

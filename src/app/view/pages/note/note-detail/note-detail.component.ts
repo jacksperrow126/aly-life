@@ -24,7 +24,6 @@ export class NoteDetailComponent implements OnInit {
 
   letTest(e){
     console.log(e);
-    
   }
 
 }
