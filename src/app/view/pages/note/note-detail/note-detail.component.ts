@@ -22,5 +22,9 @@ export class NoteDetailComponent implements OnInit {
     this.month = this.date.getMonth();
   }
 
+  letTest(e){
+    console.log(e);
+    
+  }
 
 }

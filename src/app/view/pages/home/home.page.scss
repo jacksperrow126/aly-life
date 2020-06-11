@@ -1,6 +1,6 @@
 @import '../../../core/shared/scss/shared';
 
-$h1-size: 35px;
+$h1-size: 30px;
 $user-color: #fe4545;
 $avatar-size: 50vw;
 
@@ -28,6 +28,7 @@ $avatar-size: 50vw;
       margin: 0;
       padding: 0;
       font-size: $h1-size;
+      font-weight: $header-weight;
     }
 
     .greeting-text__user {

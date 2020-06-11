@@ -11,10 +11,12 @@ export class HomePage implements OnInit {
 
   public quote: Quote;
   private inAnimation = false;
+  public greeting: string;
   constructor(private homeService: HomeService) { }
 
   ngOnInit() {
     this.quote = this.homeService.getRandomQuote();
+    this.getGreeting()
   }
 
   pressAnimation(card: HTMLElement){
@@ -25,5 +27,10 @@ export class HomePage implements OnInit {
       this.inAnimation = false;
       card.classList.remove('press')
     },1000)
+  }
+
+  getGreeting(){
+    let date = new Date();
+    this.greeting = this.homeService.getGreeting(date.getHours());
   }
 }

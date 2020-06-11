@@ -31,6 +31,7 @@ export class DialogComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (this.selectItem == undefined) return;
     this.noteService.tagOnSelect.next(this.selectItem);
   }
 

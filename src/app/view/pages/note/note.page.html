@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="header">
-    <h1 class="heading">Note</h1>
+  <div class="header" >
+    <h1 class="heading">Ghi chú</h1>
     <div class="function-btn">
       <div class="create-note">
-        <div routerLink="/note/add">
-          <p>Tạo mới</p>
+        <div alyDialog [data]="tags">
+          <p>Nhóm</p>
         </div>
       </div>
       <div class="pick-date">
@@ -21,10 +21,14 @@
       </div>
     </div>
   </div>
+  
   <div class="all-note" *ngIf="notes?.length>0 else noInfo">
     <div class="note" *ngFor="let note of notes">
       <aly-note-detail [note]="note"></aly-note-detail>
     </div>
+  </div>
+  <div class="add-note" routerLink="/note/add">
+    <img src="assets/icon/note.svg">
   </div>
   <button class="aly-btn" routerLink="/home">Về trang chủ</button>
 </div>

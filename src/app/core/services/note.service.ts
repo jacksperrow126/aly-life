@@ -23,17 +23,22 @@ export class NoteService {
   }
 
   getAllNote(): void {
-    this.storage.get('note').then(data => {
+    this.storage.ready().then(()=>{
+      this.storage.get('note').then(data => {
       if (data) this.allNote = data;
+    })
     })
   }
 
   saveNote(note: Note): void {
     this.allNote.unshift(note);
-    this.storage.set('note', this.allNote).then(() => {
+    this.storage.ready().then(()=>{
+       this.storage.set('note', this.allNote).then(() => {
       this.newNote.next('new');
       this.router.navigateByUrl('/note')
     });
+    })
+   
   }
 
   removeNote(id: number): void {
