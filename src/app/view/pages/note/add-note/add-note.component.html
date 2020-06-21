@@ -1,5 +1,5 @@
 <div class="container">
-  <p class="heading">Thêm ghi chú</p>
+  <p class="heading"> <i class="icon icon-back" routerLink="/note"></i> Thêm ghi chú</p>
   <div class="add-note-container">
     <form #note="ngForm" (submit)="addNote(note)">
       <div class="note-title">
@@ -14,15 +14,15 @@
         </div>
       </div>
       <div class="submenu">
-        <div class="tags" alyDialog [data]="tags"><img src="assets/icon/tag.svg"></div>
-        <div class="mark" (click)="mark()"><img [src]="remarkable?'assets/icon/star.svg':'assets/icon/unstar.svg'">
+        <div class="tags" alyTouchReact alyDialog [data]="tags"><img src="assets/icon/tag.svg"></div>
+        <div class="mark" alyTouchReact (click)="mark()"><img
+            [src]="remarkable?'assets/icon/star.svg':'assets/icon/unstar.svg'">
         </div>
       </div>
       <div class="btn-container">
-        <button class="aly-btn">Thêm ghi chú</button>
+        <button class="aly-btn" alyTouchReact>Thêm ghi chú</button>
       </div>
     </form>
-    <button class="aly-btn" routerLink="/note">Note</button>
   </div>
 </div>
 

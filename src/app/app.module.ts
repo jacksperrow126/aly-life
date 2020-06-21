@@ -1,6 +1,5 @@
-import { HammerGestureConfig } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -19,9 +18,9 @@ import { IonicGestureConfig } from '@core/config/hammerjs.config';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot({
     name: '__mydb',
-    driverOrder: ['indexeddb', 'sqlite', 'websql']
+    driverOrder: ['sqlite', 'websql']
   }),
-    AppRoutingModule, FormsModule, BrowserAnimationsModule],
+    AppRoutingModule, FormsModule, BrowserAnimationsModule, HammerModule],
   providers: [
     StatusBar,
     SplashScreen,

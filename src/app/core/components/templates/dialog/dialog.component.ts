@@ -35,7 +35,16 @@ export class DialogComponent implements OnInit, OnDestroy {
     this.noteService.tagOnSelect.next(this.selectItem);
   }
 
-  select(data: string) {
+  select(data: string): void {
     this.selectItem = data
+  }
+
+  confirmYes() {
+    this.noteService.deleteNote(this.data.data);
+    this.hideDialog();
+  }
+
+  confirmNo() {
+    this.hideDialog();
   }
 }

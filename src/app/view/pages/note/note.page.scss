@@ -42,18 +42,27 @@ input {
             }
         }
     }
+
 }
 
-.add-note{
+.cancel {
+    position: fixed;
+    bottom: 10px;
+    opacity: 0.9;
+    animation: smoothShow 0.5s;
+}
+
+.add-note {
     position: absolute;
     bottom: 20px;
     right: 15px;
     border-radius: 50%;
     padding: 5px;
-    background:  rgba(187, 189, 194, 0.685);
+    background: rgba(187, 189, 194, 0.685);
     width: 58px;
     height: 58px;
 }
+
 .no-info {
     width: 100%;
     text-align: center;

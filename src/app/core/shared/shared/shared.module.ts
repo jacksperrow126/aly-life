@@ -6,13 +6,15 @@ import { CommonModule } from '@angular/common';
 import { NotePreviewComponent } from '@core/components/note-preview/note-preview.component';
 import { NoteBackgroundDirective } from '@core/directives/note-background.directive';
 import { MaterialModule } from '@core/modules/material/material.module';
+import { TouchReactDirective } from '@core/directives/touch-react.directive';
 
 const component = [
   NoteOverviewComponent,
   NotePreviewComponent,
   DialogComponent,
   DialogDirective,
-  NoteBackgroundDirective
+  NoteBackgroundDirective,
+  TouchReactDirective
 ]
 
 @NgModule({

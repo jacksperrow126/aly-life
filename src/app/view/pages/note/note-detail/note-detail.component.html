@@ -1,4 +1,5 @@
-<div class="note-detail-container magictime boingInUp" alyNoteBackground [tag]="note.tag.type">
+<div class="note-detail-container magictime boingInUp" #ele (press)="letTest($event,ele)" alyNoteBackground
+  [tag]="note.tag.type">
   <div class="date">
     <h2 class="day">{{day}}</h2>
     <p class="month">{{'Tháng '+month}}</p>
@@ -6,6 +7,13 @@
   <div class="note-content">
     <h3>{{note.title}}</h3>
     <p>{{note.content}}</p>
-    <img [src]="note.remark?'assets/icon/star.svg':'assets/icon/unstar.svg'">
+    <img alyTouchReact (click)="note.remark=!note.remark" class="star"
+      [src]="note.remark?'assets/icon/star.svg':'assets/icon/unstar.svg'">
+  </div>
+  <div class="edit hide">
+    <img alyTouchReact src="assets/icon/edit.svg" class="edit-icon">
+  </div>
+  <div class="delete hide">
+    <img alyTouchReact alyDialog [data]="dataDelete" src="assets/icon/delete.svg" class="delete-icon">
   </div>
 </div>

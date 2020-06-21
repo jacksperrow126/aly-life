@@ -1,65 +1,103 @@
 @import '../../../../core/shared/scss/shared';
 
 $note-content-color: #171616;
-$note-bg:rgba(227, 232, 239, 0.82);
+$note-bg: rgba(227, 232, 239, 0.82);
 
 .note-detail-container {
+  width: 100%;
+  min-height: 250px;
+  border-radius: $border-radius;
+  background: url(assets/img/common.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 12px;
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+
+  .date {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 70px;
+    height: 75px;
+    border-radius: 10px;
+    background: $note-bg;
+    color: $note-content-color;
+
+    .day {
+      font-weight: bold;
+      width: 100%;
+      text-align: center;
+      margin: 5px 0;
+      font-size: 30px;
+    }
+
+    .month {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .note-content {
+    padding: 10px;
     width: 100%;
-    min-height: 250px;
+    min-height: 150px;
+    margin-top: 120px;
     border-radius: $border-radius;
-    background: url(assets/img/common.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding: 12px;
-    display: flex;
+    background: $note-bg;
+    color: $note-content-color;
     position: relative;
-    margin-bottom: 20px;
 
-    .date {
-        position: absolute;
-        top: 10px;
-        right: 12px;
-        width: 70px;
-        height: 75px;
-        border-radius: 10px;
-        background: $note-bg;
-        color: $note-content-color;
-
-        .day {
-            font-weight: bold;
-            width: 100%;
-            text-align: center;
-            margin: 5px 0;
-            font-size: 30px;
-        }
-
-        .month {
-            width: 100%;
-            text-align: center;
-        }
+    h3 {
+      font-weight: bold;
+      margin: 10px 0px;
     }
 
-    .note-content {
-        padding: 10px;
-        width: 100%;
-        min-height: 150px;
-        margin-top: 120px;
-        border-radius: $border-radius;
-        background: $note-bg;
-        color: $note-content-color;
-        position: relative;
-
-        h3 {
-            font-weight: bold;
-            margin: 10px 0px;
-        }
-
-        img {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 30px;
-        }
+    img.star {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
     }
+
+    img.edit {
+      position: absolute;
+      top: 10px;
+      right: 45px;
+      width: 30px;
+    }
+  }
+
+  .edit {
+    position: absolute;
+    top: -10px;
+    left: 35px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: rgba(171, 211, 243, 0.753);
+    padding: 2px;
+    animation: smoothShow 0.5s;
+    .edit-icon {
+      width: 26px;
+    }
+  }
+
+  .delete {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: rgba(171, 211, 243, 0.753);
+    padding: 2px;
+    animation: smoothShow 0.5s;
+
+    .delete-icon {
+      width: 26px;
+    }
+  }
 }

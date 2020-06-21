@@ -1,9 +1,14 @@
 <div class="overlay" (click)="hideDialog()" #overlay>
   <div class="dialog magictime spaceInUp" (click)="onDialogClicked($event)" #dialog>
-    <ng-template *ngIf="data.type === 'tags' then tags"></ng-template>
-    <div class="btn-container">
-      <button class="aly-btn" (click)="hideDialog()">Chọn</button>
-    </div>
+    <ng-container *ngIf="data.type === 'tags'">
+      <ng-template *ngIf="data.type === 'tags' then tags"></ng-template>
+      <div class="btn-container">
+        <button class="aly-btn" (click)="hideDialog()">Chọn</button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="data.type === 'confirm'">
+      <ng-template *ngIf="data.type === 'confirm' then confirm"></ng-template>
+    </ng-container>
   </div>
 </div>
 
@@ -11,6 +16,16 @@
   <div class="tags-container">
     <div class="tag aly-tag blank-tag" *ngFor="let tag of data.data" (click)="select(tag)">
       {{tag.text}}
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #confirm>
+  <div>
+    <h4>Bạn chắc chắn chứ?</h4>
+    <div class="btn-container">
+      <button class="aly-btn" (click)="confirmYes()">Đồng ý</button>
+      <button class="aly-btn" (click)="confirmNo()">Nghĩ lại</button>
     </div>
   </div>
 </ng-template>

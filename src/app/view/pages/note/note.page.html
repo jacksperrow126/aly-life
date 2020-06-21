@@ -1,36 +1,38 @@
 <div class="container">
-  <div class="header" >
-    <h1 class="heading">Ghi chú</h1>
+  <div class="header">
+    <h1 class="heading"><i class="icon icon-back" routerLink="/home"></i> Ghi chú</h1>
     <div class="function-btn">
       <div class="create-note">
-        <div alyDialog [data]="tags">
-          <p>Nhóm</p>
+        <div alyDialog [data]="tags" alyTouchReact>
+          <p>{{tagSelect}}</p>
         </div>
       </div>
       <div class="pick-date">
-        <div (click)="picker.open()">
-          <p>Ngày</p>
+        <div (click)="picker.open()" alyTouchReact>
+          <p>{{dateSelect}}</p>
           <input [matDatepicker]="picker" (dateInput)="pickDate($event)">
           <mat-datepicker #picker></mat-datepicker>
         </div>
       </div>
-      <div class="total">
+      <div class="total" alyTouchReact>
         <div (click)="showAll()">
           <p>Tất cả</p>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class="all-note" *ngIf="notes?.length>0 else noInfo">
     <div class="note" *ngFor="let note of notes">
       <aly-note-detail [note]="note"></aly-note-detail>
     </div>
   </div>
-  <div class="add-note" routerLink="/note/add">
+  <div class="add-note" routerLink="/note/add" alyTouchReact>
     <img src="assets/icon/note.svg">
   </div>
-  <button class="aly-btn" routerLink="/home">Về trang chủ</button>
+  <div class="cancel btn-container">
+    <button class="aly-btn hide" (click)="unpress()" #cancel>Trở lại</button>
+  </div>
 </div>
 
 <ng-template #noInfo>
