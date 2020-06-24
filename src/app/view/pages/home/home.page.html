@@ -1,4 +1,4 @@
-<div class="container" style="animation: smoothShow 1s;">
+<div class="container" style="animation: smoothShow 1s;" #container>
   <!-- Menu button -->
   <div class="menu-btn-container" routerLink="/menu">
     <img src="assets/img/menu-btn.png" class="menu-btn">
@@ -14,7 +14,7 @@
     </div>
 
     <!-- Greeting card -->
-    <div class="greeting-card" #card (click)="pressAnimation(card)">
+    <div class="greeting-card" alyTouchReact>
       <div class="greeting-card__avatar"><img src="assets/img/demo-avatar.jpg"></div>
       <div class="greeting-card__background">
         <div class="greeting-card__quote">
@@ -28,8 +28,26 @@
     <div class="note-container">
       <h1 class="heading">Ghi chú</h1>
       <aly-note-overview></aly-note-overview>
-      <h3 class="subheading">Latest Notes</h3>
-
+      <div class="tags">
+        <div class="main-tag" alyTouchReact (click)="selectTag('family')">
+          <img src="assets/icon/family.svg">
+        </div>
+        <div class="sub-tag1" alyTouchReact (click)="selectTag('health')">
+          <img src="assets/icon/healthy.svg">
+        </div>
+        <div class="sub-tag2" alyTouchReact (click)="selectTag('life')">
+          <img src="assets/icon/life.svg">
+        </div>
+        <div class="sub-tag3" alyTouchReact (click)="selectTag('work')">
+          <img src="assets/icon/work.svg">
+        </div>
+        <div class="sub-tag4" alyTouchReact (click)="selectTag('study')">
+          <img src="assets/icon/study.svg">
+        </div>
+      </div>
     </div>
+    <button (click)="picker()">picker</button>
+    <p>{{url}}</p>
+    <img [src]="url" srcset="" style="width: 200px;">
   </div>
 </div>

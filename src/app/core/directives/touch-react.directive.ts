@@ -8,7 +8,7 @@ export class TouchReactDirective {
   constructor(private el: ElementRef) {
   }
 
-  @HostListener('click') touch() {
+  @HostListener('touchstart') touch() {
     this.el.nativeElement.classList.add('on-press');
     setTimeout(() => {
       this.el.nativeElement.classList.remove('on-press');

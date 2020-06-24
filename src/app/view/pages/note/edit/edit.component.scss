@@ -1,0 +1,50 @@
+@import "../../../../core/shared/scss/shared";
+$background-color: rgba(251, 255, 0, 0.938);
+
+.note {
+    padding: 5px;
+    width: 100%;
+    background-color: $background-color;
+    color: black;
+    outline: none;
+    border: none;
+}
+
+.add-note-container {
+    padding: 10px;
+    background-color: $background-color;
+    border-radius: $border-radius;
+    transition: all 0.3s;
+
+    span {
+        font-weight: bold;
+    }
+
+    .note-title {
+        border-bottom: 1px solid;
+    }
+
+    .note-content {
+        margin-top: 5px;
+        border-bottom: 1px solid;
+
+        .tag {
+            margin: 10px;
+            min-height: 42px;
+            transition: all 0.3s;
+        }
+    }
+
+    select {
+        option {
+            outline: none;
+            border-radius: 5px;
+        }
+    }
+
+    .submenu {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}

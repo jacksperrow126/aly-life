@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="header">
-    <h1 class="heading"><i class="icon icon-back" routerLink="/home"></i> Ghi chú</h1>
+  <div class="header fadeInDown">
+    <h1 class="heading"><i class="icon icon-back" (click)="unpress()" routerLink="/home"></i> Ghi chú</h1>
     <div class="function-btn">
       <div class="create-note">
         <div alyDialog [data]="tags" alyTouchReact>
@@ -27,7 +27,7 @@
       <aly-note-detail [note]="note"></aly-note-detail>
     </div>
   </div>
-  <div class="add-note" routerLink="/note/add" alyTouchReact>
+  <div class="add-note" routerLink="/note/add" alyTouchReact (click)="unpress()">
     <img src="assets/icon/note.svg">
   </div>
   <div class="cancel btn-container">

@@ -5,7 +5,6 @@ import { Note } from '@core/models/note.model';
 import { Subscription } from 'rxjs';
 import { randomID } from '@core/helper/random-id';
 import { DialogData } from '@core/models/dialog-data.model';
-import { Router } from '@angular/router';
 import { Tag } from '@core/models/tag.model';
 
 @Component({
@@ -15,11 +14,11 @@ import { Tag } from '@core/models/tag.model';
 })
 export class AddNoteComponent implements OnInit, OnDestroy {
   public allNote: Note[] = [];
-  public tags = new DialogData;
+  public tags = new DialogData();
   public selectedTag: Tag;
   public remarkable = false;
   private subcription: Subscription;
-  constructor(private noteService: NoteService, private router: Router) { }
+  constructor(private noteService: NoteService) { }
 
   ngOnInit(): void {
     this.subcription = this.noteService.tagOnSelect.subscribe((data: Tag) => {
@@ -46,7 +45,7 @@ export class AddNoteComponent implements OnInit, OnDestroy {
     this.noteService.saveNote(formNote.value);
   }
 
-  mark() {
+  mark(): void {
     this.remarkable = !this.remarkable;
   }
 

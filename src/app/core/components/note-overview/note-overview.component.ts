@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NoteService } from '@core/services/note.service';
 
 @Component({
   selector: 'aly-note-overview',
@@ -8,11 +9,14 @@ import { Router } from '@angular/router';
 })
 export class NoteOverviewComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private noteService: NoteService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  test(){
-    this.router.navigateByUrl('/note')
+  go() {
+    setTimeout(() => {
+      this.noteService.selectedTag = undefined;
+      this.router.navigateByUrl('/note')
+    }, 100)
   }
 }

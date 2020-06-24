@@ -12,7 +12,8 @@ import { FormsModule } from '@angular/forms'
 import { IonicStorageModule } from '@ionic/storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicGestureConfig } from '@core/config/hammerjs.config';
-
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -20,7 +21,7 @@ import { IonicGestureConfig } from '@core/config/hammerjs.config';
     name: '__mydb',
     driverOrder: ['sqlite', 'websql']
   }),
-    AppRoutingModule, FormsModule, BrowserAnimationsModule, HammerModule],
+    AppRoutingModule, FormsModule, BrowserAnimationsModule, HammerModule,],
   providers: [
     StatusBar,
     SplashScreen,
@@ -29,6 +30,8 @@ import { IonicGestureConfig } from '@core/config/hammerjs.config';
       provide: HAMMER_GESTURE_CONFIG,
       useClass: IonicGestureConfig
     },
+    ImagePicker,
+    WebView
   ],
   bootstrap: [AppComponent]
 })

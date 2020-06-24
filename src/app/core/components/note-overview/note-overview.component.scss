@@ -10,7 +10,7 @@ $bp-md: 300px;
   padding: 1rem;
   width: 100%;
   height: 200px;
-  background-image: url(assets/img/memory-img1.jfif);
+  background-image: url(assets/img/note-background.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -42,25 +42,23 @@ $bp-md: 300px;
     width: 100%;
     height: 200%;
     pointer-events: none;
-    background-image: linear-gradient(
-      to bottom,
-      hsla(0, 0%, 0%, 0) 0%,
-      hsla(0, 0%, 0%, 0.009) 11.7%,
-      hsla(0, 0%, 0%, 0.034) 22.1%,
-      hsla(0, 0%, 0%, 0.072) 31.2%,
-      hsla(0, 0%, 0%, 0.123) 39.4%,
-      hsla(0, 0%, 0%, 0.182) 46.6%,
-      hsla(0, 0%, 0%, 0.249) 53.1%,
-      hsla(0, 0%, 0%, 0.32) 58.9%,
-      hsla(0, 0%, 0%, 0.394) 64.3%,
-      hsla(0, 0%, 0%, 0.468) 69.3%,
-      hsla(0, 0%, 0%, 0.54) 74.1%,
-      hsla(0, 0%, 0%, 0.607) 78.8%,
-      hsla(0, 0%, 0%, 0.668) 83.6%,
-      hsla(0, 0%, 0%, 0.721) 88.7%,
-      hsla(0, 0%, 0%, 0.762) 94.1%,
-      hsla(0, 0%, 0%, 0.79) 100%
-    );
+    background-image: linear-gradient(to bottom,
+        hsla(0, 0%, 0%, 0) 0%,
+        hsla(0, 0%, 0%, 0.009) 11.7%,
+        hsla(0, 0%, 0%, 0.034) 22.1%,
+        hsla(0, 0%, 0%, 0.072) 31.2%,
+        hsla(0, 0%, 0%, 0.123) 39.4%,
+        hsla(0, 0%, 0%, 0.182) 46.6%,
+        hsla(0, 0%, 0%, 0.249) 53.1%,
+        hsla(0, 0%, 0%, 0.32) 58.9%,
+        hsla(0, 0%, 0%, 0.394) 64.3%,
+        hsla(0, 0%, 0%, 0.468) 69.3%,
+        hsla(0, 0%, 0%, 0.54) 74.1%,
+        hsla(0, 0%, 0%, 0.607) 78.8%,
+        hsla(0, 0%, 0%, 0.668) 83.6%,
+        hsla(0, 0%, 0%, 0.721) 88.7%,
+        hsla(0, 0%, 0%, 0.762) 94.1%,
+        hsla(0, 0%, 0%, 0.79) 100%);
     transform: translateY(-50%);
     transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1);
   }
@@ -76,7 +74,7 @@ $bp-md: 300px;
   transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1);
   z-index: 1;
 
-  > * + * {
+  >*+* {
     margin-top: 1rem;
   }
 }
@@ -123,7 +121,7 @@ $bp-md: 300px;
 .content {
   transform: translateY(calc(100% - 4.5rem));
 
-  > *:not(.title) {
+  >*:not(.title) {
     opacity: 0;
     transform: translateY(1rem);
     transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1),
@@ -146,7 +144,7 @@ $bp-md: 300px;
   .content {
     transform: translateY(0);
 
-    > *:not(.title) {
+    >*:not(.title) {
       opacity: 1;
       transform: translateY(0);
       transition-delay: 0.1s;
@@ -155,10 +153,11 @@ $bp-md: 300px;
 }
 
 .card:focus-within {
+
   &:before,
   &:after,
   .content,
-  .content > *:not(.title) {
+  .content>*:not(.title) {
     transition-duration: 0s;
   }
 }

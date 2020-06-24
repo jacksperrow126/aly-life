@@ -73,3 +73,11 @@
   animation-timing-function: ease-in-out;
   animation: shake 1.5s infinite;
 }
+
+.fadeInUp {
+  animation: fadeInUp 0.5s;
+}
+
+.fadeInDown {
+  animation: fadeInDown 0.5s;
+}

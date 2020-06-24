@@ -7,6 +7,7 @@ import { NotePreviewComponent } from '@core/components/note-preview/note-preview
 import { NoteBackgroundDirective } from '@core/directives/note-background.directive';
 import { MaterialModule } from '@core/modules/material/material.module';
 import { TouchReactDirective } from '@core/directives/touch-react.directive';
+import { ScaleFullDirective } from '@core/directives/scale-full.directive';
 
 const component = [
   NoteOverviewComponent,
@@ -14,7 +15,8 @@ const component = [
   DialogComponent,
   DialogDirective,
   NoteBackgroundDirective,
-  TouchReactDirective
+  TouchReactDirective,
+  ScaleFullDirective
 ]
 
 @NgModule({

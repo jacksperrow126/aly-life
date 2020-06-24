@@ -7,6 +7,7 @@ import { NotePageRoutingModule } from './note-routing.module';
 import { NotePage } from './note.page';
 import { AddNoteComponent } from './add-note/add-note.component';
 import { NoteDetailComponent } from './note-detail/note-detail.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { NoteDetailComponent } from './note-detail/note-detail.component';
     NotePageRoutingModule,
     SharedModule
   ],
-  declarations: [NotePage, AddNoteComponent, NoteDetailComponent]
+  declarations: [NotePage, AddNoteComponent, NoteDetailComponent, EditComponent]
 })
 export class NotePageModule { }

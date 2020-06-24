@@ -8,4 +8,4 @@ export const tags: Tag[] = [
     { type: 'life', text: 'Cuộc sống' },
     { type: 'entertain', text: 'Giải trí' },
     { type: 'family', text: 'Gia đình' },
-    { type: 'heath', text: 'Sức khỏe' }];
+    { type: 'health', text: 'Sức khỏe' }];

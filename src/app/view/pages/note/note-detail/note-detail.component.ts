@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { NoteService } from '@core/services/note.service';
 import { Note } from '@core/models/note.model';
 import { DialogService } from '@core/services/dialog.service';
 import { DialogData } from '@core/models/dialog-data.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class NoteDetailComponent implements OnInit {
   private deleteBtn: any;
   public dataDelete: DialogData;
   public editBtn: any;
-  constructor(private noteService: NoteService) { }
+  constructor(private noteService: NoteService, private router: Router) { }
 
   ngOnInit() {
     this.date = new Date(this.note.date);
@@ -32,14 +33,14 @@ export class NoteDetailComponent implements OnInit {
     }
   }
 
-  letTest() {
+  letTest(): void {
     if (this.notesContainer == undefined) {
       this.notesContainer = document.querySelectorAll('.note-detail-container');
       this.deleteBtn = document.querySelectorAll('.delete');
       this.editBtn = document.querySelectorAll('.edit')
     };
-
     this.notesContainer.forEach((note: HTMLElement) => {
+      note.classList.remove('fadeInUp');
       note.classList.add('shake');
     });
     this.deleteBtn.forEach((del: HTMLElement) => {
@@ -49,6 +50,13 @@ export class NoteDetailComponent implements OnInit {
       del.classList.remove('hide');
     });
     this.noteService.noteOnPress.next({ notes: this.notesContainer, delete: this.deleteBtn, edit: this.editBtn });
+  }
+
+  editNote(): void {
+    setTimeout(() => {
+      this.router.navigateByUrl('/note/edit');
+    }, 50)
+    this.noteService.noteOnEdit.next(this.note)
   }
 
 }

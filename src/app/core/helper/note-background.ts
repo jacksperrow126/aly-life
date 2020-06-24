@@ -20,7 +20,7 @@ export const NoteBackground = {
     family: {
         background: 'assets/img/family.png'
     },
-    heath: {
-        background: 'assets/img/heath.jpg'
+    health: {
+        background: 'assets/img/health.jpg'
     }
 }
