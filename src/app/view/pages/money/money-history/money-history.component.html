@@ -1,0 +1,40 @@
+<div class="history-container">
+  <div class="history-bill">
+    <div class="transaction-filter">
+      <div class="filter-by-day" (click)="picker.open()" alyTouchReact>
+        <h5>{{'Ngày xem: '+selectedDate}} <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        </h5>
+        <input [matDatepicker]="picker" (dateInput)="pickDate($event)">
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+    </div>
+    <div class="bill" *ngFor="let transaction of transactions">
+      <mat-expansion-panel hideToggle *ngFor="let bill of transaction.bill">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <div class="bill-detail">
+              <div><img class="icon" src="assets/icon/money-total.svg"></div>
+              <p class="text">{{bill.detail}}</p>
+            </div>
+          </mat-panel-title>
+          <mat-panel-description>
+            <p class="money" [style.color]="bill.type=='income'?'green':'red'">
+              <span>{{bill.type=='income'?'+':'-'}}</span>{{(bill.money|number) + 'đ'}}</p>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="detail">
+          <div class="info">
+            <p>{{bill.wallet}}</p>
+            <p class="date">{{getToday(bill.date)}}</p>
+          </div>
+          <p class="bill-detail-text">{{bill.detail}}</p>
+        </div>
+
+        <mat-action-row>
+
+        </mat-action-row>
+      </mat-expansion-panel>
+    </div>
+
+  </div>
+</div>

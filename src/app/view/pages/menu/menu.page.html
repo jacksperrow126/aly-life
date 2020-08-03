@@ -1,9 +1,27 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>menu</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+<div class="container">
+  <h1 class="heading"><i class="icon icon-back" routerLink="/home"></i>Menu</h1>
+  <div class="pages">
+    <div class="pages-col1">
+      <div class="pages-col1_setting sub-page" alyTouchReact alyRoute route="/setting">
+        <img src="assets/icon/setting.svg">
+      </div>
+      <div class="pages-col1_wallet main-page" alyTouchReact alyRoute route="/money">
+        <img src="assets/icon/wallet.svg">
+      </div>
+      <div class="pages-col1_home main-page" alyTouchReact alyRoute route="/home">
+        <img src="assets/icon/home.svg">
+      </div>
+    </div>
+    <div class="pages-col2">
+      <div class="pages-col2_note main-page" alyTouchReact alyRoute route="/note">
+        <img src="assets/icon/note.svg" alt="">
+      </div>
+      <div class="pages-col2_health main-page" alyTouchReact alyRoute route="/health">
+        <img src="assets/icon/health.svg" alt="">
+      </div>
+      <div class="pages-col2_about sub-page" alyTouchReact alyRoute route="/about">
+        <img src="assets/icon/about.svg" alt="">
+      </div>
+    </div>
+  </div>
+</div>

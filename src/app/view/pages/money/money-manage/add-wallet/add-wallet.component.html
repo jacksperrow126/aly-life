@@ -1,0 +1,48 @@
+<div class="container">
+  <h1 class="heading"><i class="icon icon-back" routerLink="/money"></i>Thêm ví</h1>
+  <form class="add-wallet-form" #form="ngForm" (submit)="onSubmit(form)">
+    <div class="input-container">
+      <div class="icon"><img src="assets/icon/wallet.svg" alt=""></div>
+      <div class="input">
+        <mat-form-field>
+          <mat-label>Tên ví</mat-label>
+          <input matInput placeholder="Vd: Tiền mặt" name="name" ngModel required type="text">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="input-container">
+      <div class="icon"><img src="assets/icon/money-total.svg" alt=""></div>
+      <div class="input">
+        <mat-form-field>
+          <mat-label>Số tiền</mat-label>
+          <input matInput placeholder="Vd: 100000" name="currentBalance" type="number" ngModel required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="input-container">
+      <div class="icon"><img src="assets/icon/money-type.svg" alt=""></div>
+      <div class="input">
+        <mat-form-field>
+          <mat-label>Loại ví</mat-label>
+          <mat-select name="type" ngModel required>
+            <mat-option *ngFor="let type of walletType" [value]="type.value">
+              {{type.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="input-container">
+      <div class="icon"><img src="assets/icon/money-detail.svg" alt=""></div>
+      <div class="input">
+        <mat-form-field class="example-full-width">
+          <mat-label>Thông tin thêm</mat-label>
+          <textarea matInput placeholder="Vd: Tiền trong ví" name="detail" ngModel required></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button class="aly-btn" type="submit">Tạo</button>
+    </div>
+  </form>
+</div>

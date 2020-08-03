@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { NoteService } from '@core/services/note.service';
-import { Note } from '@core/models/note.model';
+import { Note } from '@core/models/note/note.model';
 import { DialogService } from '@core/services/dialog.service';
-import { DialogData } from '@core/models/dialog-data.model';
+import { DialogData } from '@core/models/template/dialog-data.model';
 import { Router } from '@angular/router';
 
 
@@ -53,9 +53,6 @@ export class NoteDetailComponent implements OnInit {
   }
 
   editNote(): void {
-    setTimeout(() => {
-      this.router.navigateByUrl('/note/edit');
-    }, 50)
     this.noteService.noteOnEdit.next(this.note)
   }
 

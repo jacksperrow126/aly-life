@@ -1,9 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>setting</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+<div class="container">
+  <h1 class="heading"><i class="icon icon-back" routerLink="/menu"></i> Cài đặt</h1>
+  <div class="avatar-container">
+    <div class="avatar">
+      <div class="avatar-img">
+        <img [src]="user?.avatar" class="img">
+        <div class="edit">
+          <img alyTouchReact src="assets/icon/edit.svg" class="edit-icon" (click)="picker()">
+        </div>
+      </div>
+      <div class="avatar-text">
+        <h3>{{user?.name}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="function">
+    <div class="user" alyTouchReact alyRoute route="/setting/user">
+      <p> <img src="assets/icon/user.svg" alt=""><span>Thông tin cá nhân</span></p>
+    </div>
+    <div class="password" alyTouchReact alyRoute route="/setting/password">
+      <p> <img src="assets/icon/password.svg" alt=""><span>Mật khẩu</span></p>
+    </div>
+    <div class="home" alyTouchReact alyRoute route="/home">
+      <p><img src="assets/icon/home.svg" alt=""><span>Về trang chủ</span></p>
+    </div>
+  </div>

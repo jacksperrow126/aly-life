@@ -1,4 +1,4 @@
-import { DialogData } from '@core/models/dialog-data.model';
+import { DialogData } from '@core/models/template/dialog-data.model';
 import { NoteService } from '@core/services/note.service';
 import { DialogService } from '@core/services/dialog.service';
 import { Component, OnInit, ViewChild, OnDestroy, ElementRef } from '@angular/core';

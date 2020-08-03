@@ -1,0 +1,28 @@
+@import '../../../core/shared/scss/shared';
+
+.container {
+    position: relative;
+
+    span {
+        font-family: "noticia" !important;
+        font-weight: 650;
+        ;
+    }
+
+    .tab-icon {
+        width: 30px;
+    }
+
+    .add-money {
+        position: fixed;
+        bottom: 20px;
+        right: 15px;
+        border-radius: 50%;
+        padding: 5px;
+        background: rgba(187, 189, 194, 0.685);
+        width: 58px;
+        height: 58px;
+        animation: fadeInUp 0.5s;
+    }
+
+}

@@ -23,7 +23,8 @@
 }
 
 .heading {
-  margin-bottom: 20px;
+  margin-top: 2px;
+  margin-bottom: 12px;
   font-size: 30px;
   font-weight: $header-weight;
 }
@@ -49,6 +50,14 @@
       rgba(255, 135, 122, 1) 4%,
       rgba(255, 208, 154, 1) 46%,
       rgba(255, 174, 60, 1) 100%);
+}
+
+.aly-input {
+  padding: 6px;
+  outline: none;
+  min-width: 250px;
+  border-radius: 5px;
+  border: 1px solid;
 }
 
 .blank-tag {
@@ -80,4 +89,9 @@
 
 .fadeInDown {
   animation: fadeInDown 0.5s;
+}
+
+.err {
+  color: red;
+  font-size: 14px !important;
 }

@@ -10,7 +10,7 @@
       [src]="note.remark?'assets/icon/star.svg':'assets/icon/unstar.svg'">
   </div>
   <div class="edit hide">
-    <img alyTouchReact src="assets/icon/edit.svg" class="edit-icon" (click)="editNote()">
+    <img alyTouchReact src="assets/icon/edit.svg" class="edit-icon" (click)="editNote()" alyRoute route="/note/edit">
   </div>
   <div class="delete hide">
     <img alyTouchReact alyDialog [data]="dataDelete" src="assets/icon/delete.svg" class="delete-icon">

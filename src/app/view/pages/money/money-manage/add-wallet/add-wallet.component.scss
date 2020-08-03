@@ -1,0 +1,27 @@
+.add-wallet-form {
+    width: 100%;
+    padding: 0 5px;
+
+    .input-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50px 1fr;
+
+        .icon {
+            width: 100%;
+            display: flex;
+
+            img {
+                width: 30px;
+            }
+        }
+
+        .input {
+            width: 100%;
+
+            mat-form-field {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+@import '../../shared/scss/shared';
+
+.money-overview-container {
+    .balance {
+        box-shadow: none;
+        background-color: #f8ee5e;
+
+        h2,
+        h6 {
+            font-weight: 400;
+            margin: 0;
+            text-align: center;
+            font-family: "noticia";
+
+        }
+
+        h2 {
+            margin-top: 2px;
+            font-weight: bold;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+<div class="add-money" routerLink="add-wallet" alyTouchReact>
+  <img src="assets/icon/wallet.svg">
+</div>
+<ion-slides fullscreen class="ion-padding" scroll-y="false">
+  <ion-slide *ngFor="let wallet of wallets">
+    <aly-wallet-detail [wallet]="wallet"></aly-wallet-detail>
+  </ion-slide>
+
+</ion-slides>

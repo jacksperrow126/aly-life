@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicGestureConfig } from '@core/config/hammerjs.config';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { Crop } from '@ionic-native/crop/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -31,7 +32,8 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
       useClass: IonicGestureConfig
     },
     ImagePicker,
-    WebView
+    WebView,
+    Crop,
   ],
   bootstrap: [AppComponent]
 })

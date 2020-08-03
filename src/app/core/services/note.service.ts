@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { Note } from '@core/models/note.model';
+import { Note } from '@core/models/note/note.model';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { tags } from '@core/data/tags';
-import { Tag } from '@core/models/tag.model';
+import { Tag } from '@core/models/note/tag.model';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class NoteService {
   public newNote = new Subject();
   public noteOnPress = new Subject();
   public noteOnEdit = new BehaviorSubject(null);
-  selectedTag;
+  public selectedTag;
   constructor(private storage: Storage, private router: Router) {
     this.getAllNote();
   }

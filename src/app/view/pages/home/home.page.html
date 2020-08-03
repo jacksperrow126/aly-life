@@ -1,4 +1,4 @@
-<div class="container" style="animation: smoothShow 1s;" #container>
+<div class="container">
   <!-- Menu button -->
   <div class="menu-btn-container" routerLink="/menu">
     <img src="assets/img/menu-btn.png" class="menu-btn">
@@ -10,12 +10,12 @@
   <div class="greeting">
     <div class="greeting-text">
       <h1 class="greeting-text__h1">{{greeting}}</h1>
-      <h1 class="greeting-text__user">Annt</h1>
+      <h1 class="greeting-text__user">{{user?.name}}</h1>
     </div>
 
     <!-- Greeting card -->
     <div class="greeting-card" alyTouchReact>
-      <div class="greeting-card__avatar"><img src="assets/img/demo-avatar.jpg"></div>
+      <div class="greeting-card__avatar"><img [src]="user?.avatar"></div>
       <div class="greeting-card__background">
         <div class="greeting-card__quote">
           <p class="quote">{{quote.quote}}</p>
@@ -46,8 +46,11 @@
         </div>
       </div>
     </div>
-    <button (click)="picker()">picker</button>
-    <p>{{url}}</p>
-    <img [src]="url" srcset="" style="width: 200px;">
+
+    <!-- Money -->
+    <div class="money-container">
+      <h1 class="heading">Ví tiền</h1>
+      <aly-money-preview></aly-money-preview>
+    </div>
   </div>
 </div>

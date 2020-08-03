@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NoteService } from '@core/services/note.service';
-import { Note } from '@core/models/note.model';
-import { Tag } from '@core/models/tag.model';
-import { DialogData } from '@core/models/dialog-data.model';
+import { Note } from '@core/models/note/note.model';
+import { Tag } from '@core/models/note/tag.model';
+import { DialogData } from '@core/models/template/dialog-data.model';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 

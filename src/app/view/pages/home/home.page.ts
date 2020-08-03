@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Quote } from '@core/models/quotes.model';
+import { Quote } from '@core/models/user/quotes.model';
 import { HomeService } from '@core/services/home.service';
-import { Tag } from '@core/models/tag.model';
+import { Tag } from '@core/models/note/tag.model';
 import { NoteService } from '@core/services/note.service';
 import { Router } from '@angular/router';
-import { ImagePicker } from '@ionic-native/image-picker/ngx';
-import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { Storage } from '@ionic/storage';
+import { User } from '@core/models/user/user.model';
+import { UserService } from '@core/services/user.service';
+
 @Component({
   selector: 'aly-home',
   templateUrl: './home.page.html',
@@ -14,23 +16,31 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 export class HomePage implements OnInit {
 
   public quote: Quote;
-  private inAnimation = false;
   public greeting: string;
   private tags: Tag[];
-  public url: any;
+  public user: User
   @ViewChild('container', { static: true }) container: ElementRef;
   constructor(
     private homeService: HomeService,
     private noteService: NoteService,
     private router: Router,
-    private imagePicker: ImagePicker,
-    private webview: WebView) { }
+    private store: Storage,
+    private userService: UserService) { }
 
   ngOnInit() {
     this.quote = this.homeService.getRandomQuote();
     this.getGreeting();
     this.tags = this.noteService.getTag();
+    this.userService.userChange.subscribe(data => {
+      this.user = data
+    })
+    this.store.ready().then(() => {
+      this.store.get('user').then(data => {
+        this.user = data;
+      })
+    });
   }
+
 
   getGreeting() {
     let date = new Date();
@@ -46,13 +56,5 @@ export class HomePage implements OnInit {
       this.router.navigateByUrl('/note')
     }, 100)
   }
-  picker() {
-    this.imagePicker.getPictures({ maximumImagesCount: 1 }).then((results) => {
-      let url;
-      for (var i = 0; i < results.length; i++) {
-        this.url = this.webview.convertFileSrc(results[i]);
-      }
-      alert(this.url)
-    }, (err) => { });
-  }
+
 }

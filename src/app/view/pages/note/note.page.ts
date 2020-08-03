@@ -2,11 +2,11 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 import { Storage } from '@ionic/storage';
 import { Subscription } from 'rxjs';
 import { NoteService } from '@core/services/note.service';
-import { Note } from '@core/models/note.model';
+import { Note } from '@core/models/note/note.model';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-import { DialogData } from '@core/models/dialog-data.model';
-import { Tag } from '@core/models/tag.model';
-import { NoteOnPress } from '@core/models/note-press.model';
+import { DialogData } from '@core/models/template/dialog-data.model';
+import { Tag } from '@core/models/note/tag.model';
+import { NoteOnPress } from '@core/models/note/note-press.model';
 @Component({
   selector: 'aly-note',
   templateUrl: './note.page.html',
@@ -33,18 +33,19 @@ export class NotePage implements OnInit, OnDestroy {
     this.getTags();
     this.subcribePressAction();
     this.pickTag();
-
   }
 
   getAllNote() {
     this.storage.ready().then(() => {
       this.storage.get('note').then((data: Note[]) => {
-        this.notesTemplate = data;
-        this.notes = data;
-        if (this.noteService.selectedTag !== undefined) {
-          this.notes = this.notesTemplate.filter(note => {
-            return note.tag.text == this.noteService.selectedTag.text
-          })
+        if (data) {
+          this.notesTemplate = data;
+          this.notes = data;
+          if (this.noteService.selectedTag !== undefined) {
+            this.notes = this.notesTemplate.filter(note => {
+              return note.tag.text == this.noteService.selectedTag.text
+            })
+          }
         }
       });
       this.subcription = this.noteService.newNote.subscribe(() => {
@@ -73,7 +74,7 @@ export class NotePage implements OnInit, OnDestroy {
 
   pickTag() {
     this.subcription1 = this.noteService.tagOnSelect.subscribe((data: Tag) => {
-      if (this.notes == null || this.notes == undefined) return;
+      if (this.notes == null || this.notes == undefined || this.notesTemplate == null) return;
       this.notes = this.notesTemplate.filter(note => {
         return note.tag.text == data.text
       })

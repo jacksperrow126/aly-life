@@ -1,10 +1,7 @@
 @import '../../../core/shared/scss/shared';
 
 $h1-size: 30px;
-$user-color: #fe4545;
-$avatar-size: 50vw;
-
-
+$user-color: #8bc34a;
 
 // Menu btn
 .menu-btn-container {
@@ -45,6 +42,7 @@ $avatar-size: 50vw;
     .greeting-card__avatar {
       border-radius: 50%;
       width: $avatar-size;
+      height: $avatar-size;
       position: absolute;
       top: 0px;
       right: 20px;
@@ -83,7 +81,6 @@ $avatar-size: 50vw;
           color: #e83d3d;
           position: absolute;
           right: 18px;
-
         }
       }
     }
@@ -137,13 +134,12 @@ $avatar-size: 50vw;
       background-color: wheat;
     }
   }
-
-
 }
 
 // Note
 .note-container {
   margin-top: $part-margin;
+  margin-bottom: $part-margin;
 
   aly-note-overview {
     margin-bottom: 10px;

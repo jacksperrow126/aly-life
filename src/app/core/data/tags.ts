@@ -1,4 +1,4 @@
-import { Tag } from '@core/models/tag.model';
+import { Tag } from '@core/models/note/tag.model';
 
 export const tags: Tag[] = [
     { type: 'common', text: 'Chung' },

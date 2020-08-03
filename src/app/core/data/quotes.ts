@@ -1,4 +1,4 @@
-import { Quote } from '@core/models/quotes.model';
+import { Quote } from '@core/models/user/quotes.model';
 
 export const quotes: Quote[] = [{
     "quote": "Life isn’t about getting and having, it’s about giving and being.",

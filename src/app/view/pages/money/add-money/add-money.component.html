@@ -1,0 +1,71 @@
+<div class="container">
+  <h1 class="heading"><i class="icon icon-back" routerLink="/money"></i>Thêm giao dịch</h1>
+
+  <form class="add-money-form" #form="ngForm" (submit)="onSubmit(form)">
+    <div class="type">
+      <mat-radio-group ngModel name="type" required value="outcome">
+        <mat-radio-button value="outcome" (click)="selectTags('outcome')" checked>Chi</mat-radio-button>
+        <mat-radio-button value="income" (click)="selectTags('income')">Thu</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="input-container">
+      <div class="icon"><img src="assets/icon/money-total.svg" alt=""></div>
+      <div class="input">
+        <mat-form-field>
+          <mat-label>Số tiền</mat-label>
+          <input matInput placeholder="Vd: 100000" name="money" ngModel required type="number">
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- Tính năng này đang trong quá trình phát triển -->
+    <!-- <div class="input-container">
+      <div class="icon"><img src="assets/icon/calendar.svg" alt=""></div>
+      <div class="input">
+        <mat-form-field>
+          <mat-label>Ngày</mat-label>
+          <input matInput [matDatepicker]="picker" name="date" ngModel>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker color="primary"></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div> -->
+    <div class="input-container">
+      <div class="icon"><img src="assets/icon/wallet.svg" alt=""></div>
+      <div class="input">
+        <mat-form-field>
+          <mat-label>Ví</mat-label>
+          <mat-select name="wallet" ngModel required>
+            <mat-option *ngFor="let wallet of wallets" [value]="wallet.name">
+              {{wallet.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="input-container">
+      <div class="icon"><img src="assets/icon/money-type.svg" alt=""></div>
+      <div class="input">
+        <mat-form-field>
+          <mat-label>Nhóm</mat-label>
+          <mat-select name="tag" ngModel required>
+            <mat-option *ngFor="let type of type" [value]="type.id">
+              {{type.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="input-container">
+      <div class="icon"><img src="assets/icon/money-detail.svg" alt=""></div>
+      <div class="input">
+        <mat-form-field class="example-full-width">
+          <mat-label>Thông tin thêm</mat-label>
+          <textarea matInput placeholder="Vd: Mua rau muống" name="detail" ngModel required></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button class="aly-btn" type="submit">Tạo</button>
+    </div>
+  </form>
+</div>

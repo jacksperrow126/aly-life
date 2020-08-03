@@ -1,0 +1,45 @@
+.wallet-card {
+    background: linear-gradient(0deg, rgb(239 139 139) 0%, rgb(142 151 240) 100%);
+    color: white;
+    padding: 0;
+    overflow: hidden;
+    font-family: "noticia" !important;
+
+    img {
+        width: 100%;
+    }
+
+    h2 {
+        margin: 5px 0px;
+        font-size: 18px;
+
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    p {
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    .in-out {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        p {
+            padding: 2px;
+        }
+
+        .in {
+            background-color: green;
+        }
+
+        .out {
+            background-color: red;
+        }
+    }
+}

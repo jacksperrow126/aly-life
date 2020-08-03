@@ -8,24 +8,30 @@ import { NoteBackgroundDirective } from '@core/directives/note-background.direct
 import { MaterialModule } from '@core/modules/material/material.module';
 import { TouchReactDirective } from '@core/directives/touch-react.directive';
 import { ScaleFullDirective } from '@core/directives/scale-full.directive';
+import { RouteDirective } from '@core/directives/route.directive';
+import { MoneyPreviewComponent } from '@core/components/money-preview/money-preview.component';
+import { ChartsModule } from 'ng2-charts';
 
-const component = [
+const components = [
   NoteOverviewComponent,
   NotePreviewComponent,
   DialogComponent,
   DialogDirective,
   NoteBackgroundDirective,
   TouchReactDirective,
-  ScaleFullDirective
+  ScaleFullDirective,
+  RouteDirective,
+  MoneyPreviewComponent
 ]
 
 @NgModule({
-  declarations: [component],
+  declarations: [components],
   imports: [
     CommonModule,
-    MaterialModule
+    ChartsModule,
+    MaterialModule,
   ],
-  exports: [component, MaterialModule],
+  exports: [components, MaterialModule, ChartsModule,],
   entryComponents: [DialogComponent]
 })
 export class SharedModule { }

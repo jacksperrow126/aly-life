@@ -1,0 +1,71 @@
+@import '../../../core/shared/scss/shared';
+$grid-gap: 10px;
+
+.pages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $grid-gap;
+
+    .pages-col1,
+    .pages-col2 {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: $grid-gap;
+
+        div {
+            border-radius: $border-radius;
+            box-shadow: $card-box-shadow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .pages-col1 {
+
+        .pages-col1_setting {
+            background-color: red;
+        }
+
+        .pages-col1_home {
+            background: #19b306;
+        }
+
+        .pages-col1_wallet {
+            background: #17efef;
+        }
+    }
+
+    .pages-col2 {
+        .pages-col2_note {
+
+            background: rgb(230, 153, 11);
+        }
+
+        .pages-col2_health {
+            background: #f78195;
+        }
+
+        .pages-col2_about {
+            background: #e8f15e;
+        }
+    }
+
+}
+
+.main-page {
+    height: 195px;
+
+    img {
+        width: 160px;
+    }
+}
+
+.sub-page {
+    height: 170px;
+
+    img {
+        width: 140px;
+    }
+}
