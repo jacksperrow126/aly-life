@@ -1,0 +1,15 @@
+.plan {
+    background: linear-gradient(180deg, rgba(166,245,162,1) 53%, rgba(36,233,72,1) 90%);
+
+    .over-view {
+      div {
+        position: relative;
+        margin: 5px;
+        .money {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+  }

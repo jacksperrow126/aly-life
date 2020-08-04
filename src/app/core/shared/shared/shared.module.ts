@@ -1,3 +1,5 @@
+import { ChartsModule } from 'ng2-charts';
+import { ChangePlanDirective } from './../../directives/change-plan.directive';
 import { DialogDirective } from '@core/directives/dialog.directive';
 import { DialogComponent } from '@core/components/templates/dialog/dialog.component';
 import { NoteOverviewComponent } from '@core/components/note-overview/note-overview.component';
@@ -10,7 +12,6 @@ import { TouchReactDirective } from '@core/directives/touch-react.directive';
 import { ScaleFullDirective } from '@core/directives/scale-full.directive';
 import { RouteDirective } from '@core/directives/route.directive';
 import { MoneyPreviewComponent } from '@core/components/money-preview/money-preview.component';
-import { ChartsModule } from 'ng2-charts';
 
 const components = [
   NoteOverviewComponent,
@@ -21,7 +22,8 @@ const components = [
   TouchReactDirective,
   ScaleFullDirective,
   RouteDirective,
-  MoneyPreviewComponent
+  MoneyPreviewComponent,
+  ChangePlanDirective
 ]
 
 @NgModule({

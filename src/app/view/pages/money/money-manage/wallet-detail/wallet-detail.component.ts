@@ -13,6 +13,7 @@ export class WalletDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // chưa cập nhật dữ liệu nhé
     this.getInOutCome();
   }
 
@@ -20,6 +21,8 @@ export class WalletDetailComponent implements OnInit {
     this.wallet.transactions.forEach(transaction => {
       this.income += transaction.income;
       this.outcome += transaction.outcome;
+      console.log(transaction);
+      
     })
   }
 }

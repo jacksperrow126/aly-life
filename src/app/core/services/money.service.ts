@@ -1,3 +1,5 @@
+import { TagPlan } from './../models/money/tag-plan.model';
+import { moneyOutcomeType, moneyIncomeType } from '@core/data/money';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Wallet, Transaction } from '@core/models/money/wallet.model';
@@ -16,8 +18,19 @@ export class MoneyService {
   public walletType: WalletType[] = walletType;
   public moneyBill: InOutcome[] = [];
   public initMoneyService = new BehaviorSubject(null);
+  public incomePlan: TagPlan[] = [];
+  public outcomePlan: TagPlan[] = [];
+  public inOutInMonth = [];
+  public inOutType = [];
   constructor(private storage: Storage) {
     this.getListWallets();
+    this.checkPlanAndSetDefault();
+    moneyIncomeType.forEach(type => {
+      this.inOutType.push(type.id);
+    });
+    moneyOutcomeType.forEach(type => {
+      this.inOutType.push(type.id)
+    })
   }
 
   getListWallets() {
@@ -136,5 +149,79 @@ export class MoneyService {
     return result
   }
 
+  getIncomeMoneyByTag() {
+    let data = {};
+    this.inOutType.forEach(type => {
+      data[type] = 0
+    })
+    this.wallets.forEach(wallet => {
+      wallet.transactions.forEach(transaction => {
+        transaction.bill.forEach(bill => {
+          data[bill.tag] += bill.money;
+        })
+      })
+    })
+    return data
+    
+  }
 
+  checkPlanAndSetDefault() {
+    this.storage.ready().then(() => {
+      this.storage.get('plan-setted').then(data => {
+        if (data == null) {
+          this.storage.set('plan-setted', true).then(() => {
+            moneyOutcomeType.forEach(outcome => {
+              this.storage.set(('planOutcome' + outcome.id), { id: outcome.id, name: outcome.name, value: 100000, type: 'outcome', icon: outcome.icon }).then((outcomeData) => {
+                this.outcomePlan.push(outcomeData);
+              })
+            })
+            moneyIncomeType.forEach(income => {
+              this.storage.set(('planIncome' + income.id), { id: income.id, name: income.name, value: 1000000, type: 'income', icon: income.icon }).then((incomeData) => {
+                this.incomePlan.push(incomeData);
+              })
+            })
+          })
+        } else {
+          this.getPlan();
+        }
+      })
+    })
+  }
+
+  getPlan() {
+    this.storage.ready().then(() => {
+      moneyIncomeType.forEach(income => {
+        this.storage.get('planIncome' + income.id).then(data => {
+          this.incomePlan.push(data);
+        })
+      })
+      moneyOutcomeType.forEach(outcome => {
+        this.storage.get('planOutcome' + outcome.id).then(data => {
+          this.outcomePlan.push(data);
+        })
+      })
+    })
+  }
+
+  changePlan(changedPlan: TagPlan) {
+    this.storage.ready().then(() => {
+      if (changedPlan.type == 'income') {
+        this.storage.set(('planIncome' + changedPlan.id), changedPlan).then(() => {
+          this.incomePlan.forEach(plan => {
+            if (plan.id == changedPlan.id) {
+              plan.value = changedPlan.value
+            }
+          })
+        })
+      } else {
+        this.storage.set(('planOutcome' + changedPlan.id), changedPlan).then(() => {
+          this.incomePlan.forEach(plan => {
+            if (plan.id == changedPlan.id) {
+              plan.value = changedPlan.value
+            }
+          })
+        })
+      }
+    })
+  }
 }

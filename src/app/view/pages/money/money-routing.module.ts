@@ -1,3 +1,4 @@
+import { AddMoneyPlanComponent } from './money-manage/add-money-plan/add-money-plan.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'add-money',
     component: AddMoneyComponent
+  },
+  {
+    path: 'add-plan',
+    component: AddMoneyPlanComponent
   }
 ];
 

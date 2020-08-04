@@ -1,17 +1,91 @@
 @import '../../../../core/shared/scss/shared';
-
+.container{
+    height: auto;
+}
 aly-wallet-detail {
-    width: 100%;
+  width: 100%;
 }
 
 .add-money {
-    position: fixed;
-    bottom: 20px;
-    left: 15px;
-    border-radius: 50%;
-    padding: 5px;
-    background: rgba(187, 189, 194, 0.685);
-    width: 58px;
-    height: 58px;
-    animation: fadeInUp 0.5s;
+  position: fixed;
+  z-index: 999;
+  bottom: 20px;
+  left: 15px;
+  border-radius: 50%;
+  padding: 5px;
+  background: rgba(187, 189, 194, 0.685);
+  width: 58px;
+  height: 58px;
+}
+.wallet-hint {
+  text-align: center;
+  background: linear-gradient(90deg, #f7efef, rgb(39, 35, 35), #f7efef);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: shining 3s linear infinite;
+  background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+.money-plan {
+  .title {
+    font-weight: bold;
+  }
+  .function {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 15px 0;
+    background: linear-gradient(
+      180deg,
+      rgba(162, 229, 245, 1) 53%,
+      rgba(168, 246, 246, 1) 90%
+    );
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3px;
+      border-radius: 20px;
+      background: linear-gradient(
+        180deg,
+        rgba(245, 162, 224, 1) 53%,
+        rgba(214, 168, 246, 1) 90%
+      );
+      padding: 15px;
+      p {
+        text-align: center;
+        padding: 5px;
+        color: #5a5858;
+        font-weight: bold;
+      }
+    }
+  }
+  .plan {
+    .income-color {
+      background-color: #4994d4;
+    }
+    .outcome-color {
+      background-color: #f35757;
+    }
+    .income-plan,
+    .outcome-plan {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 5px;
+      div {
+        color: white;
+        font-weight: 500;
+        text-align: center;
+        padding: 10px;
+        transition: all 0.8s;
+        img{
+            width: 50%;
+        }
+        .money {
+          font-size: 23px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }

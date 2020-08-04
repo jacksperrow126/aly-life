@@ -15,6 +15,7 @@ import { IonicGestureConfig } from '@core/config/hammerjs.config';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { Crop } from '@ionic-native/crop/ngx';
+import { ChangePlanDirective } from './core/directives/change-plan.directive';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

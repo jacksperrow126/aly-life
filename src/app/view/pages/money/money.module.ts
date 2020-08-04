@@ -1,3 +1,6 @@
+import { MoneyPlansComponent } from './money-manage/money-plans/money-plans.component';
+import { MoneyDreamComponent } from './money-dream/money-dream.component';
+import { MoneyPlanDetailComponent } from './money-manage/money-plan-detail/money-plan-detail.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -24,7 +27,8 @@ import { WalletDetailComponent } from './money-manage/wallet-detail/wallet-detai
     SharedModule
   ],
   declarations: [MoneyPage, MoneyHistoryComponent, MoneyOverviewComponent,
-    MoneyManageComponent, AddWalletComponent, AddMoneyComponent, WalletDetailComponent],
+    MoneyManageComponent, AddWalletComponent, AddMoneyComponent, WalletDetailComponent,
+  AddMoneyComponent, MoneyPlanDetailComponent, MoneyDreamComponent, MoneyPlansComponent],
 
 })
 export class MoneyPageModule { }

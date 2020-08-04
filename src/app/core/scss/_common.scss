@@ -5,10 +5,12 @@
   text-align: center;
   padding: 10px;
   border-radius: 30px;
-  background: linear-gradient(90deg,
-      rgba(170, 244, 240, 1) 0%,
-      rgba(100, 236, 255, 1) 46%,
-      rgba(0, 202, 255, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(170, 244, 240, 1) 0%,
+    rgba(100, 236, 255, 1) 46%,
+    rgba(0, 202, 255, 1) 100%
+  );
   outline: none;
 }
 
@@ -46,10 +48,12 @@
   padding: 10px;
   display: inline-block;
   text-align: center;
-  background: linear-gradient(45deg,
-      rgba(255, 135, 122, 1) 4%,
-      rgba(255, 208, 154, 1) 46%,
-      rgba(255, 174, 60, 1) 100%);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 135, 122, 1) 4%,
+    rgba(255, 208, 154, 1) 46%,
+    rgba(255, 174, 60, 1) 100%
+  );
 }
 
 .aly-input {
@@ -94,4 +98,22 @@
 .err {
   color: red;
   font-size: 14px !important;
+}
+
+.layer{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.493);
+
+}
+
+.goBig {
+  width: 95vw;
+  position: fixed;
+  left: 2.5vw;
+  top: 10vh;
+  z-index: 9999;
 }

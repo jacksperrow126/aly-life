@@ -1,3 +1,4 @@
+import { moneyIncomeType, moneyOutcomeType } from '@core/data/money';
 import { Component, OnInit } from '@angular/core';
 import { MoneyService } from '@core/services/money.service';
 
@@ -19,16 +20,40 @@ export class MoneyPreviewComponent implements OnInit {
   public barChartType: string;
   public barChartLegend: boolean;
   public barChartData = [];
-
-  public pieChartLabels = ['Sales Q1', 'Sales Q2', 'Sales Q3', 'Sales Q4'];
-  public pieChartData = [120, 150, 180, 90];
+  private dataForPie;
+  public incomePieChartLabels = [];
+  public incomePieChartData = [];
+  public outcomePieChartLabels = [];
+  public outcomePieChartData = [];
   public pieChartType = 'pie';
+
   constructor(private moneyService: MoneyService) { }
 
   ngOnInit() {
     this.initChart();
     this.moneyService.initMoneyService.subscribe(data => {
       this.updateData();
+      this.incomePieChartLabels = [];
+      this.incomePieChartData = [];
+      this.outcomePieChartLabels = [];
+      this.outcomePieChartData = [];
+      this.dataForPie = this.moneyService.getIncomeMoneyByTag();
+      Object.keys(this.dataForPie).map(tag => {
+        moneyIncomeType.find(type => {
+          if (type.id == tag) {
+            this.incomePieChartLabels.push(type.name);
+            this.incomePieChartData.push(this.dataForPie[tag])
+            return;
+          }
+        })
+        moneyOutcomeType.find(type=>{
+          if (type.id == tag) {
+            this.outcomePieChartLabels.push(type.name);
+            this.outcomePieChartData.push(this.dataForPie[tag])
+            return;
+          }
+        })
+      })
     })
   }
 
