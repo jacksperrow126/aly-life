@@ -17,6 +17,7 @@ import { MoneyManageComponent } from './money-manage/money-manage.component';
 import { AddWalletComponent } from './money-manage/add-wallet/add-wallet.component';
 import { AddMoneyComponent } from './add-money/add-money.component';
 import { WalletDetailComponent } from './money-manage/wallet-detail/wallet-detail.component';
+import { MoneyProgressComponent } from './money-overview/money-progress/money-progress.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { WalletDetailComponent } from './money-manage/wallet-detail/wallet-detai
   ],
   declarations: [MoneyPage, MoneyHistoryComponent, MoneyOverviewComponent,
     MoneyManageComponent, AddWalletComponent, AddMoneyComponent, WalletDetailComponent,
-  AddMoneyComponent, MoneyPlanDetailComponent, MoneyDreamComponent, MoneyPlansComponent],
+    AddMoneyComponent, MoneyPlanDetailComponent, MoneyDreamComponent, MoneyPlansComponent,
+    MoneyProgressComponent],
 
 })
 export class MoneyPageModule { }

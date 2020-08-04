@@ -16,6 +16,10 @@ $user-color: #8bc34a;
   }
 }
 
+.home {
+  animation: smoothShow 1s;
+}
+
 // Greeting
 .greeting {
   .greeting-text {

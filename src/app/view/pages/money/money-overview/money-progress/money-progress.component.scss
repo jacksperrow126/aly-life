@@ -1,0 +1,45 @@
+.money-progress {
+    margin: 10px 0;
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+p {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    img {
+        margin-right: 5px;
+    }
+
+    span {
+        font-weight: 500;
+    }
+
+    .money {
+        position: absolute;
+        right: 0;
+        font-size: 14px;
+
+    }
+}
+
+.progress-container {
+    background: rgb(122, 124, 122);
+    margin: 5px 0;
+    border-radius: 2px;
+    width: 100%;
+    overflow: hidden;
+
+    .progress-income {
+        height: 5px;
+        background: rgb(39, 236, 56);
+    }
+
+    .progress-outcome {
+        height: 5px;
+        background: rgb(236, 62, 39);
+    }
+}

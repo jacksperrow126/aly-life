@@ -5,12 +5,10 @@
   text-align: center;
   padding: 10px;
   border-radius: 30px;
-  background: linear-gradient(
-    90deg,
-    rgba(170, 244, 240, 1) 0%,
-    rgba(100, 236, 255, 1) 46%,
-    rgba(0, 202, 255, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(170, 244, 240, 1) 0%,
+      rgba(100, 236, 255, 1) 46%,
+      rgba(0, 202, 255, 1) 100%);
   outline: none;
 }
 
@@ -29,6 +27,7 @@
   margin-bottom: 12px;
   font-size: 30px;
   font-weight: $header-weight;
+  animation: fadeInLeft 0.5s;
 }
 
 .sub-heading {
@@ -48,12 +47,10 @@
   padding: 10px;
   display: inline-block;
   text-align: center;
-  background: linear-gradient(
-    45deg,
-    rgba(255, 135, 122, 1) 4%,
-    rgba(255, 208, 154, 1) 46%,
-    rgba(255, 174, 60, 1) 100%
-  );
+  background: linear-gradient(45deg,
+      rgba(255, 135, 122, 1) 4%,
+      rgba(255, 208, 154, 1) 46%,
+      rgba(255, 174, 60, 1) 100%);
 }
 
 .aly-input {
@@ -95,12 +92,20 @@
   animation: fadeInDown 0.5s;
 }
 
+.rubberBand {
+  animation: rubberBand 1s;
+}
+
+.jackInTheBox {
+  animation: jackInTheBox 1.5s;
+}
+
 .err {
   color: red;
   font-size: 14px !important;
 }
 
-.layer{
+.layer {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -108,6 +113,13 @@
   left: 0;
   background: rgba(0, 0, 0, 0.493);
 
+}
+
+.chart {
+  margin: 10px 0;
+  background: #fbe6e6;
+  box-shadow: none;
+  animation: fadeInUp 1s;
 }
 
 .goBig {

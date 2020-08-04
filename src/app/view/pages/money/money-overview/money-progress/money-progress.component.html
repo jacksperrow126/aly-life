@@ -1,0 +1,9 @@
+<div class="money-progress">
+  <p><img [src]="progressTag.icon" alt=""><span>{{progressTag.name}}</span><span
+      class="money">{{(progressTag.progress|number)+'/' + (progressTag.max|number)}}</span>
+  </p>
+  <div class="progress-container">
+    <div [class]="progressTag.type=='income'?'progress-income':'progress-outcome'" [style.width]="progress+'%'"></div>
+  </div>
+  <hr>
+</div>

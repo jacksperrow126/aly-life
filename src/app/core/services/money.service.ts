@@ -76,6 +76,14 @@ export class MoneyService {
     return this.moneyBill
   }
 
+  get getIncomePlan() {
+    return this.incomePlan
+  }
+
+  get getOutcomePlan() {
+    return this.outcomePlan
+  }
+
   setListWallets(data: Wallet) {
     data.id = 'wallet_' + randomID();
     data.transactions = [];
@@ -149,7 +157,7 @@ export class MoneyService {
     return result
   }
 
-  getIncomeMoneyByTag() {
+  getInOutcomeMoneyByTag() {
     let data = {};
     this.inOutType.forEach(type => {
       data[type] = 0
@@ -162,7 +170,7 @@ export class MoneyService {
       })
     })
     return data
-    
+
   }
 
   checkPlanAndSetDefault() {

@@ -14,18 +14,19 @@ export class MoneyPreviewComponent implements OnInit {
   public barChartOptions: {
     scaleShowVerticalLines: boolean,
     responsive: boolean,
-    scaleLabel: string
+    legend: {
+      labels: {
+        fontColor: string,
+        fontSize: number,
+        fontFamily: string
+      }
+    }
   };
   public barChartLabels = this.daysOnChart;
   public barChartType: string;
   public barChartLegend: boolean;
   public barChartData = [];
-  private dataForPie;
-  public incomePieChartLabels = [];
-  public incomePieChartData = [];
-  public outcomePieChartLabels = [];
-  public outcomePieChartData = [];
-  public pieChartType = 'pie';
+
 
   constructor(private moneyService: MoneyService) { }
 
@@ -33,27 +34,7 @@ export class MoneyPreviewComponent implements OnInit {
     this.initChart();
     this.moneyService.initMoneyService.subscribe(data => {
       this.updateData();
-      this.incomePieChartLabels = [];
-      this.incomePieChartData = [];
-      this.outcomePieChartLabels = [];
-      this.outcomePieChartData = [];
-      this.dataForPie = this.moneyService.getIncomeMoneyByTag();
-      Object.keys(this.dataForPie).map(tag => {
-        moneyIncomeType.find(type => {
-          if (type.id == tag) {
-            this.incomePieChartLabels.push(type.name);
-            this.incomePieChartData.push(this.dataForPie[tag])
-            return;
-          }
-        })
-        moneyOutcomeType.find(type=>{
-          if (type.id == tag) {
-            this.outcomePieChartLabels.push(type.name);
-            this.outcomePieChartData.push(this.dataForPie[tag])
-            return;
-          }
-        })
-      })
+
     })
   }
 
@@ -68,7 +49,7 @@ export class MoneyPreviewComponent implements OnInit {
     }
     this.barChartLabels = this.daysOnChart;
     this.barChartData = [
-      { data: this.dataOnChart, label: 'Tổng tài sản', backgroundColor: 'red' },
+      { data: this.dataOnChart, label: 'Tổng tài sản', borderColor: 'red' },
     ];
   }
 
@@ -76,13 +57,19 @@ export class MoneyPreviewComponent implements OnInit {
     this.barChartOptions = {
       scaleShowVerticalLines: false,
       responsive: true,
-      scaleLabel: 'abc'
+      legend: {
+        labels: {
+          fontColor: 'black',
+          fontSize: 12,
+          fontFamily: ''
+        }
+      }
     };
     this.barChartLabels = this.daysOnChart;
     this.barChartType = 'line';
     this.barChartLegend = true;
     this.barChartData = [
-      { data: this.dataOnChart, label: 'Tổng tài sản', backgroundColor: 'red' },
+      { data: this.dataOnChart, label: 'Tổng tài sản', },
     ];
   }
 } 

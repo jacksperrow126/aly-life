@@ -1,4 +1,19 @@
 .money-overview-container {
     overflow: hidden;
     padding-top: 15px;
+
+    p {
+        font-weight: bold;
+    }
+
+    .income-progress,
+    .outcome-progress {
+        box-shadow: none;
+        background: rgb(195, 239, 252);
+        margin: 10px 0;
+    }
+
+    .outcome-progress {
+        background: #fcc3da;
+    }
 }

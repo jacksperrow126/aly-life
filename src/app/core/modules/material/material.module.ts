@@ -9,6 +9,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSliderModule } from '@angular/material/slider';
+
 const Material = [
   MatDatepickerModule,
   MatNativeDateModule,
@@ -19,6 +21,7 @@ const Material = [
   MatSnackBarModule,
   MatRadioModule,
   MatExpansionModule,
+  MatSliderModule,
 ]
 
 @NgModule({

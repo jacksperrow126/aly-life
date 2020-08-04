@@ -4,6 +4,7 @@
     .balance {
         box-shadow: none;
         background-color: #f8ee5e;
+        animation: fadeInDown 1s;
 
         h2,
         h6 {
@@ -19,4 +20,10 @@
             font-weight: bold;
         }
     }
+
+    h5 {
+        text-align: center;
+    }
+
+
 }
