@@ -149,12 +149,14 @@ export class MoneyService {
   getBillByMonth(month: number) {
     let result = [];
     this.wallets.forEach(wallet => {
-      result = result.concat(wallet.transactions.filter(transaction => {
-        let date = new Date(transaction.dateFilter)
-        return date.getMonth() == month
-      }))
+    wallet.transactions.forEach(transaction => {
+        let date = new Date(transaction.dateFilter);
+        if(date.getMonth()==month){
+          result.push({bills: transaction.bill, date: transaction.dateId})
+        }
+      })
     })
-    return result
+    return result.reverse();
   }
 
   getInOutcomeMoneyByTag() {

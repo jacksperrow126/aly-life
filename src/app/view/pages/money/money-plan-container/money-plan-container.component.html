@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 class="heading"><i class="icon icon-back" routerLink="/money"></i>Kế hoạch</h1>
+<div class="money-plan">
+  <h3 class="title">Kế hoạch thu chi hàng tháng</h3>
+  <!-- <div class="aly-card function no-bs">
+      <div class="create" alyTouchReact alyRoute [route]="'money/add-plan'">
+        <p>Tạo mới</p>
+      </div>
+      <div class="view">
+        <p>Xem lại</p>
+      </div>
+      <div class="">
+        <p>Dream</p>
+      </div>
+    </div> -->
+  <div class="plan">
+    <h5>Mục tiêu thu nhập</h5>
+    <div class="income-plan">
+      <div *ngFor="let plan of incomePlan" class="aly-card income-color no-bs" alyTouchReact (click)="choose(plan)">
+        <img [src]="plan.icon" alt="">
+        <p>{{plan?.name}}</p>
+        <p class="money">{{plan?.value|number}}</p>
+      </div>
+    </div>
+    <h5>Hạn mức</h5>
+    <div class="outcome-plan">
+      <div *ngFor="let plan of outcomePlan" class="aly-card outcome-color no-bs" alyTouchReact (click)="choose(plan)">
+        <img [src]="plan.icon" alt="">
+        <p>{{plan?.name}}</p>
+        <p class="money">{{plan?.value|number}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slider" *ngIf="isShowSlider">
+  <p>{{selectedTag.value|number}}</p>
+  <mat-slider min="0" max="20000000" step="1000" [(ngModel)]="selectedTag.value"></mat-slider>
+  <div class="btn-container">
+    <button (click)="submitChange()" class="aly-btn">Lưu</button>
+  </div>
+</div>
+
+</div>

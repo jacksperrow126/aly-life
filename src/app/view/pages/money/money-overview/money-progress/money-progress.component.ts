@@ -15,8 +15,5 @@ export class MoneyProgressComponent implements OnInit {
     if (this.progress > 100) {
       this.progress = 100
     }
-    console.log(this.progress);
-
   }
-
 }

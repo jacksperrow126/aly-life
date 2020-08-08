@@ -11,7 +11,7 @@
         <div (click)="picker.open()" alyTouchReact>
           <p>{{dateSelect}}</p>
           <input [matDatepicker]="picker" (dateInput)="pickDate($event)">
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-datepicker touchUi #picker></mat-datepicker>
         </div>
       </div>
       <div class="total" alyTouchReact>
