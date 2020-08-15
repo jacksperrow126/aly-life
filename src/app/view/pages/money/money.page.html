@@ -2,20 +2,19 @@
 
   <h1 class="heading"><i class="icon icon-back" routerLink="/home"></i> Ví tiền</h1>
   <aly-money-preview></aly-money-preview>
-  <div>
-    <aly-money-history></aly-money-history>
-   <div routerLink="/money/history">Lịch sử</div>
+  <div class="history" alyTouchReact>
+    <div routerLink="/money/history" [@openClose]>Lịch sử</div>
   </div>
-  <div>
+  <div class="plan" alyTouchReact>
     <div routerLink="/money/plan">Kế hoạch</div>
   </div>
-  <div class="overview">
+  <div class="overview" alyTouchReact>
     <div routerLink="/money/chart">Biểu đồ</div>
   </div>
-  <div>
+  <div class="manage" alyTouchReact>
     <div routerLink="/money/manage">Quản lý ví</div>
   </div>
-  
+
   <div class="add-money" alyTouchReact alyRoute [route]="'money/add-money'">
     <img src="assets/icon/add-money.svg">
   </div>

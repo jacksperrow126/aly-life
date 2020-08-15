@@ -3,11 +3,13 @@ import { MoneyService } from '@core/services/money.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
+import { fadeInLeft } from '@core/animation/fade-in-left.animation';
 
 @Component({
   selector: 'aly-money',
   templateUrl: './money.page.html',
   styleUrls: ['./money.page.scss'],
+  animations: fadeInLeft
 })
 export class MoneyPage implements OnInit, OnDestroy {
   private subcription: Subscription;
