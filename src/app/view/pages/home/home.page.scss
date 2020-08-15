@@ -17,13 +17,14 @@ $user-color: #8bc34a;
 }
 
 .home {
-  animation: smoothShow 1s;
+  // animation: smoothShow 1s;
 }
 
 // Greeting
 .greeting {
   .greeting-text {
     margin-top: 20px;
+    animation: fadeInDown 1s;
 
     h1 {
       margin: 0;
@@ -42,6 +43,7 @@ $user-color: #8bc34a;
     padding-top: 100px;
     margin-top: 20px;
     transition: all 1s;
+    animation: fadeInDown 1s;
 
     .greeting-card__avatar {
       border-radius: 50%;

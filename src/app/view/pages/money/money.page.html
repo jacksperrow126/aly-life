@@ -1,28 +1,21 @@
 <div class="container">
-  <h1 class="heading"><i class="icon icon-back" routerLink="/home"></i> Ví tiền</h1>
-  <mat-tab-group mat-stretch-tabs>
-    <mat-tab label="First">
-      <ng-template mat-tab-label>
-        <img class="tab-icon" src="assets/icon/money-total.svg" alt=""><span>Tổng quan</span>
-      </ng-template>
-      <div class="overview">
-        <aly-money-overview></aly-money-overview>
-      </div>
-    </mat-tab>
-    <mat-tab label="Second">
-      <ng-template mat-tab-label>
-        <img class="tab-icon" src="assets/icon/history.svg" alt=""><span>Lịch sử</span>
-      </ng-template>
-      <aly-money-history></aly-money-history>
-    </mat-tab>
-    <mat-tab label="Third">
-      <ng-template mat-tab-label>
-        <img class="tab-icon" src="assets/icon/money-overview.svg" alt=""><span>Quản lý</span>
-      </ng-template>
 
-      <aly-money-manage></aly-money-manage>
-    </mat-tab>
-  </mat-tab-group>
+  <h1 class="heading"><i class="icon icon-back" routerLink="/home"></i> Ví tiền</h1>
+  <aly-money-preview></aly-money-preview>
+  <div>
+    <aly-money-history></aly-money-history>
+   <div routerLink="/money/history">Lịch sử</div>
+  </div>
+  <div>
+    <div routerLink="/money/plan">Kế hoạch</div>
+  </div>
+  <div class="overview">
+    <div routerLink="/money/chart">Biểu đồ</div>
+  </div>
+  <div>
+    <div routerLink="/money/manage">Quản lý ví</div>
+  </div>
+  
   <div class="add-money" alyTouchReact alyRoute [route]="'money/add-money'">
     <img src="assets/icon/add-money.svg">
   </div>

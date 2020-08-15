@@ -16,5 +16,4 @@ export class MoneyProgressComponent implements OnInit {
       this.progress = 100
     }
   }
-
 }

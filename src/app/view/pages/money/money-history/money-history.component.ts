@@ -1,3 +1,4 @@
+import { TagIcon } from './../../../../core/helper/getTagIcon';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MoneyService } from '@core/services/money.service';
 import { InOutcome } from '@core/models/money/in-outcome.model';
@@ -13,7 +14,7 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
   styleUrls: ['./money-history.component.scss'],
 })
 export class MoneyHistoryComponent implements OnInit, OnDestroy {
-  public transactions: Transaction[];
+  public transactions: any[];
   private subcription: Subscription;
   public selectedDate: string;
   constructor(private moneyService: MoneyService, private storage: Storage) { }
@@ -22,8 +23,7 @@ export class MoneyHistoryComponent implements OnInit, OnDestroy {
     this.subcription = this.moneyService.initMoneyService.subscribe(data => {
       let day = new Date();
       this.selectedDate = getToday(day);
-      this.transactions = this.moneyService.getBillByDay(getToday(day))
-
+      this.transactions = this.moneyService.getBillByMonth(day.getMonth());
     })
   }
 
@@ -33,10 +33,12 @@ export class MoneyHistoryComponent implements OnInit, OnDestroy {
 
   pickDate(event: MatDatepickerInputEvent<Date>) {
     this.selectedDate = getToday(event.value);
-    this.transactions = this.moneyService.getBillByDay(getToday(event.value));
-
+    this.transactions = this.moneyService.getBillByMonth(event.value.getMonth());
   }
 
+  getTagIcon( id){
+    return TagIcon[id]
+  }
   ngOnDestroy() {
     this.subcription.unsubscribe()
   }
