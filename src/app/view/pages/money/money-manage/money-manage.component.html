@@ -1,10 +1,10 @@
 <div class="container">
   <h1 class="heading"><i class="icon icon-back" routerLink="/money"></i>Quản lý ví</h1>
-  <div class="add-money" routerLink="add-wallet" alyTouchReact>
+  <div class="add-money" routerLink="/money/add-wallet" alyTouchReact>
     <img src="assets/icon/wallet.svg">
   </div>
-    <div *ngFor="let wallet of wallets">
-      <aly-wallet-detail [wallet]="wallet"></aly-wallet-detail>
-    </div>
-  
+  <div *ngFor="let wallet of wallets">
+    <aly-wallet-detail [wallet]="wallet"></aly-wallet-detail>
+  </div>
+
 </div>

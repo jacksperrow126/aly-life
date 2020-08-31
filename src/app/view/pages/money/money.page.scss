@@ -3,12 +3,16 @@
 .container {
   position: relative;
 
+  .function-container {
+    padding: 5px 15px
+  }
+
   .history,
   .plan,
   .overview,
   .manage {
     padding: 25px;
-    background: #f3f2f3;
+    background: #ffc3c3;
     width: 100%;
     border-radius: 20px;
     margin-bottom: 15px;
