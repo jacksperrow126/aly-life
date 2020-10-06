@@ -1,10 +1,12 @@
 .wallet-card {
-    background: linear-gradient(0deg, rgb(239 139 139) 0%, rgb(142 151 240) 100%);
+    background: linear-gradient(209deg, rgba(236, 129, 230, 1) 58%, rgba(135, 190, 255, 1) 100%);
     color: white;
-    padding: 0;
+    padding: 15px;
     overflow: hidden;
     font-family: "noticia" !important;
     text-align: center;
+    margin: 20px 0;
+
     img {
         width: 100%;
     }

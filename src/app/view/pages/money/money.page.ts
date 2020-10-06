@@ -9,7 +9,6 @@ import { fadeInLeft } from '@core/animation/fade-in-left.animation';
   selector: 'aly-money',
   templateUrl: './money.page.html',
   styleUrls: ['./money.page.scss'],
-  animations: fadeInLeft
 })
 export class MoneyPage implements OnInit, OnDestroy {
   private subcription: Subscription;
@@ -21,11 +20,11 @@ export class MoneyPage implements OnInit, OnDestroy {
         this.router.navigateByUrl('/money/add-wallet');
         this._snackBar.open('Lần đầu?', 'Hãy tạo mới 1 ví nhé', { duration: 3000, });
       }
-    })
+    });
   }
 
   ngOnDestroy() {
-    this.subcription.unsubscribe()
+    this.subcription.unsubscribe();
   }
 
 }

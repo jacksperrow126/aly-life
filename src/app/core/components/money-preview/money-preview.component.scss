@@ -3,7 +3,7 @@
 .money-overview-container {
     .balance {
         box-shadow: none;
-        background-color: #f8ee5e;
+        background-color: $main-yellow-color;
         animation: fadeInLeft 1s;
         margin-bottom: 15px;
 
@@ -17,7 +17,7 @@
         }
 
         h2 {
-            margin-top: 10px;
+            margin-top: 2px;
             font-weight: bold;
             font-size: 35px;
         }

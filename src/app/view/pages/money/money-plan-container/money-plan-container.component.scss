@@ -7,11 +7,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 15px 0;
-    background: linear-gradient(
-      180deg,
-      rgba(162, 229, 245, 1) 53%,
-      rgba(168, 246, 246, 1) 90%
-    );
+    background: linear-gradient(180deg,
+        rgba(162, 229, 245, 1) 53%,
+        rgba(168, 246, 246, 1) 90%);
 
     div {
       display: flex;
@@ -19,11 +17,9 @@
       align-items: center;
       margin: 3px;
       border-radius: 20px;
-      background: linear-gradient(
-        180deg,
-        rgba(245, 162, 224, 1) 53%,
-        rgba(214, 168, 246, 1) 90%
-      );
+      background: linear-gradient(180deg,
+          rgba(245, 162, 224, 1) 53%,
+          rgba(214, 168, 246, 1) 90%);
       padding: 15px;
 
       p {
@@ -42,6 +38,18 @@
 
     .outcome-color {
       background-color: #f35757;
+    }
+
+    .plan-title {
+      font-style: italic;
+    }
+
+    .plan-total {
+      text-align: center;
+      margin-top: 5px;
+      font-size: 36px;
+      margin-bottom: 10px;
+      font-weight: bold;
     }
 
     .income-plan,
@@ -84,11 +92,20 @@
   background: rgba(249, 249, 249, 0.9);
   animation: fadeInUp 0.5s;
   border-radius: 20px;
-  p {
-    color: rgb(15, 15, 15);
+
+  input {
+    background: rgb(249 249 249 / 0%);
+    outline: none;
+    border: none;
     font-size: 25px;
     text-align: center;
+    width: 100%;
   }
+
+  p {
+    text-align: center;
+  }
+
   .mat-slider-horizontal {
     width: 100%;
   }

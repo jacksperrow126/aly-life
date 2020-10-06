@@ -92,63 +92,59 @@ $user-color: #8bc34a;
     }
   }
 
-  .tags {
-    display: grid;
-    height: 160px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
+  // Note
+  .note-container {
+    margin-top: $part-margin;
+    margin-bottom: $part-margin;
+    animation: fadeInLeft 1s;
 
-    div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    aly-note-overview {
+      margin-bottom: 10px;
     }
 
-    .main-tag {
-      grid-area: 1 / 1 / 3 / 3;
-      border-radius: 20px;
-      background-color: wheat;
+    .tags {
+      display: grid;
+      height: 160px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 5px;
+      grid-row-gap: 5px;
 
-      img {
-        width: 100px;
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .note-tag {
+        border-radius: 20px;
+        background-color: $main-yellow-color;
+      }
+
+      .main-tag {
+        grid-area: 1 / 1 / 3 / 3;
+
+        img {
+          width: 100px;
+        }
+      }
+
+      .sub-tag1 {
+        grid-area: 1 / 3 / 2 / 4;
+      }
+
+      .sub-tag2 {
+        grid-area: 1 / 4 / 2 / 5;
+      }
+
+      .sub-tag3 {
+        grid-area: 2 / 3 / 3 / 4;
+      }
+
+      .sub-tag4 {
+        grid-area: 2 / 4 / 3 / 5;
       }
     }
-
-    .sub-tag1 {
-      grid-area: 1 / 3 / 2 / 4;
-      border-radius: 20px;
-      background-color: wheat;
-    }
-
-    .sub-tag2 {
-      grid-area: 1 / 4 / 2 / 5;
-      border-radius: 20px;
-      background-color: wheat;
-    }
-
-    .sub-tag3 {
-      grid-area: 2 / 3 / 3 / 4;
-      border-radius: 20px;
-      background-color: wheat;
-    }
-
-    .sub-tag4 {
-      grid-area: 2 / 4 / 3 / 5;
-      border-radius: 20px;
-      background-color: wheat;
-    }
-  }
-}
-
-// Note
-.note-container {
-  margin-top: $part-margin;
-  margin-bottom: $part-margin;
-
-  aly-note-overview {
-    margin-bottom: 10px;
   }
 }
 

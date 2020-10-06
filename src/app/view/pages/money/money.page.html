@@ -1,10 +1,9 @@
 <div class="container">
-
   <h1 class="heading"><i class="icon icon-back" routerLink="/home"></i> Ví tiền</h1>
   <aly-money-preview></aly-money-preview>
   <div class="function-container">
     <div class="history" alyTouchReact alyRoute [route]="'/money/history'">
-      <div [@openClose]>Lịch sử</div>
+      <div>Lịch sử</div>
     </div>
     <div class="plan" alyTouchReact alyRoute [route]="'/money/plan'">
       <div>Kế hoạch</div>
@@ -15,9 +14,8 @@
     <div class="manage" alyTouchReact alyRoute [route]="'/money/manage'">
       <div>Quản lý ví</div>
     </div>
-
-    <div class="add-money" alyTouchReact alyRoute [route]="'money/add-money'">
-      <img src="assets/icon/add-money.svg">
-    </div>
+  </div>
+  <div class="add-money" alyTouchReact alyRoute [route]="'money/add-money'">
+    <img src="assets/icon/add-money.svg">
   </div>
 </div>

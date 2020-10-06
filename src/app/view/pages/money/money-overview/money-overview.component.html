@@ -1,11 +1,6 @@
 <div class="container">
   <div class="money-overview-container">
-  <h1 class="heading"><i class="icon icon-back" routerLink="/money"></i>Biểu đồ</h1>
-    <div style="display: block" class="chart aly-card">
-      <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-        [legend]="barChartLegend" [chartType]="barChartType">
-      </canvas>
-    </div>
+    <h1 class="heading"><i class="icon icon-back" routerLink="/money"></i>Biểu đồ</h1>
     <div style="display: block" class="aly-card chart">
       <p>Thu nhập</p>
       <canvas baseChart [options]="chartOptions" [data]="incomePieChartData" [labels]="incomePieChartLabels"

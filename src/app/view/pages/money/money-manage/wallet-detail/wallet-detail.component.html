@@ -1,9 +1,13 @@
 <div class="aly-card wallet-card">
-  <h2>{{wallet.name}}</h2>
-  <div class="detail">
+  <div class="first-line">
+    <h2>{{wallet.name}}</h2>
     <h1>{{wallet.currentBalance|number}}</h1>
+  </div>
+
+  <div class="detail">
+
     <p>{{wallet.detail}}</p>
-    <div class="in-out">
+    <!-- <div class="in-out">
       <div class="in">
         <p>Thu</p>
         <p>{{income|number}}</p>
@@ -12,7 +16,6 @@
         <p>Chi</p>
         <p>{{outcome|number}}</p>
       </div>
-    </div>
+    </div> -->
   </div>
-
 </div>

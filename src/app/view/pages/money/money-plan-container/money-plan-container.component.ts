@@ -13,23 +13,42 @@ export class MoneyPlanContainerComponent implements OnInit {
   public outcomePlan: TagPlan[];
   public selectedTag: TagPlan;
   public isShowSlider: boolean = false;
+  public incomeTotal: number;
+  public outcomeTotal: number;
   constructor(private moneyService: MoneyService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.moneyService.initMoneyService.subscribe(data => {
+    this.moneyService.initMoneyService.subscribe(() => {
       this.incomePlan = this.moneyService.incomePlan;
       this.outcomePlan = this.moneyService.outcomePlan;
+      this.calculateIncomeTotal();
+      this.calculateOutcomeTotal();
     });
   }
 
-  choose(plan) {
+  choose(plan: TagPlan) {
     this.selectedTag = plan;
-    this.isShowSlider = true
+    this.isShowSlider = true;
   }
 
   submitChange() {
     this.isShowSlider = false;
     this.moneyService.changePlan(this.selectedTag);
-    this._snackBar.open('Thành công rồi!', '', { duration: 1000, })
+    this._snackBar.open('Thành công rồi!', '', { duration: 1000, });
+    this.calculateIncomeTotal();
+    this.calculateOutcomeTotal();
   }
+
+  calculateIncomeTotal() {
+    this.incomeTotal = this.incomePlan.reduce((total, income) => {
+      return total + income.value;
+    }, 0);
+  }
+
+  calculateOutcomeTotal() {
+    this.outcomeTotal = this.outcomePlan.reduce((total, income) => {
+      return total + income.value;
+    }, 0);
+  }
+
 }

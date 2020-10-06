@@ -29,10 +29,10 @@ export class AuthPage implements OnInit {
           this.user = {
             name: undefined,
             avatar: this.url
-          }
+          };
         }
-      })
-    })
+      });
+    });
   }
 
   onSubmit(auth: FormControl) {
@@ -43,8 +43,8 @@ export class AuthPage implements OnInit {
       }
       if (auth.value.pass == this.user.password) {
         setTimeout(() => {
-          this.router.navigateByUrl('/home')
-        }, 100)
+          this.router.navigateByUrl('/home');
+        }, 100);
       }
     } else {
       if (auth.value.name == undefined || '') {
@@ -53,11 +53,11 @@ export class AuthPage implements OnInit {
       }
       this.isErr = false;
       this.user.name = auth.value.name;
-      this.user.avatar = this.url
+      this.user.avatar = this.url;
       this.userService.saveUser(this.user);
       setTimeout(() => {
-        this.router.navigateByUrl('/home')
-      }, 200)
+        this.router.navigateByUrl('/home');
+      }, 200);
     }
   }
 
