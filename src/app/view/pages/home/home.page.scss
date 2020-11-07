@@ -76,9 +76,10 @@ $user-color: #8bc34a;
         word-wrap: break-word;
         font-weight: 600;
         font-family: dancing;
+        width: 100%;
 
         .quote {
-          color: #615252;
+          color: #d4d4d4;
           font-size: 18px;
         }
 
@@ -102,6 +103,10 @@ $user-color: #8bc34a;
       margin-bottom: 10px;
     }
 
+    .card {
+      box-shadow: none !important;
+    }
+
     .tags {
       display: grid;
       height: 160px;
@@ -119,6 +124,7 @@ $user-color: #8bc34a;
       .note-tag {
         border-radius: 20px;
         background-color: $main-yellow-color;
+        box-shadow: $bubble-shadow;
       }
 
       .main-tag {
@@ -151,4 +157,8 @@ $user-color: #8bc34a;
 // Common class
 .press {
   animation: press 1s ease-out;
+}
+
+.version {
+  font-size: 12px;
 }

@@ -33,15 +33,24 @@
 
   .plan {
     .income-color {
-      background-color: #4994d4;
+      background-color: #191a1b;
     }
 
     .outcome-color {
-      background-color: #f35757;
+      background-color: #191a1b;
     }
 
     .plan-title {
       font-style: italic;
+      font-weight: bold;
+
+      &.income {
+        color: #05d405
+      }
+
+      &.outcome {
+        color: red
+      }
     }
 
     .plan-total {
@@ -59,7 +68,7 @@
       grid-gap: 5px;
 
       div {
-        color: white;
+        // color: white;
         font-weight: 500;
         text-align: center;
         padding: 10px;
@@ -89,12 +98,12 @@
   padding: 15px;
   width: 100vw;
   left: 0;
-  background: rgba(249, 249, 249, 0.9);
+  background: #504f4fe6;
   animation: fadeInUp 0.5s;
   border-radius: 20px;
 
   input {
-    background: rgb(249 249 249 / 0%);
+    background: #4e4d4de6 !important;
     outline: none;
     border: none;
     font-size: 25px;

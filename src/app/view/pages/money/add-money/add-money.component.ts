@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class AddMoneyComponent implements OnInit {
   public type = moneyOutcomeType;
   public wallets: Wallet[];
+  public isInTransferMode = false;
   constructor(private moneyService: MoneyService, private _snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit() {
@@ -23,20 +24,30 @@ export class AddMoneyComponent implements OnInit {
   }
 
   selectTags(type) {
-    if (type === 'income') {
-      this.type = moneyIncomeType
+    if (type === 'transfer') {
+      this.isInTransferMode = true;
     } else {
-      this.type = moneyOutcomeType
+      this.isInTransferMode = false;
+    }
+    if (type === 'income') {
+      this.type = moneyIncomeType;
+    } else {
+      this.type = moneyOutcomeType;
     }
   }
 
   onSubmit(form: NgForm) {
     if (form.invalid) return;
+    if (this.isInTransferMode) {
+      console.log(form.value);
+      this.moneyService.transferMoney(form.value);
+      return;
+    }
     let moneyBill = form.value;
     moneyBill.id = 'bill_' + randomID();
     moneyBill.date = new Date();
     this.moneyService.setMoneyByDay(moneyBill, getToday(moneyBill.date));
     this._snackBar.open('Thành công rồi!!!', '', { duration: 1000, });
-    this.router.navigateByUrl('/money')
+    this.router.navigateByUrl('/money');
   }
 }

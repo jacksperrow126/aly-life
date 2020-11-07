@@ -3,12 +3,14 @@ $border-radius: 25px;
 $part-margin: 40px;
 $header-weight: 700;
 
-$font-color: #707070;
-$main-yellow-color: #fbeb36;
-$background-color: rgb(247, 239, 239);
+$font-color: #e6e6e6;
+$main-yellow-color:#111111;
+$background-color: #212429;
 
-$box-shadow: 15px 15px 27px #e1e1e3,
--15px -15px 27px #ffffff;
+$overlay-background: rgba(0, 0, 0, 0.7);
+
+$box-shadow: 15px 15px 27px #161616,
+-15px -15px 27px #1a1a1a;
 $card-img-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
 0 2px 2px rgba(0, 0, 0, 0.1),
 0 4px 4px rgba(0, 0, 0, 0.1),
@@ -19,3 +21,8 @@ $card-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
 0 3px 11px rgba(0, 0, 0, 0.1),
 0px 0px 0px rgba(0, 0, 0, 0.1),
 0 1px 6px 0px rgba(0, 0, 0, 0.1);
+
+$ceil-color: #ca07ca;
+$floor-color: #0788ca;
+
+$bubble-shadow: none;

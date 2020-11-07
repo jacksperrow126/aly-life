@@ -1,0 +1,41 @@
+@import '../../../../core/shared/scss/shared';
+
+.stock-manage {
+    .stock-overview {
+        display: grid;
+        grid-template-columns: 1fr 1fr 50%;
+        background: $main-yellow-color;
+        border-radius: 12px;
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 56px;
+        }
+
+        .add-button {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 16px;
+
+            button {
+                width: 36px;
+                height: 36px;
+                font-size: 34px;
+                border-radius: 5px;
+                background: linear-gradient(139deg, rgba(237, 111, 15, 1) 4%, rgba(254, 135, 255, 1) 88%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 17px;
+                }
+            }
+        }
+    }
+}

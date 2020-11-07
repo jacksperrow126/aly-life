@@ -79,4 +79,18 @@ body {
     .container::-webkit-scrollbar {
         display: none;
     }
+
+    input,
+    textarea {
+        color: $font-color !important;
+        background: transparent !important;
+    }
+
+    ::ng-deep .mat-form-field-placeholder {
+        color: $font-color !important;
+    }
+
+    ::ng-deep .mat-focused .mat-form-field-placeholder {
+        color: $font-color !important;
+    }
 }

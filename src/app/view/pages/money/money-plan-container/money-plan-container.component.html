@@ -14,7 +14,7 @@
       </div>
     </div> -->
     <div class="plan">
-      <h5 class="plan-title">Mục tiêu thu nhập</h5>
+      <h5 class="plan-title income">Mục tiêu thu nhập</h5>
       <h2 class="plan-total">{{incomeTotal|number}}</h2>
       <div class="income-plan">
         <div *ngFor="let plan of incomePlan" class="aly-card income-color no-bs" alyTouchReact (click)="choose(plan)">
@@ -23,7 +23,7 @@
           <p class="money">{{plan?.value|number}}</p>
         </div>
       </div>
-      <h5 class="plan-title">Hạn mức</h5>
+      <h5 class="plan-title outcome">Hạn mức chi tiêu</h5>
       <h2 class="plan-total">{{outcomeTotal|number}}</h2>
       <div class="outcome-plan">
         <div *ngFor="let plan of outcomePlan" class="aly-card outcome-color no-bs" alyTouchReact (click)="choose(plan)">

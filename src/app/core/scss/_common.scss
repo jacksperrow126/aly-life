@@ -62,7 +62,7 @@
 }
 
 .blank-tag {
-  background: white;
+  background: #242323;
   border: 1px solid;
   margin: 5px;
 }
@@ -128,4 +128,8 @@
   left: 2.5vw;
   top: 10vh;
   z-index: 9999;
+}
+
+.hide-smooth {
+  animation: smoothHide 0.6s;
 }

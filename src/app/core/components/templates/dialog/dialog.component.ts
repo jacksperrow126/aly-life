@@ -18,12 +18,12 @@ export class DialogComponent implements OnInit, OnDestroy {
   ngOnInit() { }
 
   hideDialog(): void {
-    this.overlay.nativeElement.classList.add('hide')
+    this.overlay.nativeElement.classList.add('hide-smooth');
     this.dialog.nativeElement.classList.remove('magictime', 'spaceInUp');
     this.dialog.nativeElement.classList.add('magictime', 'spaceOutUp');
     setTimeout(() => {
       this.dialogService.removeDialogComponentFromBody();
-    }, 500)
+    }, 500);
   }
 
   onDialogClicked(evt: MouseEvent): void {
@@ -36,7 +36,7 @@ export class DialogComponent implements OnInit, OnDestroy {
   }
 
   select(data: string): void {
-    this.selectItem = data
+    this.selectItem = data;
   }
 
   confirmYes() {

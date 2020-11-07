@@ -12,19 +12,22 @@ import { TouchReactDirective } from '@core/directives/touch-react.directive';
 import { ScaleFullDirective } from '@core/directives/scale-full.directive';
 import { RouteDirective } from '@core/directives/route.directive';
 import { MoneyPreviewComponent } from '@core/components/money-preview/money-preview.component';
+import { CommonFormComponent } from '@core/components/templates/common-form/common-form.component';
+import { FormsModule } from '@angular/forms';
 
 const components = [
   NoteOverviewComponent,
   NotePreviewComponent,
   DialogComponent,
   DialogDirective,
+  CommonFormComponent,
   NoteBackgroundDirective,
   TouchReactDirective,
   ScaleFullDirective,
   RouteDirective,
   MoneyPreviewComponent,
   ChangePlanDirective
-]
+];
 
 @NgModule({
   declarations: [components],
@@ -32,6 +35,7 @@ const components = [
     CommonModule,
     ChartsModule,
     MaterialModule,
+    FormsModule
   ],
   exports: [components, MaterialModule, ChartsModule,],
   entryComponents: [DialogComponent]

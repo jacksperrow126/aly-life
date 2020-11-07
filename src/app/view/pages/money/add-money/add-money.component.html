@@ -6,6 +6,7 @@
       <mat-radio-group ngModel name="type" required value="outcome">
         <mat-radio-button value="outcome" (click)="selectTags('outcome')" checked>Chi</mat-radio-button>
         <mat-radio-button value="income" (click)="selectTags('income')">Thu</mat-radio-button>
+        <mat-radio-button value="income" (click)="selectTags('transfer')">Chuyển</mat-radio-button>
       </mat-radio-group>
     </div>
     <div class="input-container">
@@ -42,7 +43,21 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="input-container">
+    <div class="input-container" *ngIf="isInTransferMode">
+      <div class="icon"><img src="assets/icon/wallet.svg" alt=""></div>
+      <div class="input">
+        <mat-form-field>
+          <mat-label>Tới</mat-label>
+          <mat-select name="toWallet" ngModel required>
+            <mat-option *ngFor="let wallet of wallets" [value]="wallet.name">
+              {{wallet.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="input-container" *ngIf="!isInTransferMode">
       <div class="icon"><img src="assets/icon/money-type.svg" alt=""></div>
       <div class="input">
         <mat-form-field>

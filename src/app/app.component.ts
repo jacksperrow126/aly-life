@@ -7,7 +7,6 @@ import { Storage } from '@ionic/storage';
 import { User } from '@core/models/user/user.model';
 import { Router } from '@angular/router';
 import { UserService } from '@core/services/user.service';
-
 @Component({
   selector: 'aly-root',
   templateUrl: 'app.component.html',

@@ -17,9 +17,9 @@ $bp-md: 300px;
   text-align: center;
   color: whitesmoke;
   background-color: whitesmoke;
-  box-shadow: $card-img-box-shadow;
   margin: 18px 0;
   animation: smoothShow 1s;
+  box-shadow: none !important;
 
   &:before {
     content: "";

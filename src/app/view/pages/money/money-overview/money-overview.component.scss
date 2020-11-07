@@ -1,3 +1,5 @@
+@import '../../../../core/shared/scss/shared';
+
 .money-overview-container {
     overflow: hidden;
     padding-top: 15px;
@@ -6,15 +8,31 @@
         font-weight: bold;
     }
 
+    span {
+        float: right;
+    }
+
     .income-progress,
     .outcome-progress {
         box-shadow: none;
-        background: rgb(195, 239, 252);
+        background: #1b1c1c;
         margin: 10px 0;
         animation: fadeInUp 0.5s;
     }
 
-    .outcome-progress {
-        background: #fcc3da;
+    .incomeColorUp {
+        color: #07ca2c;
+    }
+
+    .incomeColorUper {
+        color: $ceil-color;
+    }
+
+    .outcomeColorUp {
+        color: $floor-color;
+    }
+
+    .outcomeColorDown {
+        color: #ca0d0d;
     }
 }

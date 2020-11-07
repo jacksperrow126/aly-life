@@ -1,25 +1,33 @@
 <div class="container">
   <div class="money-overview-container">
     <h1 class="heading"><i class="icon icon-back" routerLink="/money"></i>Biểu đồ</h1>
+
+    <!-- <div style="display: block" class="aly-card chart">
+      <p>Tổng quan</p>
+      <aly-money-chart [chartData]="totalMoneyChartData" [type]="'area'"></aly-money-chart>
+    </div> -->
+
     <div style="display: block" class="aly-card chart">
       <p>Thu nhập</p>
-      <canvas baseChart [options]="chartOptions" [data]="incomePieChartData" [labels]="incomePieChartLabels"
-        [chartType]="pieChartType"></canvas>
+      <aly-money-chart [chartData]="incomePieChartData"></aly-money-chart>
     </div>
 
     <div style="display: block" class="aly-card chart">
       <p>Chi tiêu</p>
-      <canvas baseChart [options]="chartOptions" [data]="outcomePieChartData" [labels]="outcomePieChartLabels"
-        [chartType]="pieChartType"></canvas>
+      <aly-money-chart [chartData]="outcomePieChartData"></aly-money-chart>
     </div>
 
     <div class="aly-card income-progress">
-      <p>Kế hoạch thu</p>
+      <p>Kế hoạch thu <span
+          [class]="totalIncomeProgress>totalIncomeMax?'incomeColorUper':'incomeColorUp'">{{(totalIncomeProgress | number) + '/' + (totalIncomeMax | number)}}</span>
+      </p>
       <aly-money-progress *ngFor="let progress of incomeProgress" [progressTag]="progress"></aly-money-progress>
     </div>
 
     <div class="aly-card outcome-progress">
-      <p>Kế hoạch chi</p>
+      <p>Kế hoạch chi <span
+          [class]="totalOutcomeProgress>totalOutcomeMax?'outcomeColorUp':'outcomeColorDown'">{{(totalOutcomeProgress | number) + '/' + (totalOutcomeMax | number)}}</span>
+      </p>
       <aly-money-progress *ngFor="let progress of outcomeProgress" [progressTag]="progress"></aly-money-progress>
     </div>
   </div>

@@ -9,6 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MoneyPage } from './money.page';
 import { AddWalletComponent } from './money-manage/add-wallet/add-wallet.component';
 import { AddMoneyComponent } from './add-money/add-money.component';
+import { MoneyStockComponent } from './money-stock/money-stock.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'plan',
     component: MoneyPlanContainerComponent
+  },
+  {
+    path: 'stock',
+    component: MoneyStockComponent
   }
 ];
 

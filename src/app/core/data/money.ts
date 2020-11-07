@@ -8,12 +8,12 @@ export const moneyIncomeType = [
 
 export const moneyOutcomeType = [
     { name: 'Ăn uống', id: 'anuong', icon: 'assets/icon/eat.svg' },
-    { name: 'Đi lại', id: 'dilai', icon: 'assets/icon/transport.svg' },
     { name: 'Mua sắm', id: 'mua', icon: 'assets/icon/buy.svg' },
     { name: 'Học tập', id: 'hoc', icon: 'assets/icon/outcome-study.svg' },
     { name: 'Giải trí', id: 'giaitri', icon: 'assets/icon/outcome-entertain.svg' },
     { name: 'Sức khỏe', id: 'khoe', icon: 'assets/icon/outcome-healthy.svg' },
+    { name: 'Đi lại', id: 'dilai', icon: 'assets/icon/transport.svg' },
     { name: 'Kinh doanh', id: 'kinhdoanh', icon: 'assets/icon/sell.svg' },
     { name: 'Hóa đơn', id: 'bill', icon: 'assets/icon/money-history.svg' },
     { name: 'Khác', id: 'outcome', icon: 'assets/icon/outcome-other.svg' }
-]
+];

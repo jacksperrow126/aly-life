@@ -19,6 +19,7 @@ export class AuthPage implements OnInit {
   public isErr = false;
   constructor(private userService: UserService, private imagePicker: ImagePicker, private webview: WebView, private store: Storage, private router: Router) { }
 
+  
   ngOnInit() {
     this.url = 'assets/img/default-avatar.jpg';
     this.store.ready().then(() => {

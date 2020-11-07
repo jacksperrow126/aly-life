@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="heading"><i class="icon icon-back" routerLink="/money"></i> Chứng khoán</h1>
+  <div class="stock-manage">
+    <div class="stock-overview">
+      <div><img src="assets/icon/stock.svg" alt=""></div>
+      <div>
+        <p>5000000</p>
+      </div>
+      <div class="add-button"><button alyTouchReact (click)="showForm()"><img src="assets/icon/plus.svg"></button></div>
+    </div>
+
+    <div class="stock-info" *ngFor="let stock of stockList">
+      <div class="stock-name">
+        <p>{{stock.code}}</p>
+      </div>
+      <div class="stock-start-price">
+        <p>{{stock.startPrice}}</p>
+      </div>
+      <div class="stock-start-price">
+        <p>{{stock.value}}</p>
+      </div>
+    </div>
+  </div>
+</div>
