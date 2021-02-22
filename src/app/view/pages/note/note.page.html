@@ -1,6 +1,9 @@
 <div class="container">
   <div class="header fadeInDown">
-    <h1 class="heading"><i class="icon icon-back" (click)="unpress()" routerLink="/menu"></i> Ghi chú</h1>
+    <h1 class="heading">
+      <i class="icon icon-back" (click)="unpress()" routerLink="/home"></i> Ghi
+      chú
+    </h1>
     <div class="function-btn">
       <div class="create-note">
         <div alyDialog [data]="tags" alyTouchReact>
@@ -10,7 +13,7 @@
       <div class="pick-date">
         <div (click)="picker.open()" alyTouchReact>
           <p>{{dateSelect}}</p>
-          <input [matDatepicker]="picker" (dateInput)="pickDate($event)">
+          <input [matDatepicker]="picker" (dateInput)="pickDate($event)" />
           <mat-datepicker touchUi #picker></mat-datepicker>
         </div>
       </div>
@@ -27,8 +30,13 @@
       <aly-note-detail [note]="note"></aly-note-detail>
     </div>
   </div>
-  <div class="add-note" routerLink="/note/add" alyTouchReact (click)="unpress()">
-    <img src="assets/icon/note.svg">
+  <div
+    class="add-note"
+    routerLink="/note/add"
+    alyTouchReact
+    (click)="unpress()"
+  >
+    <img src="assets/icon/note.svg" />
   </div>
   <div class="cancel btn-container">
     <button class="aly-btn hide" (click)="unpress()" #cancel>Trở lại</button>

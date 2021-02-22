@@ -10,13 +10,11 @@ import { MoneyService } from '@core/services/money.service';
 export class MoneyPreviewComponent implements OnInit {
   public currentBalance: number;
 
-  constructor(private moneyService: MoneyService) { }
+  constructor(private moneyService: MoneyService) {}
 
   ngOnInit() {
-    this.moneyService.initMoneyService.subscribe(data => {
+    this.moneyService.initMoneyService.subscribe((data) => {
       this.currentBalance = this.moneyService.getCurrentBalance();
-    })
+    });
   }
-
-
-} 
+}

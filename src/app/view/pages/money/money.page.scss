@@ -13,12 +13,11 @@
   .manage,
   .stock {
     padding: 25px;
-    background: $main-yellow-color;
+    background: $main-color;
     width: 100%;
     border-radius: 20px;
     margin-bottom: 15px;
     font-weight: 600;
-
   }
 
   span {
@@ -37,7 +36,7 @@
     right: 15px;
     border-radius: 50%;
     padding: 5px;
-    background: rgba(187, 189, 194, 0.685);
+    background: #7699efaf;
     width: 58px;
     height: 58px;
     animation: fadeInUp 0.5s;

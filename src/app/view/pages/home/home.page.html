@@ -1,7 +1,7 @@
 <div class="container home">
   <!-- Menu button -->
   <div class="menu-btn-container" routerLink="/menu">
-    <img src="assets/img/menu-btn.png" class="menu-btn">
+    <img src="assets/img/menu-btn.png" class="menu-btn" />
   </div>
 
   <!-- Greeting -->
@@ -15,7 +15,7 @@
 
     <!-- Greeting card -->
     <div class="greeting-card" alyTouchReact>
-      <div class="greeting-card__avatar"><img [src]="user?.avatar"></div>
+      <div class="greeting-card__avatar"><img [src]="user?.avatar" /></div>
       <div class="greeting-card__background">
         <div class="greeting-card__quote">
           <p class="quote">{{quote.quote}}</p>
@@ -29,20 +29,40 @@
       <h1 class="heading">Ghi chú</h1>
       <aly-note-overview></aly-note-overview>
       <div class="tags">
-        <div class="main-tag note-tag" alyTouchReact (click)="selectTag('family')">
-          <img src="assets/icon/family.svg">
+        <div
+          class="main-tag note-tag"
+          alyTouchReact
+          (click)="selectTag('family')"
+        >
+          <img src="assets/icon/family.svg" />
         </div>
-        <div class="sub-tag1 note-tag" alyTouchReact (click)="selectTag('health')">
-          <img src="assets/icon/healthy.svg">
+        <div
+          class="sub-tag1 note-tag"
+          alyTouchReact
+          (click)="selectTag('health')"
+        >
+          <img src="assets/icon/healthy.svg" />
         </div>
-        <div class="sub-tag2 note-tag" alyTouchReact (click)="selectTag('life')">
-          <img src="assets/icon/life.svg">
+        <div
+          class="sub-tag2 note-tag"
+          alyTouchReact
+          (click)="selectTag('life')"
+        >
+          <img src="assets/icon/life.svg" />
         </div>
-        <div class="sub-tag3 note-tag" alyTouchReact (click)="selectTag('work')">
-          <img src="assets/icon/work.svg">
+        <div
+          class="sub-tag3 note-tag"
+          alyTouchReact
+          (click)="selectTag('work')"
+        >
+          <img src="assets/icon/work.svg" />
         </div>
-        <div class="sub-tag4 note-tag" alyTouchReact (click)="selectTag('study')">
-          <img src="assets/icon/study.svg">
+        <div
+          class="sub-tag4 note-tag"
+          alyTouchReact
+          (click)="selectTag('study')"
+        >
+          <img src="assets/icon/study.svg" />
         </div>
       </div>
     </div>
@@ -52,6 +72,24 @@
       <h1 class="heading">Ví tiền</h1>
       <aly-money-preview></aly-money-preview>
     </div>
-    <p class="version">0.2.1</p>
+    <p class="version">0.5.1</p>
+  </div>
+
+  <div class="navigator">
+    <div class="nav-item" alyTouchReact alyRoute route="/money">
+      <img src="assets/icon/wallet.svg" />
+    </div>
+
+    <div class="nav-item" alyTouchReact alyRoute route="/note">
+      <img src="assets/icon/note.svg" alt="" />
+    </div>
+
+    <div class="nav-item" alyTouchReact alyRoute route="/health">
+      <img src="assets/icon/health.svg" alt="" />
+    </div>
+
+    <div class="nav-item" alyTouchReact alyRoute route="/setting">
+      <img src="assets/icon/setting.svg" />
+    </div>
   </div>
 </div>

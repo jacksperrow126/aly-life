@@ -13,23 +13,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
-
   public user: User;
   public url: any;
   public isErr = false;
-  constructor(private userService: UserService, private imagePicker: ImagePicker, private webview: WebView, private store: Storage, private router: Router) { }
+  constructor(
+    private userService: UserService,
+    private imagePicker: ImagePicker,
+    private webview: WebView,
+    private store: Storage,
+    private router: Router
+  ) {}
 
-  
   ngOnInit() {
-    this.url = 'assets/img/default-avatar.jpg';
+    this.url = 'assets/img/default-avatar.png';
     this.store.ready().then(() => {
-      this.store.get('user').then(data => {
+      this.store.get('user').then((data) => {
         if (data !== null || undefined) {
           this.user = data;
         } else {
           this.user = {
             name: undefined,
-            avatar: this.url
+            avatar: this.url,
           };
         }
       });
@@ -38,7 +42,11 @@ export class AuthPage implements OnInit {
 
   onSubmit(auth: FormControl) {
     if (this.user.password !== undefined || null || '') {
-      if (auth.value.pass == undefined || '' || auth.value.pass !== this.user.password) {
+      if (
+        auth.value.pass == undefined ||
+        '' ||
+        auth.value.pass !== this.user.password
+      ) {
         this.isErr = true;
         return;
       }
@@ -63,12 +71,14 @@ export class AuthPage implements OnInit {
   }
 
   picker() {
-    this.imagePicker.getPictures({ maximumImagesCount: 1 }).then((results) => {
-      for (var i = 0; i < results.length; i++) {
-        this.url = this.webview.convertFileSrc(results[i]);
-        this.user.avatar = this.url;
-      }
-    }, (err) => { });
+    this.imagePicker.getPictures({ maximumImagesCount: 1 }).then(
+      (results) => {
+        for (var i = 0; i < results.length; i++) {
+          this.url = this.webview.convertFileSrc(results[i]);
+          this.user.avatar = this.url;
+        }
+      },
+      (err) => {}
+    );
   }
 }
-

@@ -1,38 +1,43 @@
 @import '../../../../core/shared/scss/shared';
 
 .money-overview-container {
-    overflow: hidden;
-    padding-top: 15px;
-
-    p {
-        font-weight: bold;
+  overflow: hidden;
+  padding-top: 15px;
+  .pick-month {
+    input {
+      display: none;
     }
+    box-shadow: none;
+  }
+  p {
+    font-weight: bold;
+  }
 
-    span {
-        float: right;
-    }
+  span {
+    float: right;
+  }
 
-    .income-progress,
-    .outcome-progress {
-        box-shadow: none;
-        background: #1b1c1c;
-        margin: 10px 0;
-        animation: fadeInUp 0.5s;
-    }
+  .income-progress,
+  .outcome-progress {
+    box-shadow: none;
+    background: $main-color;
+    margin: 10px 0;
+    animation: fadeInUp 0.5s;
+  }
 
-    .incomeColorUp {
-        color: #07ca2c;
-    }
+  .incomeColorUp {
+    color: #07ca2c;
+  }
 
-    .incomeColorUper {
-        color: $ceil-color;
-    }
+  .incomeColorUper {
+    color: $ceil-color;
+  }
 
-    .outcomeColorUp {
-        color: $floor-color;
-    }
+  .outcomeColorUp {
+    color: $floor-color;
+  }
 
-    .outcomeColorDown {
-        color: #ca0d0d;
-    }
+  .outcomeColorDown {
+    color: #ca0d0d;
+  }
 }

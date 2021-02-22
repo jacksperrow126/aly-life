@@ -12,7 +12,7 @@ import { randomID } from '@core/helper/random-id';
 import { Stock } from '@core/models/money/stock.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MoneyService {
   public wallets: Wallet[] = [];
@@ -29,17 +29,17 @@ export class MoneyService {
     this.getListWallets();
     this.getStock();
     this.checkPlanAndSetDefault();
-    moneyIncomeType.forEach(type => {
+    moneyIncomeType.forEach((type) => {
       this.inOutType.push(type.id);
     });
-    moneyOutcomeType.forEach(type => {
+    moneyOutcomeType.forEach((type) => {
       this.inOutType.push(type.id);
     });
   }
 
   getListWallets() {
     this.storage.ready().then(() => {
-      this.storage.get('wallets').then(data => {
+      this.storage.get('wallets').then((data) => {
         if (data) {
           this.wallets = data;
         }
@@ -50,16 +50,16 @@ export class MoneyService {
 
   getCurrentBalance() {
     let currentBalance = 0;
-    this.wallets.forEach(wallet => {
+    this.wallets.forEach((wallet) => {
       currentBalance += wallet.currentBalance;
     });
     return currentBalance;
   }
 
   getDataForChart() {
-    let data = [];
-    this.wallets.forEach(wallet => {
-      wallet.transactions.forEach(transaction => {
+    const data = [];
+    this.wallets.forEach((wallet) => {
+      wallet.transactions.forEach((transaction) => {
         if (transaction) {
           data.push([new Date(transaction.dateFilter), transaction.balance]);
         }
@@ -93,7 +93,7 @@ export class MoneyService {
 
   saveWallets() {
     this.storage.ready().then(() => {
-      this.storage.set(`wallets`, this.wallets).then(data => {
+      this.storage.set(`wallets`, this.wallets).then((data) => {
         this.initMoneyService.next(this.wallets);
       });
     });
@@ -101,10 +101,14 @@ export class MoneyService {
 
   transferMoney(data) {
     let isErr = false;
-    const fromWallet = this.wallets.find(wallet => wallet.name === data.wallet);
-    if (fromWallet.currentBalance < data.money) { isErr = true; }
+    const fromWallet = this.wallets.find(
+      (wallet) => wallet.name === data.wallet
+    );
+    if (fromWallet.currentBalance < data.money) {
+      isErr = true;
+    }
     if (!isErr) {
-      this.wallets.forEach(wallet => {
+      this.wallets.forEach((wallet) => {
         if (wallet.name === data.wallet) {
           wallet.currentBalance -= data.money;
         }
@@ -118,15 +122,19 @@ export class MoneyService {
 
   setMoneyByDay(moneyBill: InOutcome, day = getToday()) {
     this.moneyBill.push(moneyBill);
-    this.wallets.forEach(wallet => {
-      if (wallet.name == moneyBill.wallet) {
-        let transaction = wallet.transactions.find(bill => {
-          return bill.dateId == day;
+    this.wallets.forEach((wallet) => {
+      if (wallet.name === moneyBill.wallet) {
+        let transaction = wallet.transactions.find((bill) => {
+          return bill.dateId === day;
         });
         if (transaction) {
           transaction.bill.push(moneyBill);
         } else {
-          transaction = new Transaction(day, wallet.currentBalance, moneyBill.date);
+          transaction = new Transaction(
+            day,
+            wallet.currentBalance,
+            moneyBill.date
+          );
           transaction.bill.push(moneyBill);
           wallet.transactions.push(transaction);
         }
@@ -151,20 +159,22 @@ export class MoneyService {
 
   getBillByDay(day: string) {
     let result = [];
-    this.wallets.forEach(wallet => {
-      result = result.concat(wallet.transactions.filter(transaction => {
-        return transaction.dateId == day;
-      }));
+    this.wallets.forEach((wallet) => {
+      result = result.concat(
+        wallet.transactions.filter((transaction) => {
+          return transaction.dateId === day;
+        })
+      );
     });
     return result;
   }
 
   getBillByMonth(month: number) {
-    let result = [];
-    this.wallets.forEach(wallet => {
-      wallet.transactions.forEach(transaction => {
-        let date = new Date(transaction.dateFilter);
-        if (date.getMonth() == month) {
+    const result = [];
+    this.wallets.forEach((wallet) => {
+      wallet.transactions.forEach((transaction) => {
+        const date = new Date(transaction.dateFilter);
+        if (date.getMonth() === month) {
           result.push({ bills: transaction.bill, date: transaction.dateId });
         }
       });
@@ -172,36 +182,54 @@ export class MoneyService {
     return result.reverse();
   }
 
-  getInOutcomeMoneyByTag() {
-    let data = {};
-    this.inOutType.forEach(type => {
+  getInOutcomeMoneyByTag(month: number) {
+    const data = {};
+    this.inOutType.forEach((type) => {
       data[type] = 0;
     });
-    this.wallets.forEach(wallet => {
-      wallet.transactions.forEach(transaction => {
-        transaction.bill.forEach(bill => {
-          data[bill.tag] += bill.money;
+    this.wallets.forEach((wallet) => {
+      wallet.transactions.forEach((transaction) => {
+        transaction.bill.forEach((bill) => {
+          const billDate = new Date(bill.date);
+          if (billDate.getMonth() === month) {
+            data[bill.tag] += bill.money;
+          }
         });
       });
     });
     return data;
-
   }
 
   checkPlanAndSetDefault() {
     this.storage.ready().then(() => {
-      this.storage.get('plan-setted').then(data => {
+      this.storage.get('plan-setted').then((data) => {
         if (data == null) {
           this.storage.set('plan-setted', true).then(() => {
-            moneyOutcomeType.forEach(outcome => {
-              this.storage.set(('planOutcome' + outcome.id), { id: outcome.id, name: outcome.name, value: 100000, type: 'outcome', icon: outcome.icon }).then((outcomeData) => {
-                this.outcomePlan.push(outcomeData);
-              });
+            moneyOutcomeType.forEach((outcome) => {
+              this.storage
+                .set('planOutcome' + outcome.id, {
+                  id: outcome.id,
+                  name: outcome.name,
+                  value: 100000,
+                  type: 'outcome',
+                  icon: outcome.icon,
+                })
+                .then((outcomeData) => {
+                  this.outcomePlan.push(outcomeData);
+                });
             });
-            moneyIncomeType.forEach(income => {
-              this.storage.set(('planIncome' + income.id), { id: income.id, name: income.name, value: 1000000, type: 'income', icon: income.icon }).then((incomeData) => {
-                this.incomePlan.push(incomeData);
-              });
+            moneyIncomeType.forEach((income) => {
+              this.storage
+                .set('planIncome' + income.id, {
+                  id: income.id,
+                  name: income.name,
+                  value: 1000000,
+                  type: 'income',
+                  icon: income.icon,
+                })
+                .then((incomeData) => {
+                  this.incomePlan.push(incomeData);
+                });
             });
           });
         } else {
@@ -213,13 +241,13 @@ export class MoneyService {
 
   getPlan() {
     this.storage.ready().then(() => {
-      moneyIncomeType.forEach(income => {
-        this.storage.get('planIncome' + income.id).then(data => {
+      moneyIncomeType.forEach((income) => {
+        this.storage.get('planIncome' + income.id).then((data) => {
           this.incomePlan.push(data);
         });
       });
-      moneyOutcomeType.forEach(outcome => {
-        this.storage.get('planOutcome' + outcome.id).then(data => {
+      moneyOutcomeType.forEach((outcome) => {
+        this.storage.get('planOutcome' + outcome.id).then((data) => {
           this.outcomePlan.push(data);
         });
       });
@@ -228,22 +256,26 @@ export class MoneyService {
 
   changePlan(changedPlan: TagPlan) {
     this.storage.ready().then(() => {
-      if (changedPlan.type == 'income') {
-        this.storage.set(('planIncome' + changedPlan.id), changedPlan).then(() => {
-          this.incomePlan.forEach(plan => {
-            if (plan.id == changedPlan.id) {
-              plan.value = changedPlan.value;
-            }
+      if (changedPlan.type === 'income') {
+        this.storage
+          .set('planIncome' + changedPlan.id, changedPlan)
+          .then(() => {
+            this.incomePlan.forEach((plan) => {
+              if (plan.id === changedPlan.id) {
+                plan.value = changedPlan.value;
+              }
+            });
           });
-        });
       } else {
-        this.storage.set(('planOutcome' + changedPlan.id), changedPlan).then(() => {
-          this.incomePlan.forEach(plan => {
-            if (plan.id == changedPlan.id) {
-              plan.value = changedPlan.value;
-            }
+        this.storage
+          .set('planOutcome' + changedPlan.id, changedPlan)
+          .then(() => {
+            this.incomePlan.forEach((plan) => {
+              if (plan.id === changedPlan.id) {
+                plan.value = changedPlan.value;
+              }
+            });
           });
-        });
       }
     });
   }
@@ -257,7 +289,9 @@ export class MoneyService {
   getStock() {
     this.storage.ready().then(() => {
       this.storage.get('stock').then((data) => {
-        if (data) this.stockList = data;
+        if (data) {
+          this.stockList = data;
+        }
         console.log(data);
       });
     });
@@ -265,12 +299,9 @@ export class MoneyService {
 
   saveStock() {
     this.storage.ready().then(() => {
-      this.storage.set('stock', this.stockList).then((data) => {
-      });
+      this.storage.set('stock', this.stockList).then((data) => {});
     });
   }
 
-  deleteStock() {
-
-  }
+  deleteStock() {}
 }

@@ -1,7 +1,20 @@
 <div class="container">
   <div class="money-overview-container">
-    <h1 class="heading"><i class="icon icon-back" routerLink="/money"></i>Biểu đồ</h1>
-
+    <h1 class="heading">
+      <i class="icon icon-back" routerLink="/money"></i>Biểu đồ
+    </h1>
+    <div class="pick-month aly-card">
+      <div (click)="picker.open()" alyTouchReact>
+        <p>{{ 'Tháng đang xem: Tháng ' + (dateSelect + 1) }}</p>
+        <input [matDatepicker]="picker" />
+        <mat-datepicker
+          startView="year"
+          touchUi
+          #picker
+          (monthSelected)="chosenMonthHandler($event, picker)"
+        ></mat-datepicker>
+      </div>
+    </div>
     <!-- <div style="display: block" class="aly-card chart">
       <p>Tổng quan</p>
       <aly-money-chart [chartData]="totalMoneyChartData" [type]="'area'"></aly-money-chart>
@@ -18,17 +31,43 @@
     </div>
 
     <div class="aly-card income-progress">
-      <p>Kế hoạch thu <span
-          [class]="totalIncomeProgress>totalIncomeMax?'incomeColorUper':'incomeColorUp'">{{(totalIncomeProgress | number) + '/' + (totalIncomeMax | number)}}</span>
+      <p>
+        Kế hoạch thu
+        <span
+          [class]="
+            totalIncomeProgress > totalIncomeMax
+              ? 'incomeColorUper'
+              : 'incomeColorUp'
+          "
+          >{{
+            (totalIncomeProgress | number) + '/' + (totalIncomeMax | number)
+          }}</span
+        >
       </p>
-      <aly-money-progress *ngFor="let progress of incomeProgress" [progressTag]="progress"></aly-money-progress>
+      <aly-money-progress
+        *ngFor="let progress of incomeProgress"
+        [progressTag]="progress"
+      ></aly-money-progress>
     </div>
 
     <div class="aly-card outcome-progress">
-      <p>Kế hoạch chi <span
-          [class]="totalOutcomeProgress>totalOutcomeMax?'outcomeColorUp':'outcomeColorDown'">{{(totalOutcomeProgress | number) + '/' + (totalOutcomeMax | number)}}</span>
+      <p>
+        Kế hoạch chi
+        <span
+          [class]="
+            totalOutcomeProgress > totalOutcomeMax
+              ? 'outcomeColorUp'
+              : 'outcomeColorDown'
+          "
+          >{{
+            (totalOutcomeProgress | number) + '/' + (totalOutcomeMax | number)
+          }}</span
+        >
       </p>
-      <aly-money-progress *ngFor="let progress of outcomeProgress" [progressTag]="progress"></aly-money-progress>
+      <aly-money-progress
+        *ngFor="let progress of outcomeProgress"
+        [progressTag]="progress"
+      ></aly-money-progress>
     </div>
   </div>
 </div>

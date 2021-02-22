@@ -1,11 +1,18 @@
 <div class="container">
-  <h1 class="heading"><i class="icon icon-back" routerLink="/menu"></i> Cài đặt</h1>
+  <h1 class="heading">
+    <i class="icon icon-back" routerLink="/home"></i> Cài đặt
+  </h1>
   <div class="avatar-container">
     <div class="avatar">
       <div class="avatar-img">
-        <img [src]="user?.avatar" class="img">
+        <img [src]="user?.avatar" class="img" />
         <div class="edit">
-          <img alyTouchReact src="assets/icon/edit.svg" class="edit-icon" (click)="picker()">
+          <img
+            alyTouchReact
+            src="assets/icon/edit.svg"
+            class="edit-icon"
+            (click)="picker()"
+          />
         </div>
       </div>
       <div class="avatar-text">
@@ -15,12 +22,15 @@
   </div>
   <div class="function">
     <div class="user" alyTouchReact alyRoute route="/setting/user">
-      <p> <img src="assets/icon/user.svg" alt=""><span>Thông tin cá nhân</span></p>
+      <p>
+        <img src="assets/icon/user.svg" alt="" /><span>Thông tin cá nhân</span>
+      </p>
     </div>
     <div class="password" alyTouchReact alyRoute route="/setting/password">
-      <p> <img src="assets/icon/password.svg" alt=""><span>Mật khẩu</span></p>
+      <p><img src="assets/icon/password.svg" alt="" /><span>Mật khẩu</span></p>
     </div>
     <div class="home" alyTouchReact alyRoute route="/home">
-      <p><img src="assets/icon/home.svg" alt=""><span>Về trang chủ</span></p>
+      <p><img src="assets/icon/home.svg" alt="" /><span>Về trang chủ</span></p>
     </div>
   </div>
+</div>

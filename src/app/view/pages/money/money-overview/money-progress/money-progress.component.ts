@@ -8,12 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MoneyProgressComponent implements OnInit {
   @Input() progressTag;
   public progress: number;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.progress = this.progressTag.progress / this.progressTag.max * 100;
+    this.progress = (this.progressTag.progress / this.progressTag.max) * 100;
     if (this.progress > 100) {
-      this.progress = 100
+      this.progress = 100;
     }
   }
 }

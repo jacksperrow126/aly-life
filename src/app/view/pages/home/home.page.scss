@@ -3,6 +3,9 @@
 $h1-size: 30px;
 $user-color: #8bc34a;
 
+.home {
+  padding-bottom: 35px;
+}
 // Menu btn
 .menu-btn-container {
   position: relative;
@@ -14,9 +17,6 @@ $user-color: #8bc34a;
   .menu-btn {
     width: 35px;
   }
-}
-
-.home {
 }
 
 // Greeting
@@ -66,7 +66,6 @@ $user-color: #8bc34a;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      box-shadow: $box-shadow;
 
       .greeting-card__quote {
         position: absolute;
@@ -122,7 +121,7 @@ $user-color: #8bc34a;
 
       .note-tag {
         border-radius: 20px;
-        background-color: $main-yellow-color;
+        background-color: $main-color;
         box-shadow: $bubble-shadow;
       }
 
@@ -160,4 +159,28 @@ $user-color: #8bc34a;
 
 .version {
   font-size: 12px;
+}
+
+.navigator {
+  position: fixed;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 70vw;
+  height: 46px;
+  background: #e2f8ff;
+  bottom: 10px;
+  left: 15vw;
+  z-index: 9999;
+  border-radius: 22px;
+  animation: fadeInUp 1s;
+  box-shadow: 0 0 15px #0000001f;
+  .nav-item {
+    width: 100%;
+    padding: 5px 0;
+    text-align: center;
+    img {
+      width: 36px;
+      height: 36px;
+    }
+  }
 }
