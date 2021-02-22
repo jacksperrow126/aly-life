@@ -5,7 +5,7 @@ export function getChartOptions(type, data: any[]): Highcharts.Options {
             plotBorderWidth: null,
             plotShadow: false,
             type,
-            backgroundColor: '#fbe6e6',
+            backgroundColor: '#8C8C8C',
             // margin: [0, 0, 20, 0],
         },
         plotOptions: {

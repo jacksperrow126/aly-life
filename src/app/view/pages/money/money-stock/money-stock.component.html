@@ -4,21 +4,48 @@
     <div class="stock-overview">
       <div><img src="assets/icon/stock.svg" alt=""></div>
       <div>
-        <p>5000000</p>
+        <p class="total">{{b}}</p>
       </div>
       <div class="add-button"><button alyTouchReact (click)="showForm()"><img src="assets/icon/plus.svg"></button></div>
     </div>
+    <div class="stock-express">
+      <div class="form__group field">
+        <input [(ngModel)]="a" type="number" class="form__field" placeholder="Name" name="name" id='name' required />
+        <label for="name" class="form__label">Number</label><button (click)="show()">thêm</button>
+      </div>
+      <div class="stock-info" *ngFor="let stock of stockList">
+        <div class="card">
+          <tr class="set">
+            <td>Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Total</td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <p>{{stock.code}}</p>
+              </div>
+            </td>
+            <td>
+              <div class="stock-start-price">
+                <p>{{stock.startPrice}}</p>
+              </div>
+            </td>
+            <td>
+              <div class="stock-start-quantity">
+                <p>{{stock.volume}}</p>
+              </div>
+            </td>
+            <td>
+              <div class="stock-start-price">
+                <p>{{stock.value |number}}</p>
+              </div>
+            </td>
+          </tr>
 
-    <div class="stock-info" *ngFor="let stock of stockList">
-      <div class="stock-name">
-        <p>{{stock.code}}</p>
+
+
+
+        </div>
       </div>
-      <div class="stock-start-price">
-        <p>{{stock.startPrice}}</p>
-      </div>
-      <div class="stock-start-price">
-        <p>{{stock.value}}</p>
-      </div>
-    </div>
-  </div>
-</div>

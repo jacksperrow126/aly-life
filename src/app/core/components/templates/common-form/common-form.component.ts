@@ -31,7 +31,9 @@ export class CommonFormComponent implements OnInit {
       stockInfo.startDate = new Date();
       stockInfo.isHoding = true;
       stockInfo.value = form.value.startPrice * form.value.volume;
+      stockInfo.value = form.value.volume;
       this.moneyService.addStock(stockInfo);
+      this.hideForm();
       return;
     }
   }
