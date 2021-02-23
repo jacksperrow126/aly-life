@@ -1,11 +1,15 @@
 <div class="container">
-  <h1 class="heading"><i class="icon icon-back" routerLink="/setting"></i> Cá nhân</h1>
+  <h1 class="heading">
+    <i class="icon icon-back" routerLink="/setting"></i> Cá nhân
+  </h1>
   <div class="pass-container">
     <form #pass="ngForm" (submit)="onSubmit(pass)">
       <div class="password">
         <p>Tớ sẽ gọi bạn là:</p>
-        <input type="text" name="name" class="aly-input" ngModel required>
-        <div class="btn-container"><button alyTouchReact class="aly-btn">Đồng ý</button></div>
+        <input type="text" name="name" class="aly-input" ngModel required />
+        <div class="btn-container">
+          <button alyTouchReact class="aly-btn">Đồng ý</button>
+        </div>
         <p *ngIf="isErr" class="err">Bạn hãy nhập tên nhé!</p>
       </div>
     </form>
