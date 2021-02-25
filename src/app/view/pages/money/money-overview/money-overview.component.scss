@@ -8,6 +8,10 @@
       display: none;
     }
     box-shadow: none;
+    div {
+      display: flex;
+      align-items: center;
+    }
   }
   p {
     font-weight: bold;

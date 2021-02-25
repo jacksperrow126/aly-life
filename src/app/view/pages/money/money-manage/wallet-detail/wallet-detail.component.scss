@@ -1,49 +1,48 @@
 .wallet-card {
-    background: linear-gradient(209deg, rgba(236, 129, 230, 1) 58%, rgba(135, 190, 255, 1) 100%);
-    color: white;
-    padding: 15px;
-    overflow: hidden;
-    font-family: "noticia" !important;
-    text-align: center;
-    margin: 20px 0;
+  background: linear-gradient(209deg, #efaaeb 58%, #b390e2 100%);
+  color: white;
+  padding: 15px;
+  overflow: hidden;
+  font-family: 'noticia' !important;
+  text-align: center;
+  margin: 20px 0;
 
-    img {
-        width: 100%;
-    }
+  img {
+    width: 100%;
+  }
 
-    h2 {
-        margin: 5px 0px;
-        font-size: 18px;
+  h2 {
+    margin: 5px 0px;
+    font-size: 18px;
+  }
 
-    }
+  h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+  }
 
-    h1 {
-        margin: 0;
-        font-size: 32px;
-        font-weight: bold;
-    }
+  p {
+    padding: 5px;
+    font-size: 15px;
+  }
+
+  .in-out {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
     p {
-        padding: 5px;
-        font-size: 15px;
+      padding: 2px;
     }
 
-    .in-out {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-
-        p {
-            padding: 2px;
-        }
-
-        .in {
-            background-color: green;
-            padding: 5px;
-        }
-
-        .out {
-            padding: 5px;
-            background-color: red;
-        }
+    .in {
+      background-color: green;
+      padding: 5px;
     }
+
+    .out {
+      padding: 5px;
+      background-color: red;
+    }
+  }
 }

@@ -17,29 +17,32 @@ export class MoneyHistoryComponent implements OnInit, OnDestroy {
   public transactions: any[];
   private subcription: Subscription;
   public selectedDate: string;
-  constructor(private moneyService: MoneyService, private storage: Storage) { }
+  constructor(private moneyService: MoneyService, private storage: Storage) {}
 
   ngOnInit() {
-    this.subcription = this.moneyService.initMoneyService.subscribe(data => {
+    this.subcription = this.moneyService.initMoneyService.subscribe((data) => {
       let day = new Date();
       this.selectedDate = getToday(day);
       this.transactions = this.moneyService.getBillByMonth(day.getMonth());
-    })
+    });
   }
 
   getToday(day: string) {
-    return getToday(day)
+    return getToday(day);
   }
 
   pickDate(event: MatDatepickerInputEvent<Date>) {
     this.selectedDate = getToday(event.value);
-    this.transactions = this.moneyService.getBillByMonth(event.value.getMonth());
+    this.transactions = this.moneyService.getBillByMonth(
+      event.value.getMonth()
+    );
   }
 
-  getTagIcon( id){
-    return TagIcon[id]
+  getTagIcon(id) {
+    return TagIcon[id];
   }
+
   ngOnDestroy() {
-    this.subcription.unsubscribe()
+    this.subcription.unsubscribe();
   }
-}   
+}

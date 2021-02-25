@@ -6,6 +6,7 @@
     <div class="pick-month aly-card">
       <div (click)="picker.open()" alyTouchReact>
         <p>{{ 'Tháng đang xem: Tháng ' + (dateSelect + 1) }}</p>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <input [matDatepicker]="picker" />
         <mat-datepicker
           startView="year"
