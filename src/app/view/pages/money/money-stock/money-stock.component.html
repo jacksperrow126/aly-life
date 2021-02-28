@@ -1,51 +1,66 @@
 <div class="container">
-  <h1 class="heading"><i class="icon icon-back" routerLink="/money"></i> Chứng khoán</h1>
+  <h1 class="heading">
+    <i class="icon icon-back" routerLink="/money"></i> Chứng khoán
+  </h1>
   <div class="stock-manage">
     <div class="stock-overview">
-      <div><img src="assets/icon/stock.svg" alt=""></div>
+      <div><img src="assets/icon/stock.svg" alt="" /></div>
       <div>
-        <p class="total">{{b}}</p>
+        <p class="total">{{ totalValue | number }}</p>
       </div>
-      <div class="add-button"><button alyTouchReact (click)="showForm()"><img src="assets/icon/plus.svg"></button></div>
+      <div class="add-button">
+        <button alyTouchReact (click)="showForm()">
+          <img src="assets/icon/plus.svg" />
+        </button>
+      </div>
     </div>
     <div class="stock-express">
-      <div class="form__group field">
-        <input [(ngModel)]="a" type="number" class="form__field" placeholder="Name" name="name" id='name' required />
-        <label for="name" class="form__label">Number</label><button (click)="show()">thêm</button>
-      </div>
       <div class="stock-info" *ngFor="let stock of stockList">
-        <div class="card">
-          <tr class="set">
-            <td>Name</td>
-            <td>Price</td>
-            <td>Quantity</td>
-            <td>Total</td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <p>{{stock.code}}</p>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="stock-detail">
+                <p>{{ stock.code }}</p>
               </div>
-            </td>
-            <td>
-              <div class="stock-start-price">
-                <p>{{stock.startPrice}}</p>
-              </div>
-            </td>
-            <td>
-              <div class="stock-start-quantity">
-                <p>{{stock.volume}}</p>
-              </div>
-            </td>
-            <td>
-              <div class="stock-start-price">
-                <p>{{stock.value |number}}</p>
-              </div>
-            </td>
-          </tr>
-
-
-
-
-        </div>
+            </mat-panel-title>
+            <p class="value">{{ stock.value | number }}</p>
+            <mat-panel-description> </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="detail">
+            <div class="info"></div>
+            <p>
+              Giá:
+              <span class="detail-value">{{ stock.startPrice | number }} </span>
+            </p>
+            <p>
+              Khối lượng:
+              <span class="detail-value">{{ stock.volume | number }}</span>
+            </p>
+          </div>
+          <mat-action-row>
+            <button
+              class="aly-btn"
+              (click)="sellStock(stock.code)"
+              alyTouchReact
+            >
+              Bán
+            </button>
+            <button
+              class="aly-btn"
+              alyTouchReact
+              (click)="
+                changeStock({
+                  code: stock.code,
+                  startPrice: stock.startPrice,
+                  volume: stock.volume
+                })
+              "
+            >
+              Sửa
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
       </div>
+    </div>
+  </div>
+</div>

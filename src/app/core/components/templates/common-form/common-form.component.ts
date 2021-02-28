@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ADD_STOCK } from '@core/const/model-form-key';
 import { Stock } from '@core/models/money/stock.model';
 import { IFormModal } from '@core/models/template/form-modal-data.model';
@@ -11,27 +11,43 @@ import { MoneyService } from '@core/services/money.service';
   templateUrl: './common-form.component.html',
   styleUrls: ['./common-form.component.scss'],
 })
-
 export class CommonFormComponent implements OnInit {
   @ViewChild('overlay') overlay: ElementRef;
   @ViewChild('formContainer') formContainer: ElementRef;
+  public formControl = new FormGroup({
+    code: new FormControl(''),
+    startPrice: new FormControl(''),
+    volume: new FormControl(''),
+  });
   public data: IFormModal;
   public isAddStock = false;
-  constructor(private formService: FormService, private moneyService: MoneyService) { }
+  constructor(
+    private formService: FormService,
+    private moneyService: MoneyService
+  ) {}
 
   ngOnInit() {
-    if (this.data.key === ADD_STOCK) this.isAddStock = true;
+    if (this.data.key === ADD_STOCK) {
+      this.isAddStock = true;
+    }
+    if (this.data.data) {
+      console.log(this.data.data);
+      this.formControl.patchValue(this.data.data);
+    }
   }
 
-  onSubmit(form: NgForm) {
-    if (form.invalid) return;
+  onSubmit() {
+    if (this.formControl.invalid) {
+      return;
+    }
+
     if (this.isAddStock) {
-      const stockInfo: Stock = form.value;
-      stockInfo.code = form.value.code.toUpperCase();
+      const stockInfo: Stock = this.formControl.value;
+      stockInfo.code = this.formControl.value.code.toUpperCase();
       stockInfo.startDate = new Date();
       stockInfo.isHoding = true;
-      stockInfo.value = form.value.startPrice * form.value.volume;
-      stockInfo.value = form.value.volume;
+      stockInfo.value =
+        this.formControl.value.startPrice * this.formControl.value.volume;
       this.moneyService.addStock(stockInfo);
       this.hideForm();
       return;
@@ -44,7 +60,10 @@ export class CommonFormComponent implements OnInit {
 
   hideForm() {
     this.overlay.nativeElement.classList.add('hide-smooth');
-    this.formContainer.nativeElement.classList.remove('magictime', 'slideDownReturn');
+    this.formContainer.nativeElement.classList.remove(
+      'magictime',
+      'slideDownReturn'
+    );
     this.formContainer.nativeElement.classList.add('magictime', 'slideDown');
     setTimeout(() => {
       this.formService.removeFormComponentFromBody();

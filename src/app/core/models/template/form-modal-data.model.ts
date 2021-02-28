@@ -1,3 +1,10 @@
 export interface IFormModal {
-    key: string;
+  key: string;
+  data?: IStockForm;
+}
+
+interface IStockForm {
+  code: string;
+  startPrice: number;
+  volume: number;
 }

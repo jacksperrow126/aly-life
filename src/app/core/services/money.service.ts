@@ -281,8 +281,27 @@ export class MoneyService {
   }
 
   addStock(stockInfo: Stock) {
-    this.stockList.push(stockInfo);
+    const currentStock = this.stockList.find(
+      (stock) => stock.code === stockInfo.code
+    );
+    if (currentStock) {
+      Object.keys(currentStock).forEach((key) => {
+        currentStock[key] = stockInfo[key];
+      });
+    } else {
+      this.stockList.push(stockInfo);
+    }
     this.changeStockList.next('change');
+    this.saveStock();
+  }
+
+  sellStock(stockCode: string) {
+    const currentStock = this.stockList.find(
+      (stock, i) => stock.code === stockCode
+    );
+    if (currentStock) {
+      this.stockList.splice(this.stockList.indexOf(currentStock), 1);
+    }
     this.saveStock();
   }
 
@@ -292,7 +311,6 @@ export class MoneyService {
         if (data) {
           this.stockList = data;
         }
-        console.log(data);
       });
     });
   }
@@ -301,6 +319,7 @@ export class MoneyService {
     this.storage.ready().then(() => {
       this.storage.set('stock', this.stockList).then((data) => {});
     });
+    this.changeStockList.next('Changed');
   }
 
   deleteStock() {}

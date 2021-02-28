@@ -13,7 +13,7 @@ import { ScaleFullDirective } from '@core/directives/scale-full.directive';
 import { RouteDirective } from '@core/directives/route.directive';
 import { MoneyPreviewComponent } from '@core/components/money-preview/money-preview.component';
 import { CommonFormComponent } from '@core/components/templates/common-form/common-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const components = [
   NoteOverviewComponent,
@@ -26,7 +26,7 @@ const components = [
   ScaleFullDirective,
   RouteDirective,
   MoneyPreviewComponent,
-  ChangePlanDirective
+  ChangePlanDirective,
 ];
 
 @NgModule({
@@ -35,9 +35,10 @@ const components = [
     CommonModule,
     ChartsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  exports: [components, MaterialModule, ChartsModule,],
-  entryComponents: [DialogComponent]
+  exports: [components, MaterialModule, ChartsModule],
+  entryComponents: [DialogComponent],
 })
-export class SharedModule { }
+export class SharedModule {}

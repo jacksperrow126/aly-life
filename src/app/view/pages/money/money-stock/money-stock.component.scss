@@ -1,9 +1,19 @@
 @import '../../../../core/shared/scss/shared';
 
+$background: linear-gradient(
+  0deg,
+  rgba(247, 239, 239, 1) 0%,
+  rgba(245, 229, 228, 1) 100%
+);
+
 .stock-manage {
+  .total {
+    font-size: 20px;
+    font-weight: bold;
+  }
   .stock-overview {
     display: grid;
-    grid-template-columns: 1fr 1fr 50%;
+    grid-template-columns: 1fr 1fr 40%;
     background: $main-color;
     border-radius: 12px;
 
@@ -147,4 +157,51 @@ body {
   min-height: 100vh;
   font-size: 1.5rem;
   background-color: #222222;
+}
+
+mat-expansion-panel {
+  margin: 8px 0;
+  background: $background !important;
+  border-radius: $border-radius !important;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  font-family: 'noticia' !important;
+
+  .icon {
+    width: 26px;
+  }
+}
+
+.mat-expansion-panel:not(.mat-expanded):not([aria-disabled='true'])
+  .mat-expansion-panel-header:hover {
+  background: $background !important;
+}
+
+.mat-expansion-panel-header-description {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.stock-detail {
+  display: flex;
+  align-items: center;
+  max-width: 70%;
+  font-weight: bold;
+}
+
+.value {
+  font-size: 16px;
+  color: rgb(25, 190, 25);
+  font-weight: bold;
+}
+
+button {
+  font-weight: bold;
+}
+
+.detail-value {
+  font-weight: bold;
 }

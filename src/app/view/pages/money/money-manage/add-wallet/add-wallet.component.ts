@@ -12,17 +12,22 @@ import { Router } from '@angular/router';
 })
 export class AddWalletComponent implements OnInit {
   public walletType: WalletType[];
-  constructor(private moneyService: MoneyService, private _snackBar: MatSnackBar, private router: Router) { }
+  constructor(
+    private moneyService: MoneyService,
+    private _snackBar: MatSnackBar,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.walletType = this.moneyService.walletType;
+    this.walletType = this.moneyService.walletType.filter(
+      (type) => type.value !== 'coPhieu'
+    );
   }
 
   onSubmit(form: NgForm) {
     if (form.invalid) return;
     this.moneyService.setListWallets(form.value);
-    this._snackBar.open('Thành công rồi!', '', { duration: 1000, })
-    this.router.navigateByUrl('/money')
+    this._snackBar.open('Thành công rồi!', '', { duration: 1000 });
+    this.router.navigateByUrl('/money');
   }
-
 }
