@@ -1,30 +1,58 @@
 <div class="overlay" (click)="hideForm()" #overlay>
-  <div class="form-container magictime slideDownReturn" (click)="onFormClicked($event)" #formContainer>
-    <form class="add-money-form" #form="ngForm" (submit)="onSubmit(form)">
+  <div
+    class="form-container magictime slideDownReturn"
+    (click)="onFormClicked($event)"
+    #formContainer
+  >
+    <form
+      class="add-money-form"
+      [formGroup]="formControl"
+      (submit)="onSubmit()"
+    >
       <div class="input-container" *ngIf="isAddStock">
-        <div class="icon"><img src="assets/icon/stock-code.svg" alt=""></div>
+        <div class="icon"><img src="assets/icon/stock-code.svg" alt="" /></div>
         <div class="input">
           <mat-form-field>
             <mat-label>Mã cổ phiểu</mat-label>
-            <input matInput placeholder="Vd: HPG" name="code" ngModel required type="text">
+            <input
+              matInput
+              placeholder="Vd: HPG"
+              formControlName="code"
+              required
+              type="text"
+            />
           </mat-form-field>
         </div>
       </div>
       <div class="input-container" *ngIf="isAddStock">
-        <div class="icon"><img src="assets/icon/stock-price.svg" alt=""></div>
+        <div class="icon"><img src="assets/icon/stock-price.svg" alt="" /></div>
         <div class="input">
           <mat-form-field>
-            <mat-label>Giá mua</mat-label>
-            <input matInput placeholder="Vd: 100000" name="startPrice" ngModel required type="number">
+            <mat-label>Giá</mat-label>
+            <input
+              matInput
+              placeholder="Vd: 100000"
+              formControlName="startPrice"
+              required
+              type="number"
+            />
           </mat-form-field>
         </div>
       </div>
       <div class="input-container" *ngIf="isAddStock">
-        <div class="icon"><img src="assets/icon/stock-volume.svg" alt=""></div>
+        <div class="icon">
+          <img src="assets/icon/stock-volume.svg" alt="" />
+        </div>
         <div class="input">
           <mat-form-field>
             <mat-label>Số lượng</mat-label>
-            <input matInput placeholder="Vd: 100000" name="volume" ngModel required type="number">
+            <input
+              matInput
+              placeholder="Vd: 100000"
+              formControlName="volume"
+              required
+              type="number"
+            />
           </mat-form-field>
         </div>
       </div>

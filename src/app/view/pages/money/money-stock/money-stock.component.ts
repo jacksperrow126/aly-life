@@ -7,6 +7,7 @@ import { FormService } from '@core/services/form.service';
 import { MoneyService } from '@core/services/money.service';
 import { pipe } from 'rxjs';
 import { Storage } from '@ionic/storage';
+import { Wallet } from '@core/models/money/wallet.model';
 
 @Component({
   selector: 'aly-money-stock',
@@ -15,29 +16,49 @@ import { Storage } from '@ionic/storage';
 })
 export class MoneyStockComponent implements OnInit {
   public stockList: Stock[] = [];
-  a: number;
-  b: number;
-  c;
+  public totalValue: number;
+  private wallets: Wallet[];
+  constructor(
+    private formService: FormService,
+    private moneyService: MoneyService,
+    private snackBar: MatSnackBar
+  ) {}
 
-  constructor(private formService: FormService, private moneyService: MoneyService, private _snackBar: MatSnackBar, private store: Storage,) { }
   ngOnInit() {
+    this.moneyService.initMoneyService.subscribe((data) => {
+      this.wallets = data;
+      console.log(this.wallets);
+      this.totalValue = this.wallets.find(
+        (wallet) => wallet.type === 'coPhieu'
+      ).currentBalance;
+    });
     this.moneyService.changeStockList.subscribe(() => {
       this.stockList = this.moneyService.stockList;
-      this._snackBar.open('Cập nhật thành công', '', { duration: 1000, });
+      this.changeStockWalletBalance();
+      this.snackBar.open('Cập nhật thành công', '', { duration: 1000 });
     });
-    this.store.ready().then(() => {
-      this.store.get('money').then(data => {
-        data = this.b;
-      });
-    });
-
   }
 
   showForm() {
     this.formService.showForm({ key: ADD_STOCK });
   }
-  show() {
-    this.b = this.a;
-    this.a = this.c;
+
+  changeStock(stockData) {
+    this.formService.showForm({ key: ADD_STOCK, data: stockData });
+  }
+
+  changeStockWalletBalance() {
+    let balance = 0;
+    this.stockList.forEach((stock) => {
+      balance += stock.value;
+    });
+    this.wallets.find(
+      (wallet) => wallet.type === 'coPhieu'
+    ).currentBalance = balance;
+    this.moneyService.saveWallets();
+  }
+
+  sellStock(stockCode: string) {
+    this.moneyService.sellStock(stockCode);
   }
 }

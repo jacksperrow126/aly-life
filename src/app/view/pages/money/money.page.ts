@@ -11,13 +11,19 @@ import { Subscription } from 'rxjs';
 })
 export class MoneyPage implements OnInit, OnDestroy {
   private subcription: Subscription;
-  constructor(private moneyService: MoneyService, private router: Router, private _snackBar: MatSnackBar) { }
+  constructor(private moneyService: MoneyService) {}
 
   ngOnInit() {
-    this.subcription = this.moneyService.initMoneyService.subscribe(data => {
-      if (data.length == 0) {
-        this.router.navigateByUrl('/money/add-wallet');
-        this._snackBar.open('Lần đầu?', 'Hãy tạo mới 1 ví nhé', { duration: 3000, });
+    this.subcription = this.moneyService.initMoneyService.subscribe((data) => {
+      if (data.length === 0) {
+        this.moneyService.setListWallets({
+          id: '',
+          name: 'Chứng Khoán',
+          currentBalance: 0,
+          type: 'coPhieu',
+          detail: 'Đầu tư',
+          transactions: [],
+        });
       }
     });
   }
@@ -25,5 +31,4 @@ export class MoneyPage implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subcription.unsubscribe();
   }
-
 }
