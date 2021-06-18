@@ -18,6 +18,7 @@ export class CommonFormComponent implements OnInit {
     code: new FormControl(''),
     startPrice: new FormControl(''),
     volume: new FormControl(''),
+    margin: new FormControl(0),
   });
   public data: IFormModal;
   public isAddStock = false;
@@ -31,7 +32,6 @@ export class CommonFormComponent implements OnInit {
       this.isAddStock = true;
     }
     if (this.data.data) {
-      console.log(this.data.data);
       this.formControl.patchValue(this.data.data);
     }
   }

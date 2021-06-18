@@ -10,87 +10,87 @@
  */
 
 /* Core CSS required for Ionic components to work properly */
-@import "~@ionic/angular/css/core.css";
+@import '~@ionic/angular/css/core.css';
 
 /* Basic CSS for apps built with Ionic */
-@import "~@ionic/angular/css/normalize.css";
-@import "~@ionic/angular/css/structure.css";
-@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
 @import '~@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
-@import "~@ionic/angular/css/padding.css";
-@import "~@ionic/angular/css/float-elements.css";
-@import "~@ionic/angular/css/text-alignment.css";
-@import "~@ionic/angular/css/text-transformation.css";
-@import "~@ionic/angular/css/flex-utils.css";
-@import "app/core/shared/scss/shared";
-@import "./assets/icomoon-v1.0/style.css";
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+@import 'app/core/shared/scss/shared';
+@import './assets/icomoon-v1.0/style.css';
 
 @font-face {
-    font-family: dancing;
-    src: url(assets/fonts/DancingScript-Medium.ttf) format("opentype");
+  font-family: dancing;
+  src: url(assets/fonts/DancingScript-Medium.ttf) format('opentype');
 }
 
 @font-face {
-    font-family: baloo;
-    src: url(assets/fonts/Baloo2-Medium.ttf) format("opentype");
+  font-family: baloo;
+  src: url(assets/fonts/Baloo2-Medium.ttf) format('opentype');
 }
 
 @font-face {
-    font-family: ibm;
-    src: url(assets/fonts/IBMPlexSerif-Regular.ttf) format("opentype");
+  font-family: ibm;
+  src: url(assets/fonts/IBMPlexSerif-Regular.ttf) format('opentype');
 }
 
 @font-face {
-    font-family: lobster;
-    src: url(assets/fonts/Lobster-Regular.ttf) format("opentype");
+  font-family: lobster;
+  src: url(assets/fonts/Lobster-Regular.ttf) format('opentype');
 }
 
 @font-face {
-    font-family: noticia;
-    src: url(assets/fonts/NoticiaText-Regular.ttf) format("opentype");
+  font-family: noticia;
+  src: url(assets/fonts/NoticiaText-Regular.ttf) format('opentype');
 }
 
 @font-face {
-    font-family: patrick;
-    src: url(assets/fonts/PatrickHand-Regular.ttf) format("opentype");
+  font-family: patrick;
+  src: url(assets/fonts/PatrickHand-Regular.ttf) format('opentype');
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "noticia" !important;
-    color: $font-color;
-    font-size: 16px;
+  font-family: 'noticia' !important;
+  color: $font-color;
+  font-size: 16px;
 
-    .container {
-        background: $background-color;
-        height: 100vh;
-        width: 100%;
-        overflow: scroll;
-        padding: 5px 15px;
-    }
+  .container {
+    background: $background-color;
+    height: 100vh;
+    width: 100%;
+    overflow: scroll;
+    padding: 25px 15px;
+  }
 
-    .container::-webkit-scrollbar {
-        display: none;
-    }
+  .container::-webkit-scrollbar {
+    display: none;
+  }
 
-    input,
-    textarea {
-        color: $font-color !important;
-        background: transparent !important;
-    }
+  input,
+  textarea {
+    color: $font-color !important;
+    background: transparent !important;
+  }
 
-    ::ng-deep .mat-form-field-placeholder {
-        color: $font-color !important;
-    }
+  ::ng-deep .mat-form-field-placeholder {
+    color: $font-color !important;
+  }
 
-    ::ng-deep .mat-focused .mat-form-field-placeholder {
-        color: $font-color !important;
-    }
+  ::ng-deep .mat-focused .mat-form-field-placeholder {
+    color: $font-color !important;
+  }
 }

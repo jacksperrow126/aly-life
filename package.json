@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-android": "ionic cordova build android"
+    "build-android": "ionic cordova build android",
+    "build-ios": "ionic cordova build ios"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +38,7 @@
     "angular-highcharts": "^10.0.1",
     "chart.js": "^2.9.3",
     "cordova-android": "^8.1.0",
+    "cordova-ios": "6.2.0",
     "cordova-plugin-crop": "^0.4.0",
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-file-transfer": "^1.7.1",
@@ -87,7 +89,9 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-file-transfer": {},
@@ -96,7 +100,8 @@
       "cordova-plugin-crop": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }

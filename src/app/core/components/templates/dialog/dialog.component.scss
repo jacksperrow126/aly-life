@@ -16,14 +16,14 @@
 
   .dialog {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    background-color: $main-color;
+    background: $main-color;
     width: 80%;
     display: flex;
     flex-direction: column;
     padding: 8px;
 
     .tag:hover {
-      background-color: rgba(5, 5, 255, 0.301);
+      background: rgba(5, 5, 255, 0.301);
     }
   }
 }

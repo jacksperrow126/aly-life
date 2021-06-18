@@ -14,6 +14,8 @@ import { RouteDirective } from '@core/directives/route.directive';
 import { MoneyPreviewComponent } from '@core/components/money-preview/money-preview.component';
 import { CommonFormComponent } from '@core/components/templates/common-form/common-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { MoneyChartComponent } from '@core/components/money-chart/money-chart.component';
 
 const components = [
   NoteOverviewComponent,
@@ -27,6 +29,7 @@ const components = [
   RouteDirective,
   MoneyPreviewComponent,
   ChangePlanDirective,
+  MoneyChartComponent,
 ];
 
 @NgModule({
@@ -37,6 +40,7 @@ const components = [
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    HighchartsChartModule,
   ],
   exports: [components, MaterialModule, ChartsModule],
   entryComponents: [DialogComponent],

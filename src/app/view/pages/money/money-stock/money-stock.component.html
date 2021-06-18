@@ -36,6 +36,10 @@
               Khối lượng:
               <span class="detail-value">{{ stock.volume | number }}</span>
             </p>
+            <p>
+              Margin:
+              <span class="detail-value">{{ stock.margin | number }}</span>
+            </p>
           </div>
           <mat-action-row>
             <button
@@ -52,7 +56,8 @@
                 changeStock({
                   code: stock.code,
                   startPrice: stock.startPrice,
-                  volume: stock.volume
+                  volume: stock.volume,
+                  margin: stock.margin
                 })
               "
             >

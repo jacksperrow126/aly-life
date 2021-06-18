@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { getChartOptions } from './money-chart-options';
 @Component({
@@ -6,17 +6,20 @@ import { getChartOptions } from './money-chart-options';
   templateUrl: './money-chart.component.html',
   styleUrls: ['./money-chart.component.scss'],
 })
-export class MoneyChartComponent implements OnInit {
+export class MoneyChartComponent implements OnInit, OnChanges {
   @Input() chartData: any[];
-  @Input() type: string = 'pie';
+  @Input() type = 'pie';
 
   public Highcharts: typeof Highcharts = Highcharts;
   public chartOptions: Highcharts.Options;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.chartOptions = getChartOptions(this.type, this.chartData);
   }
 
+  ngOnChanges() {
+    this.chartOptions = getChartOptions(this.type, this.chartData);
+  }
 }

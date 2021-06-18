@@ -17,7 +17,11 @@ export class AddMoneyComponent implements OnInit {
   public type = moneyOutcomeType;
   public wallets: Wallet[];
   public isInTransferMode = false;
-  constructor(private moneyService: MoneyService, private _snackBar: MatSnackBar, private router: Router) { }
+  constructor(
+    private moneyService: MoneyService,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.wallets = this.moneyService.getWallet;
@@ -37,17 +41,23 @@ export class AddMoneyComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (form.invalid) return;
-    if (this.isInTransferMode) {
-      console.log(form.value);
-      this.moneyService.transferMoney(form.value);
+    if (form.invalid) {
       return;
     }
-    let moneyBill = form.value;
+    if (this.isInTransferMode) {
+      const moneyTransfer = form.value;
+      moneyTransfer.id = 'bill_' + randomID();
+      moneyTransfer.date = new Date();
+      this.moneyService.transferMoney(moneyTransfer);
+      this.snackBar.open('Thành công rồi!!!', '', { duration: 1000 });
+      this.router.navigateByUrl('/money');
+      return;
+    }
+    const moneyBill = form.value;
     moneyBill.id = 'bill_' + randomID();
     moneyBill.date = new Date();
     this.moneyService.setMoneyByDay(moneyBill, getToday(moneyBill.date));
-    this._snackBar.open('Thành công rồi!!!', '', { duration: 1000, });
+    this.snackBar.open('Thành công rồi!!!', '', { duration: 1000 });
     this.router.navigateByUrl('/money');
   }
 }

@@ -1,9 +1,9 @@
 @import '../../shared/scss/shared';
 
-.money-overview-container {
+.money-preview-container {
   .balance {
     box-shadow: none;
-    background-color: $main-color;
+    background: $main-color;
     margin-bottom: 15px;
     box-shadow: $bubble-shadow;
 
@@ -25,4 +25,8 @@
   h5 {
     text-align: center;
   }
+  // .money-preview-detail {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr;
+  // }
 }

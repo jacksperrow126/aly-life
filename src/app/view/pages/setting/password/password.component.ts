@@ -10,28 +10,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./password.component.scss'],
 })
 export class PasswordComponent implements OnInit {
-
   public user: User;
   public isErr = false;
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
     this.user = this.userService.user;
   }
 
   onSubmit(pass: FormControl) {
-    console.log(pass.value);
-
     if (!pass.valid) {
-      this.isErr = true
+      this.isErr = true;
       return;
     }
-    if (pass.value.password != pass.value.confirmPassword) {
-      this.isErr = true
+    if (pass.value.password !== pass.value.confirmPassword) {
+      this.isErr = true;
       return;
     }
     if (this.user.password) {
-      if (pass.value.oldPassword != this.user.password) {
+      if (pass.value.oldPassword !== this.user.password) {
         this.isErr = true;
         return;
       }

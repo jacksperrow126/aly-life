@@ -1,6 +1,7 @@
+@import '../../../../../core/shared/scss/shared';
+
 .wallet-card {
-  background: linear-gradient(209deg, #efaaeb 58%, #b390e2 100%);
-  color: white;
+  background: $main-color;
   padding: 15px;
   overflow: hidden;
   font-family: 'noticia' !important;
@@ -22,27 +23,32 @@
     font-weight: bold;
   }
 
-  p {
-    padding: 5px;
-    font-size: 15px;
-  }
-
   .in-out {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
-    p {
-      padding: 2px;
-    }
-
+    color: white;
+    margin-top: 10px;
     .in {
-      background-color: green;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      background: #61d061;
       padding: 5px;
+      font-size: 18px;
     }
 
     .out {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
       padding: 5px;
-      background-color: red;
+      background: #f94444;
+      font-size: 18px;
+    }
+  }
+  .detail {
+    > p {
+      color: rgb(223, 56, 56);
+      font-weight: bold;
+      font-size: 20px;
     }
   }
 }

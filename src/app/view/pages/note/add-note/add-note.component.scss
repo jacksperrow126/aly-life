@@ -1,10 +1,10 @@
 @import '../../../../core/shared/scss/shared';
-$background-color: #e4e484ef;
+$background: #e4e484ef;
 
 .note {
   padding: 5px;
   width: 100%;
-  background-color: $background-color;
+  background: $background;
   color: black;
   outline: none;
   border: none;
@@ -12,7 +12,7 @@ $background-color: #e4e484ef;
 
 .add-note-container {
   padding: 10px;
-  background-color: $background-color;
+  background: $background;
   border-radius: $border-radius;
   transition: all 0.3s;
 

@@ -1,24 +1,43 @@
 <div class="container">
-  <p class="heading"> <i class="icon icon-back" routerLink="/note"></i> Chỉnh sửa</p>
+  <p class="heading">
+    <i class="icon icon-back" routerLink="/note"></i> Chỉnh sửa
+  </p>
   <div class="add-note-container">
     <form #note="ngForm" (submit)="editNote(note)">
       <div class="note-title">
         <span>Tiêu đề</span>
-        <input type="text" name="title" class="note note-input" [ngModel]="title">
+        <input
+          type="text"
+          name="title"
+          class="note note-input"
+          [ngModel]="title"
+        />
       </div>
       <div class="note-content">
         <span>Nội dung</span>
-        <textarea name="content" class="note note-area" id="" rows="10" [ngModel]="content"></textarea>
+        <textarea
+          name="content"
+          class="note note-area"
+          id=""
+          rows="10"
+          [ngModel]="content"
+        ></textarea>
         <div class="tag">
           <div class="selected-tag aly-tag magictime boingInUp">
-            {{selectedTag.text}}
+            {{ selectedTag.text }}
           </div>
         </div>
       </div>
       <div class="submenu">
-        <div class="tags" alyTouchReact alyDialog [data]="tags"><img src="assets/icon/tag.svg"></div>
-        <div class="mark" alyTouchReact (click)="mark()"><img
-            [src]="remarkable?'assets/icon/star.svg':'assets/icon/unstar.svg'">
+        <div class="tags" alyTouchReact alyDialog [data]="tags">
+          <img src="assets/icon/tag.svg" />
+        </div>
+        <div class="mark" alyTouchReact (click)="mark()">
+          <img
+            [src]="
+              remarkable ? 'assets/icon/star.svg' : 'assets/icon/unstar.svg'
+            "
+          />
         </div>
       </div>
       <div class="btn-container">

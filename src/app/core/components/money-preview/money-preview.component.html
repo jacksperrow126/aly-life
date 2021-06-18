@@ -1,6 +1,9 @@
-<div class="money-overview-container">
-  <div class="balance aly-card" alyTouchReact>
+<div class="money-preview-container">
+  <div class="balance aly-card">
     <h6>Số tiền hiện tại</h6>
-    <h2>{{currentBalance|number}}</h2>
+    <h2>{{ currentBalance | number }}</h2>
+    <div class="money-preview-detail">
+      <aly-money-chart [chartData]="chartData"></aly-money-chart>
+    </div>
   </div>
-  
+</div>

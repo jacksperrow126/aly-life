@@ -5,8 +5,7 @@ export function getChartOptions(type, data: any[]): Highcharts.Options {
       plotBorderWidth: null,
       plotShadow: false,
       type,
-      backgroundColor: '#95cfe8',
-      // margin: [0, 0, 20, 0],
+      backgroundColor: 'transparent',
     },
     plotOptions: {
       pie: {
@@ -17,6 +16,18 @@ export function getChartOptions(type, data: any[]): Highcharts.Options {
         },
         showInLegend: true,
         size: 150,
+        colors: [
+          '#71f071',
+          '#f071cb',
+          '#8bbc21',
+          '#910000',
+          '#1aadce',
+          '#492970',
+          '#f28f43',
+          '#77a1e5',
+          '#c42525',
+          '#a6c96a',
+        ],
       },
     },
     title: {

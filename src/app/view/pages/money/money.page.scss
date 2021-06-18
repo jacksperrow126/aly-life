@@ -4,6 +4,9 @@
   position: relative;
 
   .function-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
     padding: 5px 15px;
   }
 
@@ -15,9 +18,11 @@
     padding: 25px;
     background: $main-color;
     width: 100%;
-    border-radius: 20px;
-    margin-bottom: 15px;
+    border-radius: 12px;
     font-weight: 600;
+    p {
+      text-align: center;
+    }
   }
 
   span {

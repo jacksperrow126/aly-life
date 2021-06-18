@@ -1,22 +1,36 @@
 <div class="container">
-  <p class="heading"> <i class="icon icon-back" routerLink="/note"></i> Thêm ghi chú</p>
+  <p class="heading">
+    <i class="icon icon-back" routerLink="/note"></i> Thêm ghi chú
+  </p>
   <div class="add-note-container">
     <form #note="ngForm" (submit)="addNote(note)">
       <div class="note-title">
         <span>Tiêu đề</span>
-        <input type="text" name="title" class="note note-input" ngModel>
+        <input type="text" name="title" class="note note-input" ngModel />
       </div>
       <div class="note-content">
         <span>Nội dung</span>
-        <textarea name="content" class="note note-area" id="" rows="10" ngModel></textarea>
+        <textarea
+          name="content"
+          class="note note-area"
+          id=""
+          rows="10"
+          ngModel
+        ></textarea>
         <div class="tag">
-          <ng-template *ngIf="selectedTag then tag"></ng-template>
+          <ng-template *ngIf="selectedTag; then tag"></ng-template>
         </div>
       </div>
       <div class="submenu">
-        <div class="tags" alyTouchReact alyDialog [data]="tags"><img src="assets/icon/tag.svg"></div>
-        <div class="mark" alyTouchReact (click)="mark()"><img
-            [src]="remarkable?'assets/icon/star.svg':'assets/icon/unstar.svg'">
+        <div class="tags" alyTouchReact alyDialog [data]="tags">
+          <img src="assets/icon/tag.svg" />
+        </div>
+        <div class="mark" alyTouchReact (click)="mark()">
+          <img
+            [src]="
+              remarkable ? 'assets/icon/star.svg' : 'assets/icon/unstar.svg'
+            "
+          />
         </div>
       </div>
       <div class="btn-container">
@@ -28,6 +42,6 @@
 
 <ng-template #tag>
   <div class="selected-tag aly-tag magictime boingInUp">
-    {{selectedTag.text}}
+    {{ selectedTag.text }}
   </div>
 </ng-template>

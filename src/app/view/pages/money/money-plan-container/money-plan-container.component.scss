@@ -39,11 +39,11 @@
 
   .plan {
     .income-color {
-      background-color: $main-color;
+      background: $main-color;
     }
 
     .outcome-color {
-      background-color: $main-color;
+      background: $main-color;
     }
 
     .plan-title {
@@ -104,7 +104,7 @@
   padding: 15px;
   width: 100vw;
   left: 0;
-  background: #8ba2a7e6;
+  background: #76927de6;
   animation: fadeInUp 0.5s;
   border-radius: 20px;
 

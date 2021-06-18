@@ -18,7 +18,7 @@ import { AddMoneyComponent } from './add-money/add-money.component';
 import { WalletDetailComponent } from './money-manage/wallet-detail/wallet-detail.component';
 import { MoneyProgressComponent } from './money-overview/money-progress/money-progress.component';
 import { HighchartsChartModule } from 'highcharts-angular';
-import { MoneyChartComponent } from './money-overview/money-chart/money-chart.component';
+import { MoneyChartComponent } from '../../../core/components/money-chart/money-chart.component';
 import { MoneyStockComponent } from './money-stock/money-stock.component';
 
 @NgModule({
@@ -28,11 +28,21 @@ import { MoneyStockComponent } from './money-stock/money-stock.component';
     IonicModule,
     MoneyPageRoutingModule,
     SharedModule,
-    HighchartsChartModule
   ],
-  declarations: [MoneyPage, MoneyHistoryComponent, MoneyOverviewComponent,
-    MoneyManageComponent, AddWalletComponent, AddMoneyComponent, WalletDetailComponent,
-    AddMoneyComponent, MoneyDreamComponent, MoneyProgressComponent, MoneyPlanContainerComponent, MoneyChartComponent, MoneyStockComponent],
-
+  declarations: [
+    MoneyPage,
+    MoneyHistoryComponent,
+    MoneyOverviewComponent,
+    MoneyManageComponent,
+    AddWalletComponent,
+    AddMoneyComponent,
+    WalletDetailComponent,
+    AddMoneyComponent,
+    MoneyDreamComponent,
+    MoneyProgressComponent,
+    MoneyPlanContainerComponent,
+    MoneyChartComponent,
+    MoneyStockComponent,
+  ],
 })
-export class MoneyPageModule { }
+export class MoneyPageModule {}

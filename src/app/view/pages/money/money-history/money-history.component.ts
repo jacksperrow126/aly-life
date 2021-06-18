@@ -21,7 +21,7 @@ export class MoneyHistoryComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subcription = this.moneyService.initMoneyService.subscribe((data) => {
-      let day = new Date();
+      const day = new Date();
       this.selectedDate = getToday(day);
       this.transactions = this.moneyService.getBillByMonth(day.getMonth());
     });
@@ -40,6 +40,10 @@ export class MoneyHistoryComponent implements OnInit, OnDestroy {
 
   getTagIcon(id) {
     return TagIcon[id];
+  }
+
+  deleteBill(bill: InOutcome) {
+    this.moneyService.deleteBill(bill);
   }
 
   ngOnDestroy() {

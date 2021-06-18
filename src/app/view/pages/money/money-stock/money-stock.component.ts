@@ -8,6 +8,7 @@ import { MoneyService } from '@core/services/money.service';
 import { pipe } from 'rxjs';
 import { Storage } from '@ionic/storage';
 import { Wallet } from '@core/models/money/wallet.model';
+import { WalletTypeString } from '@core/data/wallet-type';
 
 @Component({
   selector: 'aly-money-stock',
@@ -27,10 +28,10 @@ export class MoneyStockComponent implements OnInit {
   ngOnInit() {
     this.moneyService.initMoneyService.subscribe((data) => {
       this.wallets = data;
-      console.log(this.wallets);
-      this.totalValue = this.wallets.find(
-        (wallet) => wallet.type === 'coPhieu'
-      ).currentBalance;
+      const stockWallets = this.wallets.find(
+        (wallet) => wallet.type === WalletTypeString.CO_PHIEU
+      );
+      this.totalValue = stockWallets.currentBalance;
     });
     this.moneyService.changeStockList.subscribe(() => {
       this.stockList = this.moneyService.stockList;
@@ -49,12 +50,18 @@ export class MoneyStockComponent implements OnInit {
 
   changeStockWalletBalance() {
     let balance = 0;
+    let margin = 0;
     this.stockList.forEach((stock) => {
       balance += stock.value;
+      margin += stock.margin;
     });
-    this.wallets.find(
-      (wallet) => wallet.type === 'coPhieu'
-    ).currentBalance = balance;
+    const stockWallet = this.wallets.find(
+      (wallet) => wallet.type === WalletTypeString.CO_PHIEU
+    );
+    stockWallet.grossBalance = balance;
+    stockWallet.margin = margin;
+    stockWallet.currentBalance = stockWallet.grossBalance - stockWallet.margin;
+
     this.moneyService.saveWallets();
   }
 

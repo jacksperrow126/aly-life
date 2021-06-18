@@ -1,88 +1,89 @@
 @import '../../../../core/shared/scss/shared';
 
-$background:linear-gradient(0deg, rgba(247, 239, 239, 1) 0%, rgba(245, 229, 228, 1) 100%);
-;
-
+$background: linear-gradient(
+  0deg,
+  rgb(243, 247, 239) 0%,
+  rgb(235, 245, 228) 100%
+);
 .history-container {
-    font-family: "noticia" !important;
-    animation: smoothShow 1s;
+  font-family: 'noticia' !important;
+  animation: smoothShow 1s;
 
-    .transaction-filter {
+  .transaction-filter {
+    .filter-by-day {
+      height: 50px;
 
-        .filter-by-day {
-            height: 50px;
+      h5 {
+        margin-top: 5px;
+        text-align: center;
+      }
 
-            h5 {
-                margin-top: 5px;
-                text-align: center;
-            }
-
-            input {
-                width: 0;
-                height: 0;
-                visibility: hidden;
-            }
-        }
+      input {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+      }
     }
+  }
 
-    mat-expansion-panel {
-        margin: 8px 0;
-        background: $background !important;
-        border-radius: $border-radius !important;
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-        font-family: "noticia" !important;
+  mat-expansion-panel {
+    margin: 8px 0;
+    background: $background !important;
+    border-radius: $border-radius !important;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    font-family: 'noticia' !important;
 
-        .icon {
-            width: 26px;
-        }
+    .icon {
+      width: 26px;
     }
+  }
 
-    .mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover {
-        background: $background !important;
+  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled='true'])
+    .mat-expansion-panel-header:hover {
+    background: $background !important;
+  }
+
+  .mat-expansion-panel-header-description {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .bill-detail {
+    display: flex;
+    align-items: center;
+    max-width: 70%;
+
+    .text {
+      margin-left: 5px;
+      font-size: 16px;
     }
+  }
 
-    .mat-expansion-panel-header-description {
+  .money {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .detail {
+    .info {
+      display: flex;
+      position: relative;
+      font-weight: 500;
+      margin-bottom: 5px;
+      margin-top: 5px;
+
+      .date {
         position: absolute;
         right: 0px;
-        top: 0;
-        height: 100%;
-        display: flex;
-        align-items: center;
+      }
     }
 
-    .bill-detail {
-        display: flex;
-        align-items: center;
-        max-width: 70%;
-
-
-        .text {
-            margin-left: 5px;
-            font-size: 16px;
-        }
+    .bill-detail-text {
+      font-style: italic;
     }
-
-    .money {
-        font-size: 16px;
-        font-weight: 500;
-    }
-
-    .detail {
-        .info {
-            display: flex;
-            position: relative;
-            font-weight: 500;
-            margin-bottom: 5px;
-            margin-top: 5px;
-
-            .date {
-                position: absolute;
-                right: 0px;
-            }
-        }
-
-        .bill-detail-text {
-            font-style: italic;
-        }
-    }
+  }
 }

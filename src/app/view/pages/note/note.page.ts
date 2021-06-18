@@ -1,4 +1,10 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Subscription } from 'rxjs';
 import { NoteService } from '@core/services/note.service';
@@ -18,15 +24,15 @@ export class NotePage implements OnInit, OnDestroy {
   private subcription: Subscription;
   public totalNotes: number;
   public moment = new Date();
-  public tags = new DialogData;
-  public isSelectTag = false
+  public tags = new DialogData();
+  public isSelectTag = false;
   private noteContainer: NoteOnPress;
-  public tagSelect: string = 'Nhóm';
-  public dateSelect: string = 'Ngày';
+  public tagSelect = 'Nhóm';
+  public dateSelect = 'Ngày';
   private subcription1: Subscription;
   private subcription2: Subscription;
   @ViewChild('cancel') cancel: ElementRef;
-  constructor(private storage: Storage, private noteService: NoteService) { }
+  constructor(private storage: Storage, private noteService: NoteService) {}
 
   ngOnInit() {
     this.getAllNote();
@@ -42,9 +48,9 @@ export class NotePage implements OnInit, OnDestroy {
           this.notesTemplate = data;
           this.notes = data;
           if (this.noteService.selectedTag !== undefined) {
-            this.notes = this.notesTemplate.filter(note => {
-              return note.tag.text == this.noteService.selectedTag.text
-            })
+            this.notes = this.notesTemplate.filter((note) => {
+              return note.tag.text === this.noteService.selectedTag.text;
+            });
           }
         }
       });
@@ -53,31 +59,36 @@ export class NotePage implements OnInit, OnDestroy {
           this.notesTemplate = data;
           this.notes = data;
         });
-      })
-    })
+      });
+    });
   }
 
   getTags() {
-    this.tags.type = 'tags',
-      this.tags.data = this.noteService.getTag();
+    (this.tags.type = 'tags'), (this.tags.data = this.noteService.getTag());
   }
 
   pickDate(event: MatDatepickerInputEvent<Date>) {
-    let date = event.value;
-    this.notes = this.notesTemplate.filter(note => {
-      let noteDate = new Date(note.date);
-      return noteDate.getDate() == date.getDate();
-    })
+    const date = event.value;
+    this.notes = this.notesTemplate.filter((note) => {
+      const noteDate = new Date(note.date);
+      return noteDate.getDate() === date.getDate();
+    });
     this.tagSelect = 'Nhóm';
     this.dateSelect = `${date.getDate()}/${date.getMonth() + 1}`;
   }
 
   pickTag() {
     this.subcription1 = this.noteService.tagOnSelect.subscribe((data: Tag) => {
-      if (this.notes == null || this.notes == undefined || this.notesTemplate == null) return;
-      this.notes = this.notesTemplate.filter(note => {
-        return note.tag.text == data.text
-      })
+      if (
+        this.notes === null ||
+        this.notes === undefined ||
+        this.notesTemplate == null
+      ) {
+        return;
+      }
+      this.notes = this.notesTemplate.filter((note) => {
+        return note.tag.text === data.text;
+      });
       this.tagSelect = data.text;
     });
     this.dateSelect = 'Ngày';
@@ -90,21 +101,25 @@ export class NotePage implements OnInit, OnDestroy {
   }
 
   subcribePressAction() {
-    this.subcription2 = this.noteService.noteOnPress.subscribe((data: NoteOnPress) => {
-      this.noteContainer = data;
-      this.cancel.nativeElement.classList.remove('hide');
-    })
+    this.subcription2 = this.noteService.noteOnPress.subscribe(
+      (data: NoteOnPress) => {
+        this.noteContainer = data;
+        this.cancel.nativeElement.classList.remove('hide');
+      }
+    );
   }
 
   unpress() {
-    if (this.noteContainer == undefined) return;
-    this.noteContainer.notes.forEach(note => {
+    if (this.noteContainer === undefined) {
+      return;
+    }
+    this.noteContainer.notes.forEach((note) => {
       note.classList.remove('shake');
     });
-    this.noteContainer.delete.forEach(del => {
+    this.noteContainer.delete.forEach((del) => {
       del.classList.add('hide');
     });
-    this.noteContainer.edit.forEach(del => {
+    this.noteContainer.edit.forEach((del) => {
       del.classList.add('hide');
     });
     this.cancel.nativeElement.classList.add('hide');

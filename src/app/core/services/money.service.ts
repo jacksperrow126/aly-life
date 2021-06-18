@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Wallet, Transaction } from '@core/models/money/wallet.model';
 import { WalletType } from '@core/models/money/wallet-types.model';
-import { walletType } from '@core/data/wallet-type';
+import { walletType, WalletTypeString } from '@core/data/wallet-type';
 import { InOutcome } from '@core/models/money/in-outcome.model';
 import { getToday } from '@core/helper/getToday';
 import { BehaviorSubject } from 'rxjs';
@@ -51,9 +51,19 @@ export class MoneyService {
   getCurrentBalance() {
     let currentBalance = 0;
     this.wallets.forEach((wallet) => {
-      currentBalance += wallet.currentBalance;
+      if (wallet.type !== WalletTypeString.TIN_DUNG) {
+        currentBalance += wallet.currentBalance;
+      }
     });
     return currentBalance;
+  }
+
+  getCurrentLoan() {
+    let loan = 0;
+    this.wallets.forEach((wallet) => {
+      loan += wallet.loan || wallet.margin || 0;
+    });
+    return loan;
   }
 
   getDataForChart() {
@@ -108,12 +118,24 @@ export class MoneyService {
       isErr = true;
     }
     if (!isErr) {
+      const toWallet = this.wallets.find(
+        (wallet) => wallet.name === data.toWallet
+      );
       this.wallets.forEach((wallet) => {
         if (wallet.name === data.wallet) {
           wallet.currentBalance -= data.money;
+          if (toWallet.type === WalletTypeString.TIN_DUNG) {
+            this.setMoneyByDay(
+              { ...data, type: 'outcome' },
+              getToday(data.date)
+            );
+          }
         }
         if (wallet.name === data.toWallet) {
           wallet.currentBalance += data.money;
+          if (wallet.type === WalletTypeString.TIN_DUNG) {
+            wallet.loan -= data.money;
+          }
         }
       });
       this.saveWallets();
@@ -143,12 +165,55 @@ export class MoneyService {
             transaction.balance += moneyBill.money;
             transaction.income += moneyBill.money;
             wallet.currentBalance += moneyBill.money;
+            if (wallet.type === WalletTypeString.TIN_DUNG) {
+              wallet.loan -= moneyBill.money;
+            }
             break;
           }
           case 'outcome': {
             transaction.balance -= moneyBill.money;
             transaction.outcome += moneyBill.money;
             wallet.currentBalance -= moneyBill.money;
+            if (wallet.type === WalletTypeString.TIN_DUNG) {
+              wallet.loan += moneyBill.money;
+            }
+            break;
+          }
+        }
+        this.saveWallets();
+      }
+    });
+  }
+
+  deleteBill(moneyBill: InOutcome) {
+    this.wallets.forEach((wallet) => {
+      if (wallet.name === moneyBill.wallet) {
+        const transaction = wallet.transactions.find((bill) => {
+          return bill.dateId === getToday(moneyBill.date);
+        });
+        if (transaction) {
+          const bill = transaction.bill.find(
+            (bills) => bills.id === moneyBill.id
+          );
+          transaction.bill.splice(transaction.bill.indexOf(bill), 1);
+        }
+        switch (moneyBill.type) {
+          case 'income': {
+            transaction.balance -= moneyBill.money;
+            transaction.income -= moneyBill.money;
+            wallet.currentBalance -= moneyBill.money;
+            if (wallet.type === WalletTypeString.TIN_DUNG) {
+              wallet.loan += moneyBill.money;
+            }
+            break;
+          }
+          case 'outcome': {
+            transaction.balance += moneyBill.money;
+            transaction.outcome -= moneyBill.money;
+            wallet.currentBalance += moneyBill.money;
+            if (wallet.type === WalletTypeString.TIN_DUNG) {
+              wallet.loan -= moneyBill.money;
+            }
             break;
           }
         }
@@ -175,7 +240,14 @@ export class MoneyService {
       wallet.transactions.forEach((transaction) => {
         const date = new Date(transaction.dateFilter);
         if (date.getMonth() === month) {
-          result.push({ bills: transaction.bill, date: transaction.dateId });
+          const dataByDay = result.find(
+            (data) => data.date === transaction.dateId
+          );
+          if (dataByDay) {
+            dataByDay.bills = [...dataByDay.bills, ...transaction.bill];
+          } else {
+            result.push({ bills: transaction.bill, date: transaction.dateId });
+          }
         }
       });
     });

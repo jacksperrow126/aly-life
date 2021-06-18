@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MoneyService } from '@core/services/money.service';
-import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
+import { WalletTypeString } from '@core/data/wallet-type';
 
 @Component({
   selector: 'aly-money',
@@ -20,9 +19,12 @@ export class MoneyPage implements OnInit, OnDestroy {
           id: '',
           name: 'Chứng Khoán',
           currentBalance: 0,
-          type: 'coPhieu',
+          type: WalletTypeString.CO_PHIEU,
           detail: 'Đầu tư',
           transactions: [],
+          margin: 0,
+          notMine: 0,
+          grossBalance: 0,
         });
       }
     });
