@@ -1,0 +1,22 @@
+.DrinkWater {
+  text-align: center;
+  .tag {
+    color: #6c6c6c;
+    padding: 5px 15px;
+    border: 1px solid #6c6c6c;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 5px 12px 0;
+    width: 100px;
+    height: 50px;
+  }
+  .tag:hover {
+    background-color: #40a944;
+    color: white;
+    border: 1px solid #40a944;
+  }
+  .active {
+    background-color: tomato;
+    color: white;
+  }
+}

@@ -1,0 +1,11 @@
+<div class="container DrinkWater">
+  <button
+    href="/"
+    class="tag"
+    *ngFor="let time of times;let i = index"
+    (click)="onUserSetTimeDinkWater(i)"
+    [ngClass]="{ active: time.status }"
+  >
+    {{time.timeDrinkWater}}
+  </button>
+</div>
