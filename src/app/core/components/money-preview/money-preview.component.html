@@ -3,7 +3,12 @@
     <h6>Số tiền hiện tại</h6>
     <h2>{{ currentBalance | number }}</h2>
     <div class="money-preview-detail">
-      <aly-money-chart [chartData]="chartData"></aly-money-chart>
+      <div>
+        <aly-money-chart [chartData]="loanChartData"></aly-money-chart>
+      </div>
+      <div>
+        <aly-money-chart [chartData]="loanChartData"></aly-money-chart>
+      </div>
     </div>
   </div>
 </div>
