@@ -1,22 +1,84 @@
-.DrinkWater {
-  text-align: center;
-  .tag {
-    color: #6c6c6c;
-    padding: 5px 15px;
-    border: 1px solid #6c6c6c;
-    border-radius: 5px;
-    display: inline-block;
-    margin: 0 5px 12px 0;
-    width: 100px;
+.container {
+  background: none;
+  .frame {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+  }
+  .custom-btn {
     height: 50px;
+    padding: 10px 25px;
+    border: 0.2px solid #000;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+    background: transparent;
+    margin: 0 5px 12px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
   }
-  .tag:hover {
-    background-color: #40a944;
-    color: white;
-    border: 1px solid #40a944;
+
+  .btn-5 {
+    background: #000;
+    color: #fff;
+    line-height: 42px;
+    padding: 0;
+    border: none;
   }
-  .active {
-    background-color: tomato;
-    color: white;
+
+  .btn-5:before,
+  .btn-5:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #000;
+    transition: 400ms ease all;
+  }
+  .btn-5:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+  }
+  .btn-5:hover:before,
+  .btn-5:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+  }
+  .btnActive {
+    position: relative;
+    background: linear-gradient(90deg, #c3f1c1 1%, #d4f9bb 35%, #a6f1a6 100%);
+    color: #000;
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
+      7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+  }
+  .badgeAlign {
+    text-align: center;
+    .badge {
+      padding: 5px 10px;
+      display: inline-block;
+      font-size: 75%;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: 0.25rem;
+    }
+    .badge-success {
+      color: #000;
+      background: linear-gradient(90deg, #c3f1c1 1%, #d4f9bb 35%, #a6f1a6 100%);
+      margin: 0 10px;
+    }
+    .badge-danger {
+      color: #fff;
+      background-color: #000;
+    }
   }
 }
