@@ -37,18 +37,20 @@ export class WaterPage implements OnInit {
     });
   }
 
-  // // Schedule delayed notification
-  // this.localNotifications.schedule({
-  //    text: 'Delayed ILocalNotification',
-  //    trigger: {at: new Date(new Date().getTime() + 3600)},
-  //    led: 'FF0000',
-  //    sound: null
-  // });
-  // // Schedule a single notification
-  // this.localNotifications.schedule({
-  //   id: 1,
-  //   text: "Single ILocalNotification",
-  //   sound: "file://beep.caf",
-  //   data: "hahaha",
-  // });
+  // Schedule delayed notification
+  // if(this.localNotifications) {
+  //   this.localNotifications.schedule({
+  //     text: 'Delayed ILocalNotification',
+  //     trigger: { at: new Date(new Date().getTime() + 3600) },
+  //     led: 'FF0000',
+  //     sound: null
+  //   });
+  //   // Schedule a single notification
+  //   this.localNotifications.schedule({
+  //     id: 1,
+  //     text: 'Single ILocalNotification',
+  //     sound: "file://beep.caf",
+  //     data: "hahaha",
+  //   });
+  // }
 }
