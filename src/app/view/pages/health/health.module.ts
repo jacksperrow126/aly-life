@@ -7,14 +7,10 @@ import { IonicModule } from '@ionic/angular';
 import { HealthPageRoutingModule } from './health-routing.module';
 
 import { HealthPage } from './health.page';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    HealthPageRoutingModule
-  ],
-  declarations: [HealthPage]
+  imports: [CommonModule, FormsModule, IonicModule, HealthPageRoutingModule],
+  declarations: [HealthPage, ClockComponent],
 })
 export class HealthPageModule {}

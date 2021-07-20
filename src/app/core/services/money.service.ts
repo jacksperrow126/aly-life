@@ -94,6 +94,46 @@ export class MoneyService {
     return this.outcomePlan;
   }
 
+  getTotalInOutCome() {
+    const data = this.getInOutcomeMoneyByTag(new Date().getMonth());
+    const incomeProgress = [];
+    const outcomeProgress = [];
+    const outcomePlan = moneyOutcomeType.map((type) => {
+      return type.id;
+    });
+    const incomePlan = moneyIncomeType.map((type) => {
+      return type.id;
+    });
+    Object.keys(data).map((tag, i) => {
+      incomePlan.find((id) => {
+        if (id === tag) {
+          incomeProgress.push({
+            progress: data[tag],
+          });
+          return;
+        }
+      });
+      outcomePlan.find((id) => {
+        if (id === tag) {
+          outcomeProgress.push({
+            progress: data[tag],
+          });
+          return;
+        }
+      });
+    });
+    let totalIncome = 0;
+    let totalOutcome = 0;
+    incomeProgress.forEach((progress) => {
+      totalIncome += progress.progress;
+    });
+    outcomeProgress.forEach((progress) => {
+      totalOutcome += progress.progress;
+    });
+
+    return { totalIncome, totalOutcome };
+  }
+
   setListWallets(data: Wallet) {
     data.id = 'wallet_' + randomID();
     data.transactions = [];
