@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.4.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.aly.life" version="0.7.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Aly Life</name>
     <description>This is my special app for all my friends!</description>
     <author email="anchuyensupham@gmail.com" href="http://ionicframework.com/">Nguyen Thanh An</author>
@@ -27,7 +27,7 @@
         <resource-file src="resources/android/xml/network_security_config.xml" target="app/src/main/res/xml/network_security_config.xml" />
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/icon.png" />
-        <splash src="resources/android/splash/splash.jpg" />
+        <splash src="resources/android/splash/splash.jpeg" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />

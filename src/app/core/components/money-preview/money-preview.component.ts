@@ -9,8 +9,10 @@ import { MoneyService } from '@core/services/money.service';
 export class MoneyPreviewComponent implements OnInit {
   public currentBalance: number;
   public loan: number;
-
+  public inOutcomeColor = ['#e4eb26', '#eb3626'];
   public loanChartData: any[];
+  public inOutcomeChartData: any[];
+
   constructor(private moneyService: MoneyService) {}
 
   ngOnInit() {
@@ -18,8 +20,20 @@ export class MoneyPreviewComponent implements OnInit {
       this.currentBalance = this.moneyService.getCurrentBalance();
       this.loan = this.moneyService.getCurrentLoan();
       this.loanChartData = [
-        { name: 'Tiền', y: this.currentBalance },
-        { name: 'Nợ', y: this.loan },
+        { name: 'Tổng tiền', y: this.currentBalance },
+        { name: 'Tổng nợ', y: this.loan },
+      ];
+      const totalIncome = this.moneyService.getTotalInOutCome().totalIncome;
+      const totalOutcome = this.moneyService.getTotalInOutCome().totalOutcome;
+      this.inOutcomeChartData = [
+        {
+          name: 'Thu nhập',
+          y: totalIncome,
+        },
+        {
+          name: 'Chi tiêu',
+          y: totalOutcome,
+        },
       ];
     });
   }

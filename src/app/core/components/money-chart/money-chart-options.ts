@@ -1,4 +1,8 @@
-export function getChartOptions(type, data: any[]): Highcharts.Options {
+export function getChartOptions(
+  type,
+  data: any[],
+  color?: string[]
+): Highcharts.Options {
   return {
     chart: {
       plotBackgroundColor: null,
@@ -16,7 +20,7 @@ export function getChartOptions(type, data: any[]): Highcharts.Options {
         },
         showInLegend: true,
         size: 150,
-        colors: [
+        colors: color || [
           '#71f071',
           '#f071cb',
           '#8bbc21',
