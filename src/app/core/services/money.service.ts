@@ -166,7 +166,7 @@ export class MoneyService {
           wallet.currentBalance -= data.money;
           if (toWallet.type === WalletTypeString.TIN_DUNG) {
             this.setMoneyByDay(
-              { ...data, type: 'outcome' },
+              { ...data, type: 'outcome', tag: 'credit' },
               getToday(data.date)
             );
           }
@@ -313,10 +313,11 @@ export class MoneyService {
   }
 
   checkPlanAndSetDefault() {
+    const PLANS_KEY = 'plans-setted';
     this.storage.ready().then(() => {
-      this.storage.get('plan-setted').then((data) => {
-        if (data == null) {
-          this.storage.set('plan-setted', true).then(() => {
+      this.storage.get(PLANS_KEY).then((data) => {
+        if (data === null) {
+          this.storage.set(PLANS_KEY, true).then(() => {
             moneyOutcomeType.forEach((outcome) => {
               this.storage
                 .set('planOutcome' + outcome.id, {
