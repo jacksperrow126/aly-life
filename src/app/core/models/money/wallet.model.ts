@@ -12,7 +12,11 @@ export interface Wallet {
   grossBalance?: number;
   loan?: number;
 }
-
+export interface WalletDataFromDB {
+  data?: string;
+  username?: string;
+  code?: string;
+}
 export class Transaction {
   dateId: string;
   dateFilter: Date;

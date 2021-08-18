@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoneyService } from '@core/services/money.service';
+import { UserService } from '@core/services/user.service';
 
 @Component({
   selector: 'aly-money-preview',

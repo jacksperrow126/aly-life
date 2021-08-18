@@ -2,7 +2,11 @@ import { TagPlan } from './../models/money/tag-plan.model';
 import { moneyOutcomeType, moneyIncomeType } from '@core/data/money';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { Wallet, Transaction } from '@core/models/money/wallet.model';
+import {
+  Wallet,
+  Transaction,
+  WalletDataFromDB,
+} from '@core/models/money/wallet.model';
 import { WalletType } from '@core/models/money/wallet-types.model';
 import { walletType, WalletTypeString } from '@core/data/wallet-type';
 import { InOutcome } from '@core/models/money/in-outcome.model';
@@ -10,6 +14,8 @@ import { getToday } from '@core/helper/getToday';
 import { BehaviorSubject } from 'rxjs';
 import { randomID } from '@core/helper/random-id';
 import { Stock } from '@core/models/money/stock.model';
+import { HttpClient } from '@angular/common/http';
+import { backEndUrl, apiRoutes } from './api';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +31,7 @@ export class MoneyService {
   public inOutType = [];
   public stockList: Stock[] = [];
   public changeStockList = new BehaviorSubject(null);
-  constructor(private storage: Storage) {
+  constructor(private storage: Storage, private http: HttpClient) {
     this.getListWallets();
     this.getStock();
     this.checkPlanAndSetDefault();
@@ -37,13 +43,33 @@ export class MoneyService {
     });
   }
 
+  backUpWalletsData(data) {
+    return this.http.post(backEndUrl + apiRoutes.money.backUp, {
+      username: 'admin_test',
+      data: JSON.stringify(data),
+    });
+  }
+
+  getWalletsData() {
+    return this.http.post(backEndUrl + apiRoutes.money.getWallets, {
+      username: 'admin_test',
+    });
+  }
+
   getListWallets() {
     this.storage.ready().then(() => {
       this.storage.get('wallets').then((data) => {
         if (data) {
           this.wallets = data;
+          this.getWalletsData().subscribe(
+            (walletDataFromDB: WalletDataFromDB) => {
+              if (walletDataFromDB.data) {
+                this.wallets = JSON.parse(walletDataFromDB.data);
+              }
+              this.initMoneyService.next(this.wallets);
+            }
+          );
         }
-        this.initMoneyService.next(this.wallets);
       });
     });
   }
@@ -145,6 +171,9 @@ export class MoneyService {
     this.storage.ready().then(() => {
       this.storage.set(`wallets`, this.wallets).then((data) => {
         this.initMoneyService.next(this.wallets);
+        this.backUpWalletsData(this.wallets).subscribe((res) => {
+          console.log('backup data', res);
+        });
       });
     });
   }

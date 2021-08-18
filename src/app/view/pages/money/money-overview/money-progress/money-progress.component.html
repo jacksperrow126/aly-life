@@ -1,10 +1,45 @@
 <div class="money-progress">
-  <p><img [src]="progressTag.icon"><span>{{progressTag.name}}</span><span
-      class="money">{{(progressTag.progress|number)+'/' + (progressTag.max|number)}}</span>
+  <p>
+    <img [src]="progressTag.icon" /><span>{{ progressTag.name }}</span
+    ><span class="money">{{
+      (progressTag.progress | number) + '/' + (progressTag.max | number)
+    }}</span>
   </p>
-  <div class="progress-container" [class]="progressTag.progress > progressTag.max?'upper':''">
-    <div [class]="progressTag.type=='income'?'progress-income':'progress-outcome'" class="progress"
-      [style.width]="progress+'%'"></div>
+  <div
+    class="progress-container"
+    [class]="progressTag.progress > progressTag.max ? 'upper' : ''"
+  >
+    <div
+      [class]="
+        progressTag.type == 'income' ? 'progress-income' : 'progress-outcome'
+      "
+      class="progress"
+      [style.width]="progress + '%'"
+    ></div>
   </div>
-  <hr>
+  <div class="progress-detail">
+    <p>
+      <span>Kế hoạch:</span>
+      <span class="money">
+        {{ progressTag.max / daysOfTheMonth | number: '1.0-0'
+        }}<span class="day">{{ '(' + daysOfTheMonth + ')' }}</span></span
+      >
+    </p>
+    <p>
+      <span>Thực tế:</span>
+      <span class="money">
+        {{ progressTag.progress / today | number: '1.0-0'
+        }}<span class="day">{{ '(' + today + ')' }}</span>
+      </span>
+    </p>
+    <p>
+      <span>Tiếp theo:</span>
+      <span class="money">
+        {{
+          (progressTag.max - progressTag.progress) / (daysOfTheMonth - today)
+            | number: '1.0-0'
+        }}<span class="day"> {{ '(' + (daysOfTheMonth - today) + ')' }}</span>
+      </span>
+    </p>
+  </div>
 </div>

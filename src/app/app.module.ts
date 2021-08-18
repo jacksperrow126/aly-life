@@ -20,7 +20,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { Crop } from '@ionic-native/crop/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -36,6 +36,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
     BrowserAnimationsModule,
     HammerModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [
     StatusBar,
