@@ -11,6 +11,8 @@ export interface Wallet {
   notMine?: number;
   grossBalance?: number;
   loan?: number;
+  cash?: number;
+  investmentValue?: number;
 }
 export interface WalletDataFromDB {
   data?: string;

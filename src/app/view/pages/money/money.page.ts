@@ -25,6 +25,8 @@ export class MoneyPage implements OnInit, OnDestroy {
           margin: 0,
           notMine: 0,
           grossBalance: 0,
+          cash: 0,
+          investmentValue: 0,
         });
       }
     });

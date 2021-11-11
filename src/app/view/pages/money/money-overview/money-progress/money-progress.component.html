@@ -22,14 +22,14 @@
       <span>Kế hoạch:</span>
       <span class="money">
         {{ progressTag.max / daysOfTheMonth | number: '1.0-0'
-        }}<span class="day">{{ '(' + daysOfTheMonth + ')' }}</span></span
+        }}<span class="day"> {{ '(' + daysOfTheMonth + ')' }}</span></span
       >
     </p>
     <p>
       <span>Thực tế:</span>
       <span class="money">
         {{ progressTag.progress / today | number: '1.0-0'
-        }}<span class="day">{{ '(' + today + ')' }}</span>
+        }}<span class="day"> {{ '(' + today + ')' }}</span>
       </span>
     </p>
     <p>

@@ -31,6 +31,8 @@ export class MoneyService {
   public inOutType = [];
   public stockList: Stock[] = [];
   public changeStockList = new BehaviorSubject(null);
+  public moneyServiceError = new BehaviorSubject(null);
+
   constructor(private storage: Storage, private http: HttpClient) {
     this.getListWallets();
     this.getStock();
@@ -61,15 +63,17 @@ export class MoneyService {
       this.storage.get('wallets').then((data) => {
         if (data) {
           this.wallets = data;
-          this.getWalletsData().subscribe(
-            (walletDataFromDB: WalletDataFromDB) => {
-              if (walletDataFromDB.data) {
-                this.wallets = JSON.parse(walletDataFromDB.data);
-              }
-              this.initMoneyService.next(this.wallets);
-            }
-          );
+          // this.getWalletsData().subscribe(
+          //   (walletDataFromDB: WalletDataFromDB) => {
+          //     if (walletDataFromDB.data) {
+          //       this.wallets = JSON.parse(walletDataFromDB.data);
+          //     }
+          //   }
+          //   );
+        } else {
+          this.wallets = [];
         }
+        this.initMoneyService.next(this.wallets);
       });
     });
   }
@@ -171,9 +175,9 @@ export class MoneyService {
     this.storage.ready().then(() => {
       this.storage.set(`wallets`, this.wallets).then((data) => {
         this.initMoneyService.next(this.wallets);
-        this.backUpWalletsData(this.wallets).subscribe((res) => {
-          console.log('backup data', res);
-        });
+        // this.backUpWalletsData(this.wallets).subscribe((res) => {
+        //   console.log('backup data', res);
+        // });
       });
     });
   }
@@ -186,24 +190,77 @@ export class MoneyService {
     if (fromWallet.currentBalance < data.money) {
       isErr = true;
     }
+    if (fromWallet.cash !== undefined && fromWallet.cash < data.money) {
+      isErr = true;
+    }
     if (!isErr) {
       const toWallet = this.wallets.find(
         (wallet) => wallet.name === data.toWallet
       );
+
       this.wallets.forEach((wallet) => {
         if (wallet.name === data.wallet) {
           wallet.currentBalance -= data.money;
+
+          // Add Cash and Investment value if from wallet is Co Phieu
+          if (fromWallet.type === WalletTypeString.CO_PHIEU) {
+            wallet.cash -= data.money;
+            if (data.money > wallet.investmentValue) {
+              wallet.currentBalance -= data.money - wallet.investmentValue;
+              this.setMoneyByDay(
+                {
+                  ...data,
+                  money: data.money - wallet.investmentValue,
+                  type: 'income',
+                  tag: 'lai',
+                },
+                getToday(data.date)
+              );
+              wallet.investmentValue = 0;
+            } else {
+              wallet.investmentValue -= data.money;
+            }
+          }
+
+          // Set bill when transfer to Tin Dung wallet
           if (toWallet.type === WalletTypeString.TIN_DUNG) {
+            const reducer = (total: number, currentValue: Transaction) =>
+              total + currentValue.outcome - currentValue.income;
+
+            const totalMoneyHadSpentOnCredit = toWallet.transactions.reduce(
+              reducer,
+              0
+            );
+            const netValue =
+              totalMoneyHadSpentOnCredit > 0
+                ? data.money - totalMoneyHadSpentOnCredit
+                : data.money;
+            fromWallet.currentBalance += netValue;
+
             this.setMoneyByDay(
-              { ...data, type: 'outcome', tag: 'credit' },
+              {
+                ...data,
+                money: netValue,
+                type: 'outcome',
+                tag: 'credit',
+              },
               getToday(data.date)
             );
+            toWallet.transactions[0].income += data.money;
           }
         }
         if (wallet.name === data.toWallet) {
           wallet.currentBalance += data.money;
+          if (toWallet.type === WalletTypeString.CO_PHIEU) {
+            wallet.cash += data.money;
+            wallet.investmentValue += data.money;
+          }
           if (wallet.type === WalletTypeString.TIN_DUNG) {
-            wallet.loan -= data.money;
+            if (wallet.loan < data.money) {
+              wallet.loan = 0;
+            } else {
+              wallet.loan -= data.money;
+            }
           }
         }
       });
@@ -423,25 +480,59 @@ export class MoneyService {
   }
 
   addStock(stockInfo: Stock) {
+    const stockWallet = this.wallets.find(
+      (wallet) => wallet.type === WalletTypeString.CO_PHIEU
+    );
+
     const currentStock = this.stockList.find(
       (stock) => stock.code === stockInfo.code
     );
+
     if (currentStock) {
+      if (currentStock.volume !== stockInfo.volume) {
+        const netValue = stockInfo.value - stockInfo.margin;
+        if (netValue > stockWallet.cash) {
+          this.moneyServiceError.next({
+            isErr: true,
+            message: 'Giá trị mua lớn hơn số tiền hiện có',
+          });
+          return;
+        }
+        stockWallet.cash =
+          stockWallet.cash -
+          (stockInfo.value - currentStock.value) +
+          stockInfo.margin -
+          currentStock.margin;
+      }
       Object.keys(currentStock).forEach((key) => {
         currentStock[key] = stockInfo[key];
       });
     } else {
+      const netValue = stockInfo.value - stockInfo.margin;
+      if (netValue > stockWallet.cash) {
+        this.moneyServiceError.next({
+          isErr: true,
+          message: 'Giá trị mua lớn hơn số tiền hiện có',
+        });
+        return;
+      }
       this.stockList.push(stockInfo);
+      stockWallet.cash = stockWallet.cash - stockInfo.value + stockInfo.margin;
     }
-    this.changeStockList.next('change');
     this.saveStock();
   }
 
   sellStock(stockCode: string) {
     const currentStock = this.stockList.find(
-      (stock, i) => stock.code === stockCode
+      (stock) => stock.code === stockCode
     );
     if (currentStock) {
+      const stockWallet = this.wallets.find(
+        (wallet) => wallet.type === WalletTypeString.CO_PHIEU
+      );
+      stockWallet.cash =
+        stockWallet.cash + currentStock.value - currentStock.margin;
+
       this.stockList.splice(this.stockList.indexOf(currentStock), 1);
     }
     this.saveStock();
@@ -458,11 +549,23 @@ export class MoneyService {
   }
 
   saveStock() {
+    let balance = 0;
+    let margin = 0;
+    this.stockList.forEach((stock) => {
+      balance += stock.value;
+      margin += stock.margin;
+    });
+    const stockWallet = this.wallets.find(
+      (wallet) => wallet.type === WalletTypeString.CO_PHIEU
+    );
+    stockWallet.grossBalance = balance;
+    stockWallet.margin = margin;
+    stockWallet.currentBalance =
+      stockWallet.cash + stockWallet.grossBalance - stockWallet.margin;
     this.storage.ready().then(() => {
       this.storage.set('stock', this.stockList).then((data) => {});
     });
+    this.saveWallets();
     this.changeStockList.next('Changed');
   }
-
-  deleteStock() {}
 }

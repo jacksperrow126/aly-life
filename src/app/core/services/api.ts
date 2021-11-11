@@ -1,4 +1,4 @@
-const isDev = true;
+const isDev = false;
 export const backEndUrl = isDev
   ? 'http://localhost:1260'
   : 'https://life-backend-annguyen.herokuapp.com';

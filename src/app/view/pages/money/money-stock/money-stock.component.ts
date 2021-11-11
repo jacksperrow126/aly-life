@@ -27,7 +27,7 @@ export class MoneyStockComponent implements OnInit {
 
   ngOnInit() {
     this.moneyService.initMoneyService.subscribe((data) => {
-      this.wallets = data;
+      this.wallets = this.moneyService.wallets;
       const stockWallets = this.wallets.find(
         (wallet) => wallet.type === WalletTypeString.CO_PHIEU
       );
@@ -35,8 +35,14 @@ export class MoneyStockComponent implements OnInit {
     });
     this.moneyService.changeStockList.subscribe(() => {
       this.stockList = this.moneyService.stockList;
-      this.changeStockWalletBalance();
       this.snackBar.open('Cập nhật thành công', '', { duration: 1000 });
+    });
+    this.moneyService.moneyServiceError.subscribe((err) => {
+      if (err && err.isErr) {
+        this.snackBar.open(err.message, '', {
+          duration: 1000,
+        });
+      }
     });
   }
 
@@ -46,23 +52,6 @@ export class MoneyStockComponent implements OnInit {
 
   changeStock(stockData) {
     this.formService.showForm({ key: ADD_STOCK, data: stockData });
-  }
-
-  changeStockWalletBalance() {
-    let balance = 0;
-    let margin = 0;
-    this.stockList.forEach((stock) => {
-      balance += stock.value;
-      margin += stock.margin;
-    });
-    const stockWallet = this.wallets.find(
-      (wallet) => wallet.type === WalletTypeString.CO_PHIEU
-    );
-    stockWallet.grossBalance = balance;
-    stockWallet.margin = margin;
-    stockWallet.currentBalance = stockWallet.grossBalance - stockWallet.margin;
-
-    this.moneyService.saveWallets();
   }
 
   sellStock(stockCode: string) {

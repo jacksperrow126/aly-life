@@ -17,8 +17,6 @@ import { AddWalletComponent } from './money-manage/add-wallet/add-wallet.compone
 import { AddMoneyComponent } from './add-money/add-money.component';
 import { WalletDetailComponent } from './money-manage/wallet-detail/wallet-detail.component';
 import { MoneyProgressComponent } from './money-overview/money-progress/money-progress.component';
-import { HighchartsChartModule } from 'highcharts-angular';
-import { MoneyChartComponent } from '../../../core/components/money-chart/money-chart.component';
 import { MoneyStockComponent } from './money-stock/money-stock.component';
 
 @NgModule({
@@ -41,7 +39,6 @@ import { MoneyStockComponent } from './money-stock/money-stock.component';
     MoneyDreamComponent,
     MoneyProgressComponent,
     MoneyPlanContainerComponent,
-    MoneyChartComponent,
     MoneyStockComponent,
   ],
 })
