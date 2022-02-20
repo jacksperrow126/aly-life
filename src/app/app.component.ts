@@ -10,7 +10,7 @@ import { UserService } from '@core/services/user.service';
 @Component({
   selector: 'aly-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
   constructor(
@@ -43,9 +43,9 @@ export class AppComponent implements OnInit {
           } else {
             this.router.navigateByUrl('/home');
           }
-          return
+          return;
         }
-      })
-    })
+      });
+    });
   }
 }

@@ -1,55 +1,51 @@
-import { NgModule } from "@angular/core";
-import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: "home",
+    path: 'home',
     loadChildren: () =>
-      import("./view/pages/home/home.module").then((m) => m.HomePageModule),
+      import('./view/pages/home/home.module').then((m) => m.HomePageModule),
   },
   {
-    path: "menu",
+    path: 'menu',
     loadChildren: () =>
-      import("./view/pages/menu/menu.module").then((m) => m.MenuPageModule),
+      import('./view/pages/menu/menu.module').then((m) => m.MenuPageModule),
   },
   {
-    path: "note",
+    path: 'note',
     loadChildren: () =>
-      import("./view/pages/note/note.module").then((m) => m.NotePageModule),
+      import('./view/pages/note/note.module').then((m) => m.NotePageModule),
   },
   {
-    path: "money",
+    path: 'money',
     loadChildren: () =>
-      import("./view/pages/money/money.module").then((m) => m.MoneyPageModule),
+      import('./view/pages/money/money.module').then((m) => m.MoneyPageModule),
   },
   {
-    path: "health",
+    path: 'health',
     loadChildren: () =>
-      import("./view/pages/health/health.module").then(
+      import('./view/pages/health/health.module').then(
         (m) => m.HealthPageModule
       ),
   },
   {
-    path: "setting",
+    path: 'setting',
     loadChildren: () =>
-      import("./view/pages/setting/setting.module").then(
+      import('./view/pages/setting/setting.module').then(
         (m) => m.SettingPageModule
       ),
   },
   {
-    path: "auth",
+    path: 'auth',
     loadChildren: () =>
-      import("./view/pages/auth/auth.module").then((m) => m.AuthPageModule),
+      import('./view/pages/auth/auth.module').then((m) => m.AuthPageModule),
   },
   {
-    path: "about",
+    path: 'about',
     loadChildren: () =>
-      import("./view/pages/about/about.module").then((m) => m.AboutPageModule),
-  },  {
-    path: 'water',
-    loadChildren: () => import('./view/pages/water/water.module').then( m => m.WaterPageModule)
+      import('./view/pages/about/about.module').then((m) => m.AboutPageModule),
   },
-
 ];
 
 @NgModule({
